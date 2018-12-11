@@ -6,8 +6,6 @@ Dit is de GitHub repository voor de iOS App van CarMeets. U kan hier steeds alle
 
 > - [Wat is de CarMeets app](#wat-is-de-carmeets-app)
 > - [Ontwikkelaar](#ontwikkelaar)
-> - [Trello](#trello)
-> - [Handleidingen](#handleidingen)
 > - [GitHub Repository van de backend](#github-repository-van-de-backend)
 
 ## Wat is de CarMeets App
@@ -18,13 +16,6 @@ Net zoals vele autoliefhebbers was ik het beu steeds te moeten horen dat ik weer
 | Naam     | GitHub                        | E-mail                               |
 | :---     | :---                          | :---                                |
 | Bontinck Lennert | <https://github.com/pikawika> | [lennert.bontinck.y9785@student.hogent.be](mailto:lennert.bontinck.y9785@student.hogent.be) |
-
-## Trello
-> - [Informatie over stadium 1: coming soon](#)
-
-## Handleidingen
-
-> - [Coming soon](#)
 
 ## GitHub Repository van de backend
 Aangezien de CarMeets iOS App een opvolging is van de CarMeets website gemaakt met de MEAN-stack zal ik de bestaande backend hergebruik en aanvullen waar nodig.
