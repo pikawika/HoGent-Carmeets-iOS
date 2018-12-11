@@ -49,6 +49,7 @@
 		261BAB2F2191B502006F506E /* CarMeetsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarMeetsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		261BAB332191B502006F506E /* CarMeetsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMeetsUITests.swift; sourceTree = "<group>"; };
 		261BAB352191B502006F506E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2677360021BFA7DA00D3BEDF /* CarMeets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarMeets.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +100,7 @@
 		261BAB0F2191B502006F506E /* CarMeets */ = {
 			isa = PBXGroup;
 			children = (
+				2677360021BFA7DA00D3BEDF /* CarMeets.entitlements */,
 				261BAB102191B502006F506E /* AppDelegate.swift */,
 				261BAB122191B502006F506E /* ViewController.swift */,
 				261BAB142191B502006F506E /* Main.storyboard */,
@@ -196,6 +198,11 @@
 				TargetAttributes = {
 					261BAB0C2191B502006F506E = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					261BAB232191B502006F506E = {
 						CreatedOnToolsVersion = 10.1;
@@ -436,7 +443,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CarMeets/CarMeets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8D5U24775;
 				INFOPLIST_FILE = CarMeets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,7 +462,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CarMeets/CarMeets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H8D5U24775;
 				INFOPLIST_FILE = CarMeets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
