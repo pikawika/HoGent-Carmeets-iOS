@@ -135,28 +135,33 @@
                                             <constraint firstAttribute="width" secondItem="7op-PG-xob" secondAttribute="height" multiplier="16:9" id="Hlt-fz-7mr"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Titel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8j-Ln-46D">
-                                        <rect key="frame" x="156" y="223" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8j-Ln-46D">
+                                        <rect key="frame" x="0.0" y="223" width="375" height="29"/>
                                         <accessibility key="accessibilityConfiguration" identifier="meetingDetailTitle"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Subtitel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZb-pc-1j6">
-                                        <rect key="frame" x="156" y="252" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZb-pc-1j6">
+                                        <rect key="frame" x="0.0" y="260" width="375" height="21.5"/>
                                         <accessibility key="accessibilityConfiguration" identifier="meetingDetailSubtitle"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="pZb-pc-1j6" firstAttribute="leading" secondItem="kME-HL-9ht" secondAttribute="leading" id="BQO-z6-0kQ"/>
                                     <constraint firstAttribute="trailing" secondItem="7op-PG-xob" secondAttribute="trailing" id="Crp-ph-xhv"/>
                                     <constraint firstItem="7op-PG-xob" firstAttribute="width" secondItem="kME-HL-9ht" secondAttribute="width" id="KsY-LT-WfO"/>
+                                    <constraint firstItem="J8j-Ln-46D" firstAttribute="width" secondItem="kME-HL-9ht" secondAttribute="width" id="M5v-qO-Ypg"/>
                                     <constraint firstItem="J8j-Ln-46D" firstAttribute="top" secondItem="7op-PG-xob" secondAttribute="bottom" constant="12" id="btM-CX-bkk"/>
+                                    <constraint firstItem="J8j-Ln-46D" firstAttribute="leading" secondItem="kME-HL-9ht" secondAttribute="leading" id="dWv-o3-4kG"/>
                                     <constraint firstItem="7op-PG-xob" firstAttribute="top" secondItem="kME-HL-9ht" secondAttribute="top" id="fGe-7z-2I0"/>
+                                    <constraint firstAttribute="trailing" secondItem="J8j-Ln-46D" secondAttribute="trailing" id="lQS-ef-QP3"/>
                                     <constraint firstItem="7op-PG-xob" firstAttribute="leading" secondItem="kME-HL-9ht" secondAttribute="leading" id="li0-qR-vDJ"/>
                                     <constraint firstItem="pZb-pc-1j6" firstAttribute="top" secondItem="J8j-Ln-46D" secondAttribute="bottom" constant="8" id="nhS-89-atT"/>
+                                    <constraint firstAttribute="trailing" secondItem="pZb-pc-1j6" secondAttribute="trailing" id="xYJ-5e-3iD"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
