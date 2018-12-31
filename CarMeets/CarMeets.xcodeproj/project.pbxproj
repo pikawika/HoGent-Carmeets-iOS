@@ -18,6 +18,7 @@
 		263DA36321DA56B100A798BB /* MeetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DA36221DA56B100A798BB /* MeetingsTableViewController.swift */; };
 		263DA36521DA59AF00A798BB /* MeetingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DA36421DA59AF00A798BB /* MeetingTableCell.swift */; };
 		26F2193221DA9BD0003E6B40 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2193121DA9BD0003E6B40 /* Meeting.swift */; };
+		26F2193521DA9F6B003E6B40 /* MeetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2193421DA9F6B003E6B40 /* MeetingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		263DA36421DA59AF00A798BB /* MeetingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTableCell.swift; sourceTree = "<group>"; };
 		2677360021BFA7DA00D3BEDF /* CarMeets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarMeets.entitlements; sourceTree = "<group>"; };
 		26F2193121DA9BD0003E6B40 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		26F2193421DA9F6B003E6B40 /* MeetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		261BAB0F2191B502006F506E /* CarMeets */ = {
 			isa = PBXGroup;
 			children = (
+				26F2193321DA9F50003E6B40 /* Controllers */,
 				26F2192E21DA9AD5003E6B40 /* Models */,
 				2677360021BFA7DA00D3BEDF /* CarMeets.entitlements */,
 				261BAB102191B502006F506E /* AppDelegate.swift */,
@@ -145,6 +148,14 @@
 				26F2193121DA9BD0003E6B40 /* Meeting.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		26F2193321DA9F50003E6B40 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				26F2193421DA9F6B003E6B40 /* MeetingController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +297,7 @@
 				261BAB112191B502006F506E /* AppDelegate.swift in Sources */,
 				26F2193221DA9BD0003E6B40 /* Meeting.swift in Sources */,
 				263DA36521DA59AF00A798BB /* MeetingTableCell.swift in Sources */,
+				26F2193521DA9F6B003E6B40 /* MeetingController.swift in Sources */,
 				263DA36321DA56B100A798BB /* MeetingsTableViewController.swift in Sources */,
 				263DA36121DA515900A798BB /* MeetingDetailViewController.swift in Sources */,
 				261BAB192191B502006F506E /* CarMeets.xcdatamodeld in Sources */,
