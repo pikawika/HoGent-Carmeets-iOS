@@ -29,6 +29,9 @@ class MeetingsTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         //+- 16/9 verhouding voor 40% van een iphone x scherm
         self.tableView.estimatedRowHeight = 180
+        
+        //de footer is niets (ipv nog vullen met lege lijst items)
+        tableView.tableFooterView = UIView()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

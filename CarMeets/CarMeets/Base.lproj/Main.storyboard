@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Meetinglijst-->
         <scene sceneID="k5i-Wq-gxV">
             <objects>
                 <tableViewController id="gwB-P7-HWe" customClass="MeetingsTableViewController" customModule="CarMeets" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                             <outlet property="delegate" destination="gwB-P7-HWe" id="kt8-AE-m0v"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="TgW-Ew-tT1"/>
+                    <navigationItem key="navigationItem" title="Meetinglijst" id="TgW-Ew-tT1"/>
                     <connections>
                         <segue destination="Xue-PN-1g3" kind="show" identifier="listToDetalSegue" id="gWa-BD-DCn"/>
                     </connections>
@@ -132,7 +132,7 @@
             </objects>
             <point key="canvasLocation" x="4050" y="-267"/>
         </scene>
-        <!--View Controller-->
+        <!--Account beheren-->
         <scene sceneID="A1F-a1-nvY">
             <objects>
                 <viewController id="wMn-AS-z5m" sceneMemberID="viewController">
@@ -142,7 +142,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iXC-qK-dYT"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AbU-1V-pLB"/>
+                    <navigationItem key="navigationItem" title="Account beheren" id="AbU-1V-pLB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9r-q3-x3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
