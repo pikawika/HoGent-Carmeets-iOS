@@ -99,6 +99,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jIO-Gz-iT0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hvw-Sk-zCw">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
@@ -124,7 +125,48 @@
                     <view key="view" contentMode="scaleToFill" id="MrZ-PP-8ot">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kME-HL-9ht">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7op-PG-xob">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="7op-PG-xob" secondAttribute="height" multiplier="16:9" id="Hlt-fz-7mr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Titel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8j-Ln-46D">
+                                        <rect key="frame" x="156" y="223" width="42" height="21"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="meetingDetailTitle"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Subtitel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZb-pc-1j6">
+                                        <rect key="frame" x="156" y="252" width="42" height="21"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="meetingDetailSubtitle"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7op-PG-xob" secondAttribute="trailing" id="Crp-ph-xhv"/>
+                                    <constraint firstItem="7op-PG-xob" firstAttribute="width" secondItem="kME-HL-9ht" secondAttribute="width" id="KsY-LT-WfO"/>
+                                    <constraint firstItem="J8j-Ln-46D" firstAttribute="top" secondItem="7op-PG-xob" secondAttribute="bottom" constant="12" id="btM-CX-bkk"/>
+                                    <constraint firstItem="7op-PG-xob" firstAttribute="top" secondItem="kME-HL-9ht" secondAttribute="top" id="fGe-7z-2I0"/>
+                                    <constraint firstItem="7op-PG-xob" firstAttribute="leading" secondItem="kME-HL-9ht" secondAttribute="leading" id="li0-qR-vDJ"/>
+                                    <constraint firstItem="pZb-pc-1j6" firstAttribute="top" secondItem="J8j-Ln-46D" secondAttribute="bottom" constant="8" id="nhS-89-atT"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hlV-jk-QQG" firstAttribute="bottom" secondItem="kME-HL-9ht" secondAttribute="bottom" id="6hI-Fe-OF3"/>
+                            <constraint firstItem="hlV-jk-QQG" firstAttribute="trailing" secondItem="kME-HL-9ht" secondAttribute="trailing" id="Ee5-sR-EsN"/>
+                            <constraint firstItem="kME-HL-9ht" firstAttribute="leading" secondItem="hlV-jk-QQG" secondAttribute="leading" id="XzS-Tk-ztM"/>
+                            <constraint firstItem="kME-HL-9ht" firstAttribute="top" secondItem="hlV-jk-QQG" secondAttribute="top" id="oqy-Xa-glw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hlV-jk-QQG"/>
                     </view>
                 </viewController>
