@@ -20,3 +20,10 @@ Net zoals vele autoliefhebbers was ik het beu steeds te moeten horen dat ik weer
 ## GitHub Repository van de backend
 Aangezien de CarMeets iOS App een opvolging is van de CarMeets website gemaakt met de MEAN-stack zal ik de bestaande backend hergebruik en aanvullen waar nodig.
 > [GitHub repository van de MEAN-stack applicatie](https://github.com/pikawika/Carmeets)
+
+## Bronnen
+
+- Basis kennis uit "App Development with Swift - fourth edition"
+- [Custom lijst layout demo](https://www.youtube.com/watch?v=YwE3_hMyDZA)
+- [Kleur selected tabitem instellen](https://stackoverflow.com/questions/26835148/change-tab-bar-item-selected-color-in-a-storyboard)
+- [String attribute demo](https://stackoverflow.com/a/35811777)

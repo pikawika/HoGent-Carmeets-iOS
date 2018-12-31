@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		261BAB112191B502006F506E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261BAB102191B502006F506E /* AppDelegate.swift */; };
-		261BAB132191B502006F506E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261BAB122191B502006F506E /* ViewController.swift */; };
 		261BAB162191B502006F506E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 261BAB142191B502006F506E /* Main.storyboard */; };
 		261BAB192191B502006F506E /* CarMeets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 261BAB172191B502006F506E /* CarMeets.xcdatamodeld */; };
 		261BAB1B2191B502006F506E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 261BAB1A2191B502006F506E /* Assets.xcassets */; };
 		261BAB1E2191B502006F506E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 261BAB1C2191B502006F506E /* LaunchScreen.storyboard */; };
 		261BAB292191B502006F506E /* CarMeetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261BAB282191B502006F506E /* CarMeetsTests.swift */; };
 		261BAB342191B502006F506E /* CarMeetsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261BAB332191B502006F506E /* CarMeetsUITests.swift */; };
+		263DA36121DA515900A798BB /* MeetingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DA36021DA515900A798BB /* MeetingDetailViewController.swift */; };
+		263DA36321DA56B100A798BB /* MeetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DA36221DA56B100A798BB /* MeetingsTableViewController.swift */; };
+		263DA36521DA59AF00A798BB /* MeetingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DA36421DA59AF00A798BB /* MeetingTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,6 @@
 /* Begin PBXFileReference section */
 		261BAB0D2191B502006F506E /* CarMeets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarMeets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		261BAB102191B502006F506E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		261BAB122191B502006F506E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		261BAB152191B502006F506E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		261BAB182191B502006F506E /* CarMeets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CarMeets.xcdatamodel; sourceTree = "<group>"; };
 		261BAB1A2191B502006F506E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +50,9 @@
 		261BAB2F2191B502006F506E /* CarMeetsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarMeetsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		261BAB332191B502006F506E /* CarMeetsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMeetsUITests.swift; sourceTree = "<group>"; };
 		261BAB352191B502006F506E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		263DA36021DA515900A798BB /* MeetingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewController.swift; sourceTree = "<group>"; };
+		263DA36221DA56B100A798BB /* MeetingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsTableViewController.swift; sourceTree = "<group>"; };
+		263DA36421DA59AF00A798BB /* MeetingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTableCell.swift; sourceTree = "<group>"; };
 		2677360021BFA7DA00D3BEDF /* CarMeets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarMeets.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,12 +106,14 @@
 			children = (
 				2677360021BFA7DA00D3BEDF /* CarMeets.entitlements */,
 				261BAB102191B502006F506E /* AppDelegate.swift */,
-				261BAB122191B502006F506E /* ViewController.swift */,
 				261BAB142191B502006F506E /* Main.storyboard */,
 				261BAB1A2191B502006F506E /* Assets.xcassets */,
 				261BAB1C2191B502006F506E /* LaunchScreen.storyboard */,
 				261BAB1F2191B502006F506E /* Info.plist */,
 				261BAB172191B502006F506E /* CarMeets.xcdatamodeld */,
+				263DA36021DA515900A798BB /* MeetingDetailViewController.swift */,
+				263DA36221DA56B100A798BB /* MeetingsTableViewController.swift */,
+				263DA36421DA59AF00A798BB /* MeetingTableCell.swift */,
 			);
 			path = CarMeets;
 			sourceTree = "<group>";
@@ -266,8 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				261BAB132191B502006F506E /* ViewController.swift in Sources */,
 				261BAB112191B502006F506E /* AppDelegate.swift in Sources */,
+				263DA36521DA59AF00A798BB /* MeetingTableCell.swift in Sources */,
+				263DA36321DA56B100A798BB /* MeetingsTableViewController.swift in Sources */,
+				263DA36121DA515900A798BB /* MeetingDetailViewController.swift in Sources */,
 				261BAB192191B502006F506E /* CarMeets.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
