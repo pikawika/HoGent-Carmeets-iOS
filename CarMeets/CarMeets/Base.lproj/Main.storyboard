@@ -26,9 +26,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Xue-PN-1g3" kind="show" id="fwu-k2-a4A"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -37,6 +34,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="TgW-Ew-tT1"/>
+                    <connections>
+                        <segue destination="Xue-PN-1g3" kind="show" identifier="listToDetalSegue" id="gWa-BD-DCn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tJ-Gw-4j0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
