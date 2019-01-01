@@ -34,6 +34,7 @@ class CalanderUtil {
                 event.notes = description
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 event.location = location
+                event.isAllDay = true
                 do {
                     try eventStore.save(event, span: .thisEvent)
                     MessageUtil.showToast(message: "Meeting aan kalander toegevoegd!", durationInSeconds: 1, controller: controller)
