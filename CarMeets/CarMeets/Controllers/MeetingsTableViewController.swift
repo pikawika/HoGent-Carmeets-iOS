@@ -8,21 +8,18 @@
 
 import UIKit
 
-struct CellData {
-    let meetingImage : UIImage
-    let title: String
-    let subtitle: String
-    let location: String
-}
-
 class MeetingsTableViewController: UITableViewController {
     
-    var cellData = [CellData]()
+    var meetings = [Meeting]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cellData = [CellData.init(meetingImage: #imageLiteral(resourceName: "img_car"), title: "titel 1", subtitle: "subtitel 1", location: "9260, Schellebelle"), CellData.init(meetingImage: #imageLiteral(resourceName: "img_car"), title: "titel 2", subtitle: "subtitel 2", location: "9260, Schellebelle")]
+        MeetingController.shared.fetchMeetings { (meetings) in
+            if let meetings = meetings {
+                self.updateUI(with: meetings)
+            }
+        }
         
         self.tableView.register(MeetingTableCell.self, forCellReuseIdentifier: "customMeetingTableCell")
         
@@ -37,30 +34,31 @@ class MeetingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "customMeetingTableCell") as! MeetingTableCell
         
-        cell.meetingImage = cellData[indexPath.row].meetingImage
-        cell.title = cellData[indexPath.row].title
-        cell.subtitle = cellData[indexPath.row].subtitle
-        cell.location = cellData[indexPath.row].location
-        cell.layoutSubviews()
-        
+        configureMeetingTableCell(cell, forItemAt: indexPath)
 
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellData.count
+    func configureMeetingTableCell(_ cell: MeetingTableCell, forItemAt indexPath: IndexPath) {
+        cell.meetingImage = #imageLiteral(resourceName: "img_car")
+        cell.title = meetings[indexPath.row].title
+        cell.subtitle = meetings[indexPath.row].subtitle
+        cell.location = meetings[indexPath.row].postalCode + ", " + meetings[indexPath.row].city
+        cell.layoutSubviews()
     }
     
+    func updateUI(with meetings: [Meeting]) {
+        DispatchQueue.main.async {
+            self.meetings = meetings
+            self.tableView.reloadData()
+        }
+    }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return meetings.count
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "listToDetalSegue", sender: self)
     }
- 
-
-    
-
 }

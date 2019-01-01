@@ -10,6 +10,8 @@ import UIKit
 
 class MeetingController {
     
+    static let shared = MeetingController()
+    
     let baseApiURL = URL(string: "https://carmeets-backend.herokuapp.com/API/")!
     
     func fetchMeetings(completion: @escaping ([Meeting]?) -> Void) {
@@ -17,8 +19,8 @@ class MeetingController {
         let task = URLSession.shared.dataTask(with: allMeetingsURL) { (data, response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let meetings = try? jsonDecoder.decode(Meetings.self, from: data) {
-                completion(meetings.meetings)
+                let meetings = try? jsonDecoder.decode([Meeting].self, from: data) {
+                completion(meetings)
             } else {
                 completion(nil)
             }

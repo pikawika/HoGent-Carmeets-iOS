@@ -117,8 +117,6 @@
 				261BAB1C2191B502006F506E /* LaunchScreen.storyboard */,
 				261BAB1F2191B502006F506E /* Info.plist */,
 				261BAB172191B502006F506E /* CarMeets.xcdatamodeld */,
-				263DA36021DA515900A798BB /* MeetingDetailViewController.swift */,
-				263DA36221DA56B100A798BB /* MeetingsTableViewController.swift */,
 				263DA36421DA59AF00A798BB /* MeetingTableCell.swift */,
 			);
 			path = CarMeets;
@@ -153,6 +151,8 @@
 		26F2193321DA9F50003E6B40 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				263DA36221DA56B100A798BB /* MeetingsTableViewController.swift */,
+				263DA36021DA515900A798BB /* MeetingDetailViewController.swift */,
 				26F2193421DA9F6B003E6B40 /* MeetingController.swift */,
 			);
 			path = Controllers;
