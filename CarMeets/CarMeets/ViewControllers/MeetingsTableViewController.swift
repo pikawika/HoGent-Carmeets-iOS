@@ -40,7 +40,7 @@ class MeetingsTableViewController: UITableViewController {
     }
     
     func configureMeetingTableCell(_ cell: MeetingTableCell, forItemAt indexPath: IndexPath) {
-        cell.meetingImage = #imageLiteral(resourceName: "img_car")
+        cell.meetingImageName = meetings[indexPath.row].imageName
         cell.title = meetings[indexPath.row].title
         cell.subtitle = meetings[indexPath.row].subtitle
         cell.location = meetings[indexPath.row].postalCode + ", " + meetings[indexPath.row].city

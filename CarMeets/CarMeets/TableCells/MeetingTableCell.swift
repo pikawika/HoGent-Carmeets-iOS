@@ -12,7 +12,7 @@ import UIKit
 class MeetingTableCell: UITableViewCell {
     
     //nullable zodanig niet crasen bij verkeerd doorgeven of niet doorgeven bepaalde
-    var meetingImage: UIImage?
+    var meetingImageName: String?
     var title: String?
     var subtitle: String?
     var location: String?
@@ -22,6 +22,8 @@ class MeetingTableCell: UITableViewCell {
         //optie nodig om constraint correct te kunenn gebruiken
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        //default image instellen voor bij laden niet leeg te zijn
+        imageView.image = #imageLiteral(resourceName: "img_logo")
         return imageView
     }()
     
@@ -85,8 +87,15 @@ class MeetingTableCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        if let image = meetingImage {
-            meetingImageView.image = image
+        
+        //image van de server halen
+        if let meetingImageName = meetingImageName {
+            MeetingController.shared.fetchMeetingImage(imageName: meetingImageName) { (image) in
+                guard let image = image else { return }
+                DispatchQueue.main.async {
+                    self.meetingImageView.image = image
+                }
+            }
         }
         
         if let title = title {
