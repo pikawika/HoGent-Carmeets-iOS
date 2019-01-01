@@ -45,13 +45,10 @@ class MeetingsTableViewController: UITableViewController {
         cell.subtitle = meetings[indexPath.row].subtitle
         cell.location = meetings[indexPath.row].postalCode + ", " + meetings[indexPath.row].city
         
-        /*
-         //POC: date correct opgehaald
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        let formattedDate = dateFormatter.string(from: meetings[indexPath.row].date)
-        cell.location = formattedDate
-         */
+        
+        //POC: date correct opgehaald
+        //cell.location = DateUtil.dateToShortNotation(date: meetings[indexPath.row].date)
+ 
         
         cell.layoutSubviews()
     }

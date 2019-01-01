@@ -48,12 +48,3 @@ class MeetingController {
     }
     
 }
-
-extension DateFormatter {
-    static let dateFromCarMeetsServer: DateFormatter = {
-        let formatter = DateFormatter()
-        //vb datum van server: 2019-01-29T22:00:00.000Z
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-        return formatter
-    }()
-}
