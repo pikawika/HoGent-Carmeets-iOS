@@ -16,7 +16,7 @@ class DateUtil {
      
      - Returns: String in formaat dd/MM/yyyy.
      */
-    static func dateToShortNotation(date: Date) -> String {
+    static func shortDateNotation(from date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         return dateFormatter.string(from: date)
