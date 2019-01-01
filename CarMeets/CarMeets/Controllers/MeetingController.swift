@@ -20,8 +20,11 @@ class MeetingController {
         let allMeetingsURL = baseApiURL.appendingPathComponent("meetings/alleMeetings")
         let task = URLSession.shared.dataTask(with: allMeetingsURL) { (data, response, error) in
             let jsonDecoder = JSONDecoder()
-            if let data = data,
-                let meetings = try? jsonDecoder.decode([Meeting].self, from: data) {
+            //custom date format nodig voor het verstaan van ExpressJS date response
+            jsonDecoder.dateDecodingStrategy = .formatted(.dateFromCarMeetsServer)
+            if let data = data
+                 {
+                    let meetings = try! jsonDecoder.decode([Meeting].self, from: data)
                 completion(meetings)
             } else {
                 completion(nil)
@@ -44,4 +47,13 @@ class MeetingController {
         task.resume()
     }
     
+}
+
+extension DateFormatter {
+    static let dateFromCarMeetsServer: DateFormatter = {
+        let formatter = DateFormatter()
+        //vb datum van server: 2019-01-29T22:00:00.000Z
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        return formatter
+    }()
 }

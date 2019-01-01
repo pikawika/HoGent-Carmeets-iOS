@@ -16,7 +16,7 @@ struct Meeting: Codable {
     var title: String
     var subtitle: String
     var description: String
-    //var date: Date
+    var date: Date
     
     var city: String
     var postalCode: String
@@ -36,7 +36,7 @@ struct Meeting: Codable {
         case title = "name"
         case subtitle = "shortDescription"
         case description = "fullDescription"
-        //case date
+        case date
         
         case imageName = "afbeeldingNaam"
         
