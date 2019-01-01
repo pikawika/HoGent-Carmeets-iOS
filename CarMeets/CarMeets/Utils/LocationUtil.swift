@@ -17,7 +17,7 @@ class LocationUtil {
      
      - Returns: NSAttributedString in formaat -> icon + postal, city.
      */
-    static func fullCityNotation(from location: Location) -> NSAttributedString {
+    static func fullCityNotationWithIcon(from location: Location) -> NSAttributedString {
         //Zie bronnen voor source.
         //Maak een attachment zijnde het icoon
         let imageAttachment =  NSTextAttachment()
@@ -44,7 +44,7 @@ class LocationUtil {
      
      - Returns: NSAttributedString in formaat -> icon + street housenr, postal city.
      */
-    static func fullAdressNotation(from location: Location) -> NSAttributedString {
+    static func fullAdressNotationWithIcon(from location: Location) -> NSAttributedString {
         //Zie bronnen voor source.
         //Maak een attachment zijnde het icoon
         let imageAttachment =  NSTextAttachment()
@@ -62,5 +62,16 @@ class LocationUtil {
         let textAfterIcon = NSMutableAttributedString(string: " " + location.streetName + " " + location.houseNumber + ", " + location.postalCode + " " + location.city)
         completeText.append(textAfterIcon)
         return completeText
+    }
+    
+    /**
+     Maakt een geformateerde string adhv een location object. bv: Dendermondsesteenweg 92, 9260 Schellebelle
+     
+     - Parameter from location: De locatie waarvan je de city notation wenst.
+     
+     - Returns: string in formaat -> street housenr, postal city.
+     */
+    static func fullAdressNotation(from location: Location) -> String {
+        return location.streetName + " " + location.houseNumber + ", " + location.postalCode + " " + location.city
     }
 }

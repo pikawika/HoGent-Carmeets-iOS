@@ -20,6 +20,7 @@ class MeetingDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var categoriesLabel: UILabel!
+    @IBOutlet weak var websiteButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -49,10 +50,31 @@ class MeetingDetailViewController: UIViewController {
         //description
         descriptionLabel.text = meeting.description
         //location
-        locationLabel.attributedText = LocationUtil.fullAdressNotation(from: meeting.location())
+        locationLabel.attributedText = LocationUtil.fullAdressNotationWithIcon(from: meeting.location())
         //categories
         categoriesLabel.attributedText = CategoriesUtil.listNotation(from: meeting.categories)
         
+        if (meeting.website == nil || meeting.website == "") {
+            websiteButton.isHidden = true
+        }
     }
-
+    
+    @IBAction func navigationButtonClicked(_ sender: UIButton) {
+        SharedApplicationUtil.openNavigation(for: meeting.location())
+    }
+    
+    @IBAction func addToCalanderClicked(_ sender: Any) {
+        CalanderUtil.addEventToCalendar(
+            title: meeting.title,
+            description: meeting.description,
+            location: LocationUtil.fullAdressNotation(from: meeting.location()),
+            startDate: meeting.date,
+            endDate: meeting.date,
+            controller: self)
+    }
+    
+    @IBAction func visitWebsiteClicked(_ sender: Any) {
+        SharedApplicationUtil.openWebsite(url: meeting.website ?? "")
+    }
+    
 }

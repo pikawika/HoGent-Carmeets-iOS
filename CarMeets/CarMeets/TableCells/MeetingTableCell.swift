@@ -108,7 +108,7 @@ class MeetingTableCell: UITableViewCell {
         }
         
         if let location = location {
-            locationView.attributedText = LocationUtil.fullCityNotation(from: location)
+            locationView.attributedText = LocationUtil.fullCityNotationWithIcon(from: location)
         }
     }
     
