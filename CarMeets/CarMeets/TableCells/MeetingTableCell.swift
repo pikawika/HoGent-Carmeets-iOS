@@ -40,6 +40,7 @@ class MeetingTableCell: UITableViewCell {
         //optie nodig om constraint correct te kunenn gebruiken
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = label.font.withSize(16)
+        label.numberOfLines = 2
         return label
     }()
     
