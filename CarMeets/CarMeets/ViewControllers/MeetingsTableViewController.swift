@@ -55,7 +55,7 @@ class MeetingsTableViewController: UITableViewController {
         meetingTableCell.meetingImageName = meetings[indexPath.row].imageName
         meetingTableCell.title = meetings[indexPath.row].title
         meetingTableCell.subtitle = meetings[indexPath.row].subtitle
-        meetingTableCell.location = meetings[indexPath.row].postalCode + ", " + meetings[indexPath.row].city
+        meetingTableCell.location = meetings[indexPath.row].location()
         
         //POC: date correct opgehaald
         //cell.location = DateUtil.shortDateNotation(from: meetings[indexPath.row].date)

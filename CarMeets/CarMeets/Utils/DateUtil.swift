@@ -12,7 +12,7 @@ class DateUtil {
     /**
      Maakt een geformateerde string adhv een date object.
      
-     - Parameter date: De datum vanwaar je de string notatie wenst.
+     - Parameter from date: De datum vanwaar je de string notatie wenst.
      
      - Returns: String in formaat dd/MM/yyyy.
      */
@@ -25,7 +25,7 @@ class DateUtil {
     /**
      Maakt een geformateerde string adhv een date object.
      
-     - Parameter date: De datum vanwaar je de string notatie wenst.
+     - Parameter from date: De datum vanwaar je de string notatie wenst.
      
      - Returns: String met dag van de maand.
      */
@@ -38,7 +38,7 @@ class DateUtil {
     /**
      Maakt een geformateerde string adhv een date object.
      
-     - Parameter date: De datum vanwaar je de string notatie wenst.
+     - Parameter from date: De datum vanwaar je de string notatie wenst.
      
      - Returns: String met de maand zijn eerste drie letters.
      */
