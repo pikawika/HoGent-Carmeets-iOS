@@ -21,6 +21,32 @@ class DateUtil {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         return dateFormatter.string(from: date)
     }
+    
+    /**
+     Maakt een geformateerde string adhv een date object.
+     
+     - Parameter date: De datum vanwaar je de string notatie wenst.
+     
+     - Returns: String met dag van de maand.
+     */
+    static func dayNotation(from date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd"
+        return dateFormatter.string(from: date)
+    }
+    
+    /**
+     Maakt een geformateerde string adhv een date object.
+     
+     - Parameter date: De datum vanwaar je de string notatie wenst.
+     
+     - Returns: String met de maand zijn eerste drie letters.
+     */
+    static func shortMonthDateNotation(from date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        return String(dateFormatter.string(from: date).prefix(3))
+    }
 
 }
 
