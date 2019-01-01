@@ -35,7 +35,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Meetinglijst" id="TgW-Ew-tT1"/>
                     <connections>
-                        <segue destination="Xue-PN-1g3" kind="show" identifier="listToDetalSegue" id="gWa-BD-DCn"/>
+                        <segue destination="Xue-PN-1g3" kind="show" identifier="listToDetailSegue" id="gWa-BD-DCn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tJ-Gw-4j0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,62 +118,32 @@
             </objects>
             <point key="canvasLocation" x="973.60000000000002" y="112.89355322338831"/>
         </scene>
-        <!--View Controller-->
+        <!--Meeting Detail View Controller-->
         <scene sceneID="1T5-FN-aAC">
             <objects>
-                <viewController id="Xue-PN-1g3" sceneMemberID="viewController">
+                <viewController id="Xue-PN-1g3" customClass="MeetingDetailViewController" customModule="CarMeets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MrZ-PP-8ot">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kME-HL-9ht">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7op-PG-xob">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="7op-PG-xob" secondAttribute="height" multiplier="16:9" id="Hlt-fz-7mr"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8j-Ln-46D">
-                                        <rect key="frame" x="0.0" y="223" width="375" height="29"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="meetingDetailTitle"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZb-pc-1j6">
-                                        <rect key="frame" x="0.0" y="260" width="375" height="21.5"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="meetingDetailSubtitle"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="SgG-UV-lNg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="211"/>
                                 <constraints>
-                                    <constraint firstItem="pZb-pc-1j6" firstAttribute="leading" secondItem="kME-HL-9ht" secondAttribute="leading" id="BQO-z6-0kQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="7op-PG-xob" secondAttribute="trailing" id="Crp-ph-xhv"/>
-                                    <constraint firstItem="7op-PG-xob" firstAttribute="width" secondItem="kME-HL-9ht" secondAttribute="width" id="KsY-LT-WfO"/>
-                                    <constraint firstItem="J8j-Ln-46D" firstAttribute="width" secondItem="kME-HL-9ht" secondAttribute="width" id="M5v-qO-Ypg"/>
-                                    <constraint firstItem="J8j-Ln-46D" firstAttribute="top" secondItem="7op-PG-xob" secondAttribute="bottom" constant="12" id="btM-CX-bkk"/>
-                                    <constraint firstItem="J8j-Ln-46D" firstAttribute="leading" secondItem="kME-HL-9ht" secondAttribute="leading" id="dWv-o3-4kG"/>
-                                    <constraint firstItem="7op-PG-xob" firstAttribute="top" secondItem="kME-HL-9ht" secondAttribute="top" id="fGe-7z-2I0"/>
-                                    <constraint firstAttribute="trailing" secondItem="J8j-Ln-46D" secondAttribute="trailing" id="lQS-ef-QP3"/>
-                                    <constraint firstItem="7op-PG-xob" firstAttribute="leading" secondItem="kME-HL-9ht" secondAttribute="leading" id="li0-qR-vDJ"/>
-                                    <constraint firstItem="pZb-pc-1j6" firstAttribute="top" secondItem="J8j-Ln-46D" secondAttribute="bottom" constant="8" id="nhS-89-atT"/>
-                                    <constraint firstAttribute="trailing" secondItem="pZb-pc-1j6" secondAttribute="trailing" id="xYJ-5e-3iD"/>
+                                    <constraint firstAttribute="width" secondItem="SgG-UV-lNg" secondAttribute="height" multiplier="16:9" id="p0f-wX-ake"/>
                                 </constraints>
-                            </scrollView>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hlV-jk-QQG" firstAttribute="bottom" secondItem="kME-HL-9ht" secondAttribute="bottom" id="6hI-Fe-OF3"/>
-                            <constraint firstItem="hlV-jk-QQG" firstAttribute="trailing" secondItem="kME-HL-9ht" secondAttribute="trailing" id="Ee5-sR-EsN"/>
-                            <constraint firstItem="kME-HL-9ht" firstAttribute="leading" secondItem="hlV-jk-QQG" secondAttribute="leading" id="XzS-Tk-ztM"/>
-                            <constraint firstItem="kME-HL-9ht" firstAttribute="top" secondItem="hlV-jk-QQG" secondAttribute="top" id="oqy-Xa-glw"/>
+                            <constraint firstItem="hlV-jk-QQG" firstAttribute="trailing" secondItem="SgG-UV-lNg" secondAttribute="trailing" id="KDW-hp-ZWi"/>
+                            <constraint firstItem="SgG-UV-lNg" firstAttribute="leading" secondItem="hlV-jk-QQG" secondAttribute="leading" id="d9o-wB-akH"/>
+                            <constraint firstItem="SgG-UV-lNg" firstAttribute="top" secondItem="hlV-jk-QQG" secondAttribute="top" id="gA5-2E-f6r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hlV-jk-QQG"/>
                     </view>
+                    <connections>
+                        <outlet property="meetingImageView" destination="SgG-UV-lNg" id="ykD-Bm-2KL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0H-jA-xcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,6 +170,7 @@
         <image name="ic_account" width="18.75" height="18.75"/>
         <image name="ic_favourites" width="18.75" height="18.75"/>
         <image name="ic_list" width="18.75" height="18.75"/>
+        <image name="img_logo" width="550" height="163"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aPH-zs-HFu"/>

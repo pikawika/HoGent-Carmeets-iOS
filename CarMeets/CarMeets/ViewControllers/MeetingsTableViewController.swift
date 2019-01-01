@@ -81,6 +81,14 @@ class MeetingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "listToDetalSegue", sender: self)
+        performSegue(withIdentifier: "listToDetailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "listToDetailSegue" {
+            let meetingDetailViewController = segue.destination as! MeetingDetailViewController
+            let index = tableView.indexPathForSelectedRow!.row
+            meetingDetailViewController.meeting = meetings[index]
+        }
     }
 }

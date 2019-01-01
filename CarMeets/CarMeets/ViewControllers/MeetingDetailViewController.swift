@@ -10,21 +10,25 @@ import UIKit
 
 class MeetingDetailViewController: UIViewController {
 
+    var meeting: Meeting!
+    
+    @IBOutlet weak var meetingImageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateUI()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateUI() {
+        MeetingController.shared.fetchMeetingImage(imageName: meeting.imageName) { (image) in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                self.meetingImageView.image = image
+            }
+        }
     }
-    */
 
 }
