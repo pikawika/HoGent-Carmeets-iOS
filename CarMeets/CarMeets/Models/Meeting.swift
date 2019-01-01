@@ -30,6 +30,11 @@ struct Meeting: Codable {
     //niet altijd meegegeven in backend
     var website: String?
     
+    //makkelijker om dit als apart object te hebben in code
+    func location() -> Location {
+        return Location.init(city: self.city, postalCode: self.postalCode, streetName: self.streetName, houseNumber: self.houseNumber)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case meetingId = "_id"
         

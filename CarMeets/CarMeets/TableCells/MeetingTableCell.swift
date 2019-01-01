@@ -15,7 +15,7 @@ class MeetingTableCell: UITableViewCell {
     var meetingImageName: String?
     var title: String?
     var subtitle: String?
-    var location: String?
+    var location: Location?
     
     var meetingImageView: UIImageView = {
         var imageView = UIImageView()
@@ -108,28 +108,12 @@ class MeetingTableCell: UITableViewCell {
         }
         
         if let location = location {
-            //Zie bronnen voor source.
-            //Create Attachment
-            let imageAttachment =  NSTextAttachment()
-            imageAttachment.image = #imageLiteral(resourceName: "ic_location_small")
-            //Set bound to reposition
-            let imageOffsetY:CGFloat = -5.0;
-            imageAttachment.bounds = CGRect(x: 0, y: imageOffsetY, width: imageAttachment.image!.size.width, height: imageAttachment.image!.size.height)
-            //Create string with attachment
-            let attachmentString = NSAttributedString(attachment: imageAttachment)
-            //Initialize mutable string
-            let completeText = NSMutableAttributedString(string: "")
-            //Add image to mutable string
-            completeText.append(attachmentString)
-            //Add your text to mutable string
-            let  textAfterIcon = NSMutableAttributedString(string: location)
-            completeText.append(textAfterIcon)
-            locationView.attributedText = completeText
+            locationView.attributedText = LocationUtil.fullCityNotationWithIcon(from: location)
         }
     }
     
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("not implemented :(")
+        fatalError("This is not how you implement this cell, read the doc.")
     }
 }

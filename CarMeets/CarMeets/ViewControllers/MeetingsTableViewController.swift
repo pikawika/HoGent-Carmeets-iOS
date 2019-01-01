@@ -55,7 +55,7 @@ class MeetingsTableViewController: UITableViewController {
         meetingTableCell.meetingImageName = meetings[indexPath.row].imageName
         meetingTableCell.title = meetings[indexPath.row].title
         meetingTableCell.subtitle = meetings[indexPath.row].subtitle
-        meetingTableCell.location = meetings[indexPath.row].postalCode + ", " + meetings[indexPath.row].city
+        meetingTableCell.location = meetings[indexPath.row].location()
         
         //POC: date correct opgehaald
         //cell.location = DateUtil.shortDateNotation(from: meetings[indexPath.row].date)
@@ -81,6 +81,14 @@ class MeetingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "listToDetalSegue", sender: self)
+        performSegue(withIdentifier: "listToDetailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "listToDetailSegue" {
+            let meetingDetailViewController = segue.destination as! MeetingDetailViewController
+            let index = tableView.indexPathForSelectedRow!.row
+            meetingDetailViewController.meeting = meetings[index]
+        }
     }
 }
