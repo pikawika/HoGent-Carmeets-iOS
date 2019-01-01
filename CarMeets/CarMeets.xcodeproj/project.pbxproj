@@ -17,6 +17,9 @@
 		263DA36121DA515900A798BB /* MeetingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DA36021DA515900A798BB /* MeetingDetailViewController.swift */; };
 		263DA36321DA56B100A798BB /* MeetingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DA36221DA56B100A798BB /* MeetingsTableViewController.swift */; };
 		263DA36521DA59AF00A798BB /* MeetingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263DA36421DA59AF00A798BB /* MeetingTableCell.swift */; };
+		26F2193221DA9BD0003E6B40 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2193121DA9BD0003E6B40 /* Meeting.swift */; };
+		26F2193521DA9F6B003E6B40 /* MeetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2193421DA9F6B003E6B40 /* MeetingController.swift */; };
+		26F2193B21DBBC15003E6B40 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2193A21DBBC15003E6B40 /* DateUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		263DA36221DA56B100A798BB /* MeetingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsTableViewController.swift; sourceTree = "<group>"; };
 		263DA36421DA59AF00A798BB /* MeetingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTableCell.swift; sourceTree = "<group>"; };
 		2677360021BFA7DA00D3BEDF /* CarMeets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarMeets.entitlements; sourceTree = "<group>"; };
+		26F2193121DA9BD0003E6B40 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		26F2193421DA9F6B003E6B40 /* MeetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingController.swift; sourceTree = "<group>"; };
+		26F2193A21DBBC15003E6B40 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,11 @@
 		261BAB0F2191B502006F506E /* CarMeets */ = {
 			isa = PBXGroup;
 			children = (
+				26F2193921DBBBFF003E6B40 /* Utils */,
+				26F2193821DBB540003E6B40 /* TableCells */,
+				26F2193721DBB521003E6B40 /* ViewControllers */,
+				26F2193321DA9F50003E6B40 /* Controllers */,
+				26F2192E21DA9AD5003E6B40 /* Models */,
 				2677360021BFA7DA00D3BEDF /* CarMeets.entitlements */,
 				261BAB102191B502006F506E /* AppDelegate.swift */,
 				261BAB142191B502006F506E /* Main.storyboard */,
@@ -111,9 +122,6 @@
 				261BAB1C2191B502006F506E /* LaunchScreen.storyboard */,
 				261BAB1F2191B502006F506E /* Info.plist */,
 				261BAB172191B502006F506E /* CarMeets.xcdatamodeld */,
-				263DA36021DA515900A798BB /* MeetingDetailViewController.swift */,
-				263DA36221DA56B100A798BB /* MeetingsTableViewController.swift */,
-				263DA36421DA59AF00A798BB /* MeetingTableCell.swift */,
 			);
 			path = CarMeets;
 			sourceTree = "<group>";
@@ -134,6 +142,47 @@
 				261BAB352191B502006F506E /* Info.plist */,
 			);
 			path = CarMeetsUITests;
+			sourceTree = "<group>";
+		};
+		26F2192E21DA9AD5003E6B40 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				26F2193121DA9BD0003E6B40 /* Meeting.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		26F2193321DA9F50003E6B40 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				26F2193421DA9F6B003E6B40 /* MeetingController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		26F2193721DBB521003E6B40 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				263DA36221DA56B100A798BB /* MeetingsTableViewController.swift */,
+				263DA36021DA515900A798BB /* MeetingDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		26F2193821DBB540003E6B40 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				263DA36421DA59AF00A798BB /* MeetingTableCell.swift */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		26F2193921DBBBFF003E6B40 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				26F2193A21DBBC15003E6B40 /* DateUtil.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,8 +322,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				261BAB112191B502006F506E /* AppDelegate.swift in Sources */,
+				26F2193221DA9BD0003E6B40 /* Meeting.swift in Sources */,
 				263DA36521DA59AF00A798BB /* MeetingTableCell.swift in Sources */,
+				26F2193521DA9F6B003E6B40 /* MeetingController.swift in Sources */,
 				263DA36321DA56B100A798BB /* MeetingsTableViewController.swift in Sources */,
+				26F2193B21DBBC15003E6B40 /* DateUtil.swift in Sources */,
 				263DA36121DA515900A798BB /* MeetingDetailViewController.swift in Sources */,
 				261BAB192191B502006F506E /* CarMeets.xcdatamodeld in Sources */,
 			);
