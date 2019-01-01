@@ -9,9 +9,6 @@
 import Foundation
 
 class DateUtil {
-    
-    static let shared = DateUtil()
-    
     /**
      Maakt een geformateerde string adhv een date object.
      
