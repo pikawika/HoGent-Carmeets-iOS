@@ -15,7 +15,11 @@ class MeetingController {
     let baseApiURL = URL(string: "https://carmeets-backend.herokuapp.com/API/")!
     let baseImageURL = URL(string: "https://carmeets-backend.herokuapp.com/uploadImages/")!
     
-    //alle meetings in de toekomst van server halen
+    /**
+     Haalt alle actieve meetings op van de server.
+     
+     - Returns: Array van Meeting objecten als completion Void.
+     */
     func fetchMeetings(completion: @escaping ([Meeting]?) -> Void) {
         let allMeetingsURL = baseApiURL.appendingPathComponent("meetings/alleMeetings")
         let task = URLSession.shared.dataTask(with: allMeetingsURL) { (data, response, error) in
@@ -33,7 +37,13 @@ class MeetingController {
         task.resume()
     }
     
-    //meetings van de server halen
+    /**
+     Haalt een image op van de server met een opgegeven naam.
+     
+     - Parameter imageName: de naam van de image zoals deze op de server is opgeslaan.
+     
+     - Returns: Een UIImage objecten als completion Void.
+     */
     func fetchMeetingImage(imageName: String, completion: @escaping (UIImage?) -> Void) {
         let imageURL = baseImageURL.appendingPathComponent(imageName)
         let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
