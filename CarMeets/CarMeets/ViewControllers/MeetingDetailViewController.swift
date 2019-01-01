@@ -15,6 +15,8 @@ class MeetingDetailViewController: UIViewController {
     @IBOutlet weak var meetingImageView: UIImageView!
     @IBOutlet weak var dateDayLabel: UILabel!
     @IBOutlet weak var dateMonthLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -37,6 +39,10 @@ class MeetingDetailViewController: UIViewController {
         dateDayLabel.text = DateUtil.dayNotation(from: meeting.date)
         //maand
         dateMonthLabel.text = DateUtil.shortMonthDateNotation(from: meeting.date)
+        //title
+        titleLabel.text = meeting.title
+        //subtitle
+        subtitleLabel.text = meeting.subtitle
         
         
     }
