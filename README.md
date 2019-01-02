@@ -27,3 +27,5 @@ Aangezien de CarMeets iOS App een opvolging is van de CarMeets website gemaakt m
 - [Custom lijst layout demo](https://www.youtube.com/watch?v=YwE3_hMyDZA)
 - [Kleur selected tabitem instellen](https://stackoverflow.com/questions/26835148/change-tab-bar-item-selected-color-in-a-storyboard)
 - [String attribute demo](https://stackoverflow.com/a/35811777)
+- [Eventkit doc](https://developer.apple.com/documentation/eventkit/creating_events_and_reminders)
+- [Maps doc](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html)
