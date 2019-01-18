@@ -32,3 +32,4 @@ Aangezien de CarMeets iOS App een opvolging is van de CarMeets website gemaakt m
 - [Clickable button](https://stackoverflow.com/a/50782478)
 - [Padded button](https://stackoverflow.com/a/32368958)
 - [Keychain manager](https://github.com/evgenyneu/keychain-swift)
+- [JWT decoder](https://github.com/auth0/JWTDecode.swift)

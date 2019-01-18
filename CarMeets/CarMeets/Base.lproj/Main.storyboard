@@ -443,8 +443,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NjK-1T-Scm">
-                                <rect key="frame" x="30" y="271" width="315" height="189"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="NjK-1T-Scm">
+                                <rect key="frame" x="30" y="271" width="315" height="211"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zZp-j6-wmc">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="75"/>
@@ -464,7 +464,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZYj-ve-4aO">
-                                        <rect key="frame" x="0.0" y="83" width="315" height="106"/>
+                                        <rect key="frame" x="0.0" y="105" width="315" height="106"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFR-RX-X1M">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
