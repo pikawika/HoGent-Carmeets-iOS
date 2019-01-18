@@ -21,9 +21,6 @@ class RegisterViewController: UIViewController {
         updateUI()
     }
     
-    @IBAction func registerClicked(_ sender: Any) {
-    }
-    
     func updateUI() {
         loginLabel.isUserInteractionEnabled = true
         loginLabel.onClick = {
@@ -33,4 +30,35 @@ class RegisterViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func registerClicked(_ sender: Any) {
+        //checken of er veld leeg is
+        if ((emailTextView.text ?? "").isEmpty || (usernameTextView.text ?? "").isEmpty || (passwordTextView.text ?? "").isEmpty || (confirmPasswordTextView.text ?? "").isEmpty) {
+            MessageUtil.showToast(message: "gelieve alle velden in te vullen", durationInSeconds: 1, controller: self)
+        } else if (passwordTextView.text! != confirmPasswordTextView.text!) {
+            MessageUtil.showToast(message: "wachtwoorden komen niet overeen", durationInSeconds: 1, controller: self)
+        }
+        
+        else {
+            //login request formaat maken
+            let registerRequest = RegisterRequest.init(
+                username: usernameTextView.text!,
+                password: passwordTextView.text!,
+                email: emailTextView.text!
+            )
+            
+            //proberen inloggen met de userdata
+            AccountController.shared.register(withAccountDetails: registerRequest) { (response) in
+                //login succes
+                if (response.0){
+                    self.performSegue(withIdentifier: "registerToAccountSegue", sender: self)
+                } else {
+                    MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                }
+            }
+        }
+        
+    }
+    
+    
 }

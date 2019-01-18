@@ -27,8 +27,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginClicked(_ sender: Any) {
-        
-        
         //checken of er veld leeg is
         if ((usernameTextView.text ?? "").isEmpty || (passwordTextView.text ?? "").isEmpty) {
             MessageUtil.showToast(message: "gelieve alle velden in te vullen", durationInSeconds: 1, controller: self)
@@ -46,6 +44,7 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+        
     }
 }
 
