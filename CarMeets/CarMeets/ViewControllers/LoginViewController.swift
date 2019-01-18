@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var registerLabel: LabelButton!
+    @IBOutlet weak var usernameTextView: UITextField!
+    @IBOutlet weak var passwordTextView: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +26,8 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func login(_ sender: Any) {
-        let loginRequest = LoginRequest.init(username: "snelleneddy", password: "test")
+    @IBAction func loginClicked(_ sender: Any) {
+        let loginRequest = LoginRequest.init(username: usernameTextView.text ?? "", password: passwordTextView.text ?? "")
         
         //proberen inloggen met de userdata
         AccountController.shared.login(withCredentials: loginRequest) { (response) in
@@ -33,7 +35,7 @@ class LoginViewController: UIViewController {
             if (response.0){
                 self.performSegue(withIdentifier: "loginToAccountSegue", sender: self)
             } else {
-                MessageUtil.showToast(message: response.1, durationInSeconds: 3, controller: self)
+                MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
             }
             
         }

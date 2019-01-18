@@ -334,7 +334,7 @@
                                                                 <rect key="frame" x="0.0" y="40" width="335" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -348,7 +348,7 @@
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="login:" destination="wMn-AS-z5m" eventType="touchUpInside" id="wH2-3d-SoJ"/>
+                                                                    <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="wH2-3d-SoJ"/>
                                                                     <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="tTZ-du-4Vc"/>
                                                                 </connections>
                                                             </button>
@@ -405,7 +405,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="AbU-1V-pLB"/>
                     <connections>
+                        <outlet property="passwordTextView" destination="F9c-Tz-dxa" id="FuH-qJ-Bhu"/>
                         <outlet property="registerLabel" destination="wcA-zg-op7" id="Fso-Gk-IVJ"/>
+                        <outlet property="usernameTextView" destination="i1l-pg-pXC" id="hmQ-ZS-u2g"/>
                         <segue destination="zx2-VB-VN8" kind="show" identifier="loginToAccountSegue" id="vla-1p-Yfj"/>
                         <segue destination="ePd-ju-hyu" kind="show" identifier="loginToRegisterSegue" id="MbE-qS-nOy"/>
                     </connections>

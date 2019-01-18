@@ -18,6 +18,7 @@ class AccountViewController: UIViewController {
     
     
     func updateUI() {
-        
+        //back button niet zichtbaar - login terug mag niet hier.
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
 }

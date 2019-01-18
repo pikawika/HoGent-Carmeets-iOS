@@ -32,14 +32,25 @@ class AccountController {
                 
                 //iets teruggekregen (token of error message)
                 if let token = tokenResponse.token {
-                    completion((true, token))
+                    DispatchQueue.main.async {
+                        completion((true, token))
+                    }
                 }
-                if let errorMessage = tokenResponse.errorMessage {
-                    completion((false, errorMessage))
+                else if let errorMessage = tokenResponse.errorMessage {
+                    DispatchQueue.main.async {
+                        completion((false, errorMessage))
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        completion((false, "aanmelden mislukt"))
+                    }
                 }
                 
             } else {
-                completion((false, "aanmelden mislukt"))
+                DispatchQueue.main.async {
+                    completion((false, "aanmelden mislukt"))
+                }
             }
         }
         task.resume()
