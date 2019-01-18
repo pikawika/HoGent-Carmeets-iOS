@@ -13,6 +13,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextView: UITextField!
     @IBOutlet weak var passwordTextView: UITextField!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if (KeyChainUtil.isUserLoggedIn()) {
+            self.performSegue(withIdentifier: "loginToAccountSegue", sender: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

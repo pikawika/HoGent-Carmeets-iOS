@@ -32,8 +32,9 @@ class AccountController {
                 
                 //iets teruggekregen (token of error message checken)
                 if let token = tokenResponse.token {
+                    KeyChainUtil.setTokenInKeychain(withToken: token)
                     DispatchQueue.main.async {
-                        completion((true, token))
+                        completion((true, "Aangemeld"))
                     }
                 }
                 else if let errorMessage = tokenResponse.errorMessage {
@@ -43,13 +44,13 @@ class AccountController {
                 }
                 else {
                     DispatchQueue.main.async {
-                        completion((false, "aanmelden mislukt"))
+                        completion((false, "Aanmelden mislukt"))
                     }
                 }
                 
             } else {
                 DispatchQueue.main.async {
-                    completion((false, "aanmelden mislukt"))
+                    completion((false, "Aanmelden mislukt"))
                 }
             }
         }
@@ -76,8 +77,9 @@ class AccountController {
                 
                 //iets teruggekregen (token of error message checken)
                 if let token = tokenResponse.token {
+                    KeyChainUtil.setTokenInKeychain(withToken: token)
                     DispatchQueue.main.async {
-                        completion((true, token))
+                        completion((true, "Geregistreerd"))
                     }
                 }
                 else if let errorMessage = tokenResponse.errorMessage {
@@ -87,12 +89,12 @@ class AccountController {
                 }
                 else {
                     DispatchQueue.main.async {
-                        completion((false, "registreren mislukt"))
+                        completion((false, "Registreren mislukt"))
                     }
                 }
             } else {
                 DispatchQueue.main.async {
-                    completion((false, "registreren mislukt"))
+                    completion((false, "Registreren mislukt"))
                 }
             }
         }

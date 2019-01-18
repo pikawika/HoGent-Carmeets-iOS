@@ -7,3 +7,42 @@
 //
 
 import Foundation
+
+class KeyChainUtil {
+    /**
+     Slaat de token op in een KeyChain.
+     
+     - Parameter withToken: de token (string) die je wilt opslaan in een KeyChain.
+     */
+    static func setTokenInKeychain(withToken token: String) {
+        let keychain = KeychainSwift()
+        keychain.set("carmeetsToken", forKey: "carmeets token")
+    }
+    
+    /**
+     Haalt de token op uit een KeyChain.
+     
+     Default empty string.
+     */
+    static func setTokenInKeychain() -> String {
+        let keychain = KeychainSwift()
+        return keychain.get("carmeets token") ?? ""
+    }
+    
+    /**
+     Verwijderd alle items van de app uit keychain
+     */
+    static func clearKeychain() {
+        let keychain = KeychainSwift()
+        keychain.clear()
+    }
+    
+    /**
+     Kijkt of een user is opgeslaan in KeyChain en returnt dus of user al dan niet al aangemeld is.
+     */
+    static func isUserLoggedIn() -> Bool{
+        let keychain = KeychainSwift()
+        return !(keychain.get("carmeets token") ?? "").isEmpty
+    }
+    
+}

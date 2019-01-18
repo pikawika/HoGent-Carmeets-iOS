@@ -10,6 +10,12 @@ import UIKit
 
 class AccountViewController: UIViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //back button niet zichtbaar - login terug mag niet hier.
+        self.navigationItem.setHidesBackButton(true, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,7 +24,6 @@ class AccountViewController: UIViewController {
     
     
     func updateUI() {
-        //back button niet zichtbaar - login terug mag niet hier.
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        
     }
 }
