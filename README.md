@@ -31,3 +31,4 @@ Aangezien de CarMeets iOS App een opvolging is van de CarMeets website gemaakt m
 - [Maps doc](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html)
 - [Clickable button](https://stackoverflow.com/a/50782478)
 - [Padded button](https://stackoverflow.com/a/32368958)
+- [Keychain manager](https://github.com/evgenyneu/keychain-swift)
