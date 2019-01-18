@@ -24,7 +24,7 @@ class KeyChainUtil {
      
      Default empty string.
      */
-    static func getTokenInKeychain() -> String {
+    static func getTokenFromKeychain() -> String {
         let keychain = KeychainSwift()
         return keychain.get("carmeets token") ?? ""
     }

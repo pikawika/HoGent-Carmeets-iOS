@@ -473,6 +473,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="changePasswordClicked:" destination="zx2-VB-VN8" eventType="touchUpInside" id="fOZ-Cb-oHD"/>
                                                     <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="00q-gz-IQq"/>
                                                     <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="pbR-bH-918"/>
                                                 </connections>
@@ -484,6 +485,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="changeUsernameClicked:" destination="zx2-VB-VN8" eventType="touchUpInside" id="8fC-hg-nrP"/>
                                                     <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="g5Z-O9-xLB"/>
                                                     <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="3wb-tz-tN8"/>
                                                 </connections>
@@ -497,6 +499,7 @@
                                                 <connections>
                                                     <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="wfY-ft-oK4"/>
                                                     <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="W7q-FH-3RK"/>
+                                                    <action selector="signOutClicked:" destination="zx2-VB-VN8" eventType="touchUpInside" id="98r-t4-9uB"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -520,6 +523,9 @@
                         <viewLayoutGuide key="safeArea" id="b86-0Q-z9I"/>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="OZb-WM-Xv0"/>
+                    <connections>
+                        <outlet property="usernameLabel" destination="YJv-aU-Moa" id="MjS-KE-AGU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QY4-am-ihN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
