@@ -29,3 +29,4 @@ Aangezien de CarMeets iOS App een opvolging is van de CarMeets website gemaakt m
 - [String attribute demo](https://stackoverflow.com/a/35811777)
 - [Eventkit doc](https://developer.apple.com/documentation/eventkit/creating_events_and_reminders)
 - [Maps doc](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html)
+- [Clickable button](https://stackoverflow.com/a/50782478)

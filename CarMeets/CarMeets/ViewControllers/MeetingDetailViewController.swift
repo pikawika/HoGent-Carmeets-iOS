@@ -56,6 +56,8 @@ class MeetingDetailViewController: UIViewController {
         
         if (meeting.website == nil || meeting.website == "") {
             websiteButton.isHidden = true
+            //heigcontstraint is er nog altijd ookal is hij hidden waardoor leegruimte
+            websiteButton.heightAnchor.constraint(equalToConstant: 0).isActive = true
         }
     }
     
