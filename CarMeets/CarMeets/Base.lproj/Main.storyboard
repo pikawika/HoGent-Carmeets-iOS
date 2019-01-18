@@ -307,13 +307,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="hhl-OY-elz">
-                                <rect key="frame" x="30" y="20" width="315" height="177"/>
+                                <rect key="frame" x="30" y="64" width="315" height="177"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hhl-OY-elz" secondAttribute="height" multiplier="16:9" id="wl7-32-ijk"/>
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToL-0r-3n7">
-                                <rect key="frame" x="0.0" y="197" width="375" height="470"/>
+                                <rect key="frame" x="0.0" y="241" width="375" height="377"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4U-W4-2go">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
@@ -441,13 +441,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="VBG-8r-Dna">
-                                <rect key="frame" x="30" y="20" width="315" height="177"/>
+                                <rect key="frame" x="30" y="64" width="315" height="177"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VBG-8r-Dna" secondAttribute="height" multiplier="16:9" id="ZWD-ZY-PiP"/>
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lk9-nC-d3E">
-                                <rect key="frame" x="0.0" y="197" width="375" height="470"/>
+                                <rect key="frame" x="0.0" y="241" width="375" height="377"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5q4-oA-0Jy">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
@@ -483,13 +483,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="162.5" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bevestig wachtwoord" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8bs-ui-UFd">
                                                                 <rect key="frame" x="172.5" y="0.0" width="162.5" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -513,6 +513,7 @@
                                                         <connections>
                                                             <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="PtI-7J-hvb"/>
                                                             <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="EKf-Fw-P6i"/>
+                                                            <action selector="registerClicked:" destination="ePd-ju-hyu" eventType="touchUpInside" id="Won-M0-Ht3"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Al een account? Meld aan!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhm-bh-E1E" customClass="LabelButton" customModule="CarMeets" customModuleProvider="target">
@@ -563,7 +564,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Registreer" id="7jl-cI-pta"/>
                     <connections>
-                        <segue destination="wMn-AS-z5m" kind="show" identifier="registerToLoginSeque" id="ikU-Dn-Tqt"/>
+                        <outlet property="confirmPasswordTextView" destination="8bs-ui-UFd" id="hFS-tE-cEf"/>
+                        <outlet property="emailTextView" destination="FHu-78-td8" id="2ua-Vf-Ckm"/>
+                        <outlet property="loginLabel" destination="Dhm-bh-E1E" id="meb-sv-HTh"/>
+                        <outlet property="passwordTextView" destination="8Iw-1P-lUf" id="get-m0-gdN"/>
+                        <outlet property="usernameTextView" destination="Tau-JI-Lff" id="1i5-jX-pQk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anM-c7-lBB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -578,7 +583,6 @@
         <image name="img_logo" width="550" height="163"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ikU-Dn-Tqt"/>
         <segue reference="rjk-WX-6U5"/>
     </inferredMetricsTieBreakers>
 </document>

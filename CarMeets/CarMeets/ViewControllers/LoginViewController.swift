@@ -27,17 +27,24 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginClicked(_ sender: Any) {
-        let loginRequest = LoginRequest.init(username: usernameTextView.text ?? "", password: passwordTextView.text ?? "")
         
-        //proberen inloggen met de userdata
-        AccountController.shared.login(withCredentials: loginRequest) { (response) in
-            //login succes
-            if (response.0){
-                self.performSegue(withIdentifier: "loginToAccountSegue", sender: self)
-            } else {
-                MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
-            }
+        
+        //checken of er veld leeg is
+        if ((usernameTextView.text ?? "").isEmpty || (passwordTextView.text ?? "").isEmpty) {
+            MessageUtil.showToast(message: "gelieve alle velden in te vullen", durationInSeconds: 1, controller: self)
+        } else {
+            //login request formaat maken
+            let loginRequest = LoginRequest.init(username: usernameTextView.text!, password: passwordTextView.text!)
             
+            //proberen inloggen met de userdata
+            AccountController.shared.login(withCredentials: loginRequest) { (response) in
+                //login succes
+                if (response.0){
+                    self.performSegue(withIdentifier: "loginToAccountSegue", sender: self)
+                } else {
+                    MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                }
+            }
         }
     }
 }
