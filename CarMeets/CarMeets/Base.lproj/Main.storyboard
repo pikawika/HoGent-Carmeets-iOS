@@ -133,17 +133,17 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AeI-u8-4YW">
-                                <rect key="frame" x="300" y="255" width="65" height="89.5"/>
+                                <rect key="frame" x="320" y="255" width="45" height="69.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5C-jd-xRM" customClass="LabelWithPadding" customModule="CarMeets" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="65" height="55.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45.5"/>
                                         <color key="backgroundColor" red="0.90809887649999999" green="0.091376133260000006" blue="0.36473488809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqQ-UV-WTo" customClass="LabelWithPadding" customModule="CarMeets" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="65" height="34"/>
+                                        <rect key="frame" x="0.0" y="45.5" width="45" height="24"/>
                                         <color key="backgroundColor" red="0.90809887649999999" green="0.091376133260000006" blue="0.36473488809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -443,16 +443,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gI-9L-8bC">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NjK-1T-Scm">
+                                <rect key="frame" x="30" y="271" width="315" height="189"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zZp-j6-wmc">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="75"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hallo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehq-ws-olY">
+                                                <rect key="frame" x="127" y="0.0" width="61.5" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gebruiker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJv-aU-Moa">
+                                                <rect key="frame" x="98.5" y="41.5" width="118" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZYj-ve-4aO">
+                                        <rect key="frame" x="0.0" y="83" width="315" height="106"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFR-RX-X1M">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                <color key="backgroundColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Wachtwoord wijzigen">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="00q-gz-IQq"/>
+                                                    <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="pbR-bH-918"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekv-x7-faA">
+                                                <rect key="frame" x="0.0" y="38" width="315" height="30"/>
+                                                <color key="backgroundColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Gebruikersnaam wijzigen">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="g5Z-O9-xLB"/>
+                                                    <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="3wb-tz-tN8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGc-A5-XIs">
+                                                <rect key="frame" x="0.0" y="76" width="315" height="30"/>
+                                                <color key="backgroundColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Afmelden">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="wfY-ft-oK4"/>
+                                                    <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="W7q-FH-3RK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="VFi-HE-yN6">
+                                <rect key="frame" x="30" y="64" width="315" height="177"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8gI-9L-8bC" firstAttribute="leading" secondItem="b86-0Q-z9I" secondAttribute="leading" id="LrU-lz-ezY"/>
-                            <constraint firstItem="b86-0Q-z9I" firstAttribute="trailing" secondItem="8gI-9L-8bC" secondAttribute="trailing" id="gqR-pQ-Nha"/>
-                            <constraint firstItem="b86-0Q-z9I" firstAttribute="bottom" secondItem="8gI-9L-8bC" secondAttribute="bottom" id="me6-HP-PDM"/>
-                            <constraint firstItem="8gI-9L-8bC" firstAttribute="top" secondItem="b86-0Q-z9I" secondAttribute="top" id="t3v-W2-4Nr"/>
+                            <constraint firstItem="VFi-HE-yN6" firstAttribute="leading" secondItem="b86-0Q-z9I" secondAttribute="leading" constant="30" id="36n-fH-W6a"/>
+                            <constraint firstItem="VFi-HE-yN6" firstAttribute="top" secondItem="b86-0Q-z9I" secondAttribute="top" id="Hw5-N1-efJ"/>
+                            <constraint firstItem="b86-0Q-z9I" firstAttribute="trailing" secondItem="VFi-HE-yN6" secondAttribute="trailing" constant="30" id="IIK-RZ-NEH"/>
+                            <constraint firstItem="NjK-1T-Scm" firstAttribute="leading" secondItem="b86-0Q-z9I" secondAttribute="leading" constant="30" id="JZ7-V5-9xl"/>
+                            <constraint firstItem="NjK-1T-Scm" firstAttribute="top" secondItem="VFi-HE-yN6" secondAttribute="bottom" constant="30" id="rs7-sN-tQl"/>
+                            <constraint firstItem="VFi-HE-yN6" firstAttribute="width" secondItem="VFi-HE-yN6" secondAttribute="height" multiplier="16:9" id="wfb-Nd-pPc"/>
+                            <constraint firstItem="b86-0Q-z9I" firstAttribute="trailing" secondItem="NjK-1T-Scm" secondAttribute="trailing" constant="30" id="z6A-ic-qHu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b86-0Q-z9I"/>
                     </view>

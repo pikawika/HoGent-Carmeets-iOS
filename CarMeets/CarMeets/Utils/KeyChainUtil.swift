@@ -14,9 +14,9 @@ class KeyChainUtil {
      
      - Parameter withToken: de token (string) die je wilt opslaan in een KeyChain.
      */
-    static func setTokenInKeychain(withToken token: String) {
+    static func setTokenInKeychain(withValue token: String) {
         let keychain = KeychainSwift()
-        keychain.set("carmeetsToken", forKey: "carmeets token")
+        keychain.set(token, forKey: "carmeets token")
     }
     
     /**
@@ -24,7 +24,7 @@ class KeyChainUtil {
      
      Default empty string.
      */
-    static func setTokenInKeychain() -> String {
+    static func getTokenInKeychain() -> String {
         let keychain = KeychainSwift()
         return keychain.get("carmeets token") ?? ""
     }

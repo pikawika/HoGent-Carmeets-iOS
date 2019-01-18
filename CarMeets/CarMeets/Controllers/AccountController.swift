@@ -32,7 +32,7 @@ class AccountController {
                 
                 //iets teruggekregen (token of error message checken)
                 if let token = tokenResponse.token {
-                    KeyChainUtil.setTokenInKeychain(withToken: token)
+                    KeyChainUtil.setTokenInKeychain(withValue: token)
                     DispatchQueue.main.async {
                         completion((true, "Aangemeld"))
                     }
@@ -77,7 +77,7 @@ class AccountController {
                 
                 //iets teruggekregen (token of error message checken)
                 if let token = tokenResponse.token {
-                    KeyChainUtil.setTokenInKeychain(withToken: token)
+                    KeyChainUtil.setTokenInKeychain(withValue: token)
                     DispatchQueue.main.async {
                         completion((true, "Geregistreerd"))
                     }
