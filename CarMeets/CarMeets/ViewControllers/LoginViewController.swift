@@ -25,7 +25,18 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
-        self.performSegue(withIdentifier: "loginToAccountSegue", sender: self)
+        let loginRequest = LoginRequest.init(username: "snelleneddy", password: "test")
+        
+        //proberen inloggen met de userdata
+        AccountController.shared.login(withCredentials: loginRequest) { (response) in
+            //login succes
+            if (response.0){
+                self.performSegue(withIdentifier: "loginToAccountSegue", sender: self)
+            } else {
+                MessageUtil.showToast(message: response.1, durationInSeconds: 3, controller: self)
+            }
+            
+        }
     }
 }
 

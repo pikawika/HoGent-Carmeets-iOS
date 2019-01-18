@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2611E3BE21F21E8000045507 /* LabelButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3BD21F21E8000045507 /* LabelButtonExtension.swift */; };
 		2611E3C021F2225A00045507 /* LabelWithPaddingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3BF21F2225A00045507 /* LabelWithPaddingExtension.swift */; };
+		2611E3C221F2280E00045507 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3C121F2280E00045507 /* AccountController.swift */; };
+		2611E3C521F2294E00045507 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3C421F2294E00045507 /* NetworkConstants.swift */; };
+		2611E3C921F22B9000045507 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3C821F22B9000045507 /* LoginRequest.swift */; };
+		2611E3CB21F22BA000045507 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3CA21F22BA000045507 /* TokenResponse.swift */; };
 		26178F5021F2056F001ECC75 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26178F4F21F2056F001ECC75 /* LoginViewController.swift */; };
 		26178F5221F2057E001ECC75 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26178F5121F2057E001ECC75 /* RegisterViewController.swift */; };
 		26178F5421F205D5001ECC75 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26178F5321F205D5001ECC75 /* AccountViewController.swift */; };
@@ -53,6 +57,10 @@
 /* Begin PBXFileReference section */
 		2611E3BD21F21E8000045507 /* LabelButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButtonExtension.swift; sourceTree = "<group>"; };
 		2611E3BF21F2225A00045507 /* LabelWithPaddingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithPaddingExtension.swift; sourceTree = "<group>"; };
+		2611E3C121F2280E00045507 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
+		2611E3C421F2294E00045507 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		2611E3C821F22B9000045507 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		2611E3CA21F22BA000045507 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		26178F4F21F2056F001ECC75 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26178F5121F2057E001ECC75 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		26178F5321F205D5001ECC75 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +127,30 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		2611E3C321F2293800045507 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				2611E3C421F2294E00045507 /* NetworkConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		2611E3C621F22B5C00045507 /* ServerRequests */ = {
+			isa = PBXGroup;
+			children = (
+				2611E3C821F22B9000045507 /* LoginRequest.swift */,
+			);
+			path = ServerRequests;
+			sourceTree = "<group>";
+		};
+		2611E3C721F22B6700045507 /* ServerResponses */ = {
+			isa = PBXGroup;
+			children = (
+				2611E3CA21F22BA000045507 /* TokenResponse.swift */,
+			);
+			path = ServerResponses;
+			sourceTree = "<group>";
+		};
 		261BAB042191B502006F506E = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +174,7 @@
 		261BAB0F2191B502006F506E /* CarMeets */ = {
 			isa = PBXGroup;
 			children = (
+				2611E3C321F2293800045507 /* Constants */,
 				2611E3BC21F21E6300045507 /* Extensions */,
 				26F2193921DBBBFF003E6B40 /* Utils */,
 				26F2193821DBB540003E6B40 /* TableCells */,
@@ -180,6 +213,8 @@
 		26F2192E21DA9AD5003E6B40 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2611E3C721F22B6700045507 /* ServerResponses */,
+				2611E3C621F22B5C00045507 /* ServerRequests */,
 				26F2193121DA9BD0003E6B40 /* Meeting.swift */,
 				26F2194021DC0300003E6B40 /* Location.swift */,
 			);
@@ -190,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				26F2193421DA9F6B003E6B40 /* MeetingController.swift */,
+				2611E3C121F2280E00045507 /* AccountController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -363,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2611E3C521F2294E00045507 /* NetworkConstants.swift in Sources */,
 				261BAB112191B502006F506E /* AppDelegate.swift in Sources */,
 				26F2194321DC27DC003E6B40 /* CalanderUtil.swift in Sources */,
 				2611E3C021F2225A00045507 /* LabelWithPaddingExtension.swift in Sources */,
@@ -374,6 +411,7 @@
 				26F2193F21DC025F003E6B40 /* CategoriesUtil.swift in Sources */,
 				2611E3BE21F21E8000045507 /* LabelButtonExtension.swift in Sources */,
 				26178F5421F205D5001ECC75 /* AccountViewController.swift in Sources */,
+				2611E3C221F2280E00045507 /* AccountController.swift in Sources */,
 				263DA36521DA59AF00A798BB /* MeetingTableCell.swift in Sources */,
 				26F2193521DA9F6B003E6B40 /* MeetingController.swift in Sources */,
 				263DA36321DA56B100A798BB /* MeetingsTableViewController.swift in Sources */,
@@ -382,6 +420,8 @@
 				263DA36121DA515900A798BB /* MeetingDetailViewController.swift in Sources */,
 				261BAB192191B502006F506E /* CarMeets.xcdatamodeld in Sources */,
 				26F2194521DC29EE003E6B40 /* MessageUtil.swift in Sources */,
+				2611E3C921F22B9000045507 /* LoginRequest.swift in Sources */,
+				2611E3CB21F22BA000045507 /* TokenResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
