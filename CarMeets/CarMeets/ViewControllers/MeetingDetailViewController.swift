@@ -54,10 +54,8 @@ class MeetingDetailViewController: UIViewController {
         //categories
         categoriesLabel.attributedText = CategoriesUtil.listNotation(from: meeting.categories)
         
-        if (meeting.website == nil || meeting.website == "") {
+        if ((meeting.website ?? "").isEmpty) {
             websiteButton.isHidden = true
-            //heigcontstraint is er nog altijd ookal is hij hidden waardoor leegruimte
-            websiteButton.heightAnchor.constraint(equalToConstant: 0).isActive = true
         }
     }
     
