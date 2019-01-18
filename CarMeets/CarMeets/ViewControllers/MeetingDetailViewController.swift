@@ -54,7 +54,7 @@ class MeetingDetailViewController: UIViewController {
         //categories
         categoriesLabel.attributedText = CategoriesUtil.listNotation(from: meeting.categories)
         
-        if (meeting.website == nil || meeting.website == "") {
+        if ((meeting.website ?? "").isEmpty) {
             websiteButton.isHidden = true
         }
     }

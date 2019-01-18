@@ -1,0 +1,20 @@
+PODS:
+  - JWTDecode (2.2.0)
+  - KeychainSwift (13.0.0)
+
+DEPENDENCIES:
+  - JWTDecode (~> 2.2)
+  - KeychainSwift (~> 13.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - JWTDecode
+    - KeychainSwift
+
+SPEC CHECKSUMS:
+  JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
+  KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
+
+PODFILE CHECKSUM: f5075110bf2eb81c9b0b7a064ebd3029e033c3bb
+
+COCOAPODS: 1.5.3

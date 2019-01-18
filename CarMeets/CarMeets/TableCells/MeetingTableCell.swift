@@ -4,7 +4,8 @@
 //
 //  Created by Lennert Bontinck on 31/12/2018.
 //  Copyright © 2018 Lennert Bontinck. All rights reserved.
-//
+//  Source for inspiration (edited to suite my needs | also mentioned in Readme)
+//      https://www.youtube.com/watch?v=YwE3_hMyDZA
 
 import Foundation
 import UIKit
@@ -64,7 +65,7 @@ class MeetingTableCell: UITableViewCell {
         //img constrainen met left top en bootom van parent en 40% width
         meetingImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
         meetingImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        meetingImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        meetingImageView.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -10).isActive = true
         //40% width in beslag nemen
         meetingImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4).isActive = true
         //height is in 16:9 verhouding
@@ -84,6 +85,7 @@ class MeetingTableCell: UITableViewCell {
         locationView.leftAnchor.constraint(equalTo: self.meetingImageView.rightAnchor, constant: 10).isActive = true
         locationView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         locationView.topAnchor.constraint(equalTo: self.subtitleView.bottomAnchor, constant: 5).isActive = true
+        locationView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
     }
     
     override func layoutSubviews() {

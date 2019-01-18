@@ -1,0 +1,6 @@
+framework module Pods_CarMeetsUITests {
+  umbrella header "Pods-CarMeetsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
