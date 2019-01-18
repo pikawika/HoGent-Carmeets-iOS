@@ -45,7 +45,8 @@ class LocationUtil {
      - Returns: NSAttributedString in formaat -> icon + street housenr, postal city.
      */
     static func fullAdressNotationWithIcon(from location: Location) -> NSAttributedString {
-        //Zie bronnen voor source.
+        //  Source for inspiration (edited to suite my needs | also mentioned in Readme)
+        //      https://stackoverflow.com/a/35811777
         //Maak een attachment zijnde het icoon
         let imageAttachment =  NSTextAttachment()
         imageAttachment.image = #imageLiteral(resourceName: "ic_location_small")

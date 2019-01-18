@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2611E3BE21F21E8000045507 /* LabelButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3BD21F21E8000045507 /* LabelButtonExtension.swift */; };
+		2611E3C021F2225A00045507 /* LabelWithPaddingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3BF21F2225A00045507 /* LabelWithPaddingExtension.swift */; };
 		26178F5021F2056F001ECC75 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26178F4F21F2056F001ECC75 /* LoginViewController.swift */; };
 		26178F5221F2057E001ECC75 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26178F5121F2057E001ECC75 /* RegisterViewController.swift */; };
 		26178F5421F205D5001ECC75 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26178F5321F205D5001ECC75 /* AccountViewController.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		2611E3BD21F21E8000045507 /* LabelButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButtonExtension.swift; sourceTree = "<group>"; };
+		2611E3BF21F2225A00045507 /* LabelWithPaddingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithPaddingExtension.swift; sourceTree = "<group>"; };
 		26178F4F21F2056F001ECC75 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26178F5121F2057E001ECC75 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		26178F5321F205D5001ECC75 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				2611E3BD21F21E8000045507 /* LabelButtonExtension.swift */,
+				2611E3BF21F2225A00045507 /* LabelWithPaddingExtension.swift */,
 			);
 			name = Extensions;
 			path = "New Group";
@@ -362,6 +365,7 @@
 			files = (
 				261BAB112191B502006F506E /* AppDelegate.swift in Sources */,
 				26F2194321DC27DC003E6B40 /* CalanderUtil.swift in Sources */,
+				2611E3C021F2225A00045507 /* LabelWithPaddingExtension.swift in Sources */,
 				26F2194121DC0300003E6B40 /* Location.swift in Sources */,
 				26178F5021F2056F001ECC75 /* LoginViewController.swift in Sources */,
 				26F2193D21DC0250003E6B40 /* LocationUtil.swift in Sources */,
