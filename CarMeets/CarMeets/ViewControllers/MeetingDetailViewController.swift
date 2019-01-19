@@ -24,6 +24,8 @@ class MeetingDetailViewController: UIViewController {
     
     @IBOutlet weak var amountGoingLabel: UILabel!
     @IBOutlet weak var amountLikedLabel: UILabel!
+    @IBOutlet weak var goingSwitch: UISwitch!
+    @IBOutlet weak var likedSwitch: UISwitch!
     
     
     @IBOutlet weak var locationLabel: UILabel!
@@ -64,6 +66,12 @@ class MeetingDetailViewController: UIViewController {
         
         //aantal going instellen
         amountGoingLabel.attributedText = FavouritesUtil.amountGoingNotation(fromMeeting: meeting)
+        
+        //of user al dan niet gaat instellen
+        goingSwitch.isOn = FavouritesUtil.isUserGoing(toMeeting: meeting)
+        
+        //of user al dan niet geliked heeft instellen
+        likedSwitch.isOn = FavouritesUtil.isUserLiking(meeting: meeting)
         
         //aantal liked instellen
         amountLikedLabel.attributedText = FavouritesUtil.amountLikedNotation(fromMeeting: meeting)

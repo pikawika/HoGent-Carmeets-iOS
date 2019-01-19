@@ -64,6 +64,24 @@ class FavouritesUtil {
         return completeText
     }
     
+    /**
+     Returnt of de huidige user al da niet naar een bepaalde meeting gaat.
+     
+     - Parameter fromMeeting meeting: De meeting waarvoor je de informatie wenst.
+     */
+    static func isUserGoing(toMeeting meeting: Meeting) -> Bool {
+        return meeting.listUsersGoing.contains(TokenUtil.getUserIdFromToken())
+    }
+    
+    /**
+     Returnt of de huidige user al da niet een bepaalde meeting geliked heeft.
+     
+     - Parameter fromMeeting meeting: De meeting waarvoor je de informatie wenst.
+     */
+    static func isUserLiking(meeting: Meeting) -> Bool {
+        return meeting.listUsersLiked.contains(TokenUtil.getUserIdFromToken())
+    }
+    
     
 }
 

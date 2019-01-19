@@ -133,17 +133,17 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AeI-u8-4YW">
-                                <rect key="frame" x="320" y="255" width="45" height="69.5"/>
+                                <rect key="frame" x="300" y="255" width="65" height="89.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5C-jd-xRM" customClass="LabelWithPadding" customModule="CarMeets" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="55.5"/>
                                         <color key="backgroundColor" red="0.90809887649999999" green="0.091376133260000006" blue="0.36473488809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqQ-UV-WTo" customClass="LabelWithPadding" customModule="CarMeets" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="45.5" width="45" height="24"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="65" height="34"/>
                                         <color key="backgroundColor" red="0.90809887649999999" green="0.091376133260000006" blue="0.36473488809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -188,10 +188,10 @@
                                 <rect key="frame" x="0.0" y="367" width="375" height="251"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DaX-BF-tYc">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="347"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z7T-qn-YC2">
-                                                <rect key="frame" x="10" y="0.0" width="355" height="265"/>
+                                                <rect key="frame" x="10" y="0.0" width="355" height="337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfU-xk-8mR">
                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="17"/>
@@ -217,7 +217,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="exd-Y5-KjW">
-                                                        <rect key="frame" x="0.0" y="96" width="355" height="39"/>
+                                                        <rect key="frame" x="0.0" y="96" width="355" height="111"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount going" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkg-Mf-49S">
                                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="17"/>
@@ -225,16 +225,22 @@
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uxF-DZ-IPS">
+                                                                <rect key="frame" x="0.0" y="22" width="357" height="31"/>
+                                                            </switch>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount liked" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL9-dg-Mnz">
-                                                                <rect key="frame" x="0.0" y="22" width="355" height="17"/>
+                                                                <rect key="frame" x="0.0" y="58" width="355" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emg-wa-4nz">
+                                                                <rect key="frame" x="0.0" y="80" width="357" height="31"/>
+                                                            </switch>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5aG-G5-Xwf">
-                                                        <rect key="frame" x="50" y="155" width="255" height="110"/>
+                                                        <rect key="frame" x="50" y="227" width="255" height="110"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnN-UB-Mnc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="30"/>
@@ -327,6 +333,8 @@
                         <outlet property="dateDayLabel" destination="F5C-jd-xRM" id="PCE-pe-2WQ"/>
                         <outlet property="dateMonthLabel" destination="GqQ-UV-WTo" id="Sap-x1-YWa"/>
                         <outlet property="descriptionLabel" destination="hfU-xk-8mR" id="2IL-zj-ARa"/>
+                        <outlet property="goingSwitch" destination="uxF-DZ-IPS" id="Dgt-Ci-mhJ"/>
+                        <outlet property="likedSwitch" destination="emg-wa-4nz" id="uGW-1Z-N83"/>
                         <outlet property="locationLabel" destination="uOj-ET-gOi" id="jnl-hP-Nw9"/>
                         <outlet property="meetingImageView" destination="SgG-UV-lNg" id="ykD-Bm-2KL"/>
                         <outlet property="subtitleLabel" destination="btt-Wr-tJH" id="Uht-1L-3QG"/>
