@@ -820,6 +820,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorietenlijst" id="DBp-e4-ach"/>
+                    <connections>
+                        <segue destination="wMn-AS-z5m" kind="show" identifier="favouritesToLoginSegue" id="sUv-uI-k4T"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ClH-KC-DYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -834,6 +837,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vla-1p-Yfj"/>
+        <segue reference="sUv-uI-k4T"/>
         <segue reference="r03-Vw-cBm"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,9 +15,20 @@ class MeetingsTableViewController: UITableViewController {
      De lijst van Meeting objecten die in de table weergegeven moeten worden.
      */
     var meetings = [Meeting]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
+        
+        if (isFavourites && !KeyChainUtil.isUserLoggedIn()) {
+            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         //observen op meetings
         notificationCenter.addObserver(self,
