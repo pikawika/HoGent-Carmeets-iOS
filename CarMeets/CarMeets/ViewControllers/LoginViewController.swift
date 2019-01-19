@@ -44,11 +44,16 @@ class LoginViewController: UIViewController {
             //proberen inloggen met de userdata
             AccountController.shared.login(withCredentials: loginRequest) { (response) in
                 //login succes
-                if (response.0){
-                    self.performSegue(withIdentifier: "loginToAccountSegue", sender: self)
-                } else {
-                    MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                DispatchQueue.main.async {
+                    if (response.0){
+                        //lijst refreshen voor user favourites
+                        MeetingController.shared.fetchMeetings()
+                        self.performSegue(withIdentifier: "loginToAccountSegue", sender: self)
+                    } else {
+                        MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                    }
                 }
+                
             }
         }
         

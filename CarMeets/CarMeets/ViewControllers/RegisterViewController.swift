@@ -38,7 +38,7 @@ class RegisterViewController: UIViewController {
         } else if (passwordTextView.text! != confirmPasswordTextView.text!) {
             MessageUtil.showToast(message: "wachtwoorden komen niet overeen", durationInSeconds: 1, controller: self)
         }
-        
+            
         else {
             //login request formaat maken
             let registerRequest = RegisterRequest.init(
@@ -49,11 +49,13 @@ class RegisterViewController: UIViewController {
             
             //proberen inloggen met de userdata
             AccountController.shared.register(withAccountDetails: registerRequest) { (response) in
-                //login succes
-                if (response.0){
-                    self.performSegue(withIdentifier: "registerToAccountSegue", sender: self)
-                } else {
-                    MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                DispatchQueue.main.async {
+                    //login succes
+                    if (response.0){
+                        self.performSegue(withIdentifier: "registerToAccountSegue", sender: self)
+                    } else {
+                        MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                    }
                 }
             }
         }
