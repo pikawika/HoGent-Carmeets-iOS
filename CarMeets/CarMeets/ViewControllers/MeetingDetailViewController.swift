@@ -9,7 +9,7 @@
 import UIKit
 
 class MeetingDetailViewController: UIViewController {
-
+    
     var meeting: Meeting!
     
     @IBOutlet weak var meetingImageView: UIImageView!
@@ -35,11 +35,11 @@ class MeetingDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         updateUI()
     }
     
-
+    
     func updateUI() {
         //image
         MeetingController.shared.fetchMeetingImage(imageName: meeting.imageName) { (image) in
@@ -82,29 +82,40 @@ class MeetingDetailViewController: UIViewController {
     }
     
     @IBAction func goingClicked(_ sender: Any) {
-        //toggle going request formaat maken
-        let toggleGoingRequest = ToggleGoingRequest.init(meetingId: meeting.meetingId)
-        
-        MeetingController.shared.toggleGoingForMeeting(withToggleGoingRequest: toggleGoingRequest) { (meeting) in
-            guard let meeting = meeting else { return }
-            DispatchQueue.main.async {
-                self.meeting = meeting
-                self.updateUI()
+        if (KeyChainUtil.isUserLoggedIn()) {
+            //toggle going request formaat maken
+            let toggleGoingRequest = ToggleGoingRequest.init(meetingId: meeting.meetingId)
+            
+            MeetingController.shared.toggleGoingForMeeting(withToggleGoingRequest: toggleGoingRequest) { (meeting) in
+                guard let meeting = meeting else { return }
+                DispatchQueue.main.async {
+                    self.meeting = meeting
+                    self.updateUI()
+                }
             }
+        } else {
+            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self)
         }
     }
     
     @IBAction func likeClicked(_ sender: Any) {
-        //toggle like request formaat maken
-        let toggleLikeRequest = ToggleLikeRequest.init(meetingId: meeting.meetingId)
-        
-        MeetingController.shared.toggleLikedForMeeting(withToggleLikedRequest: toggleLikeRequest) { (meeting) in
-            guard let meeting = meeting else { return }
-            DispatchQueue.main.async {
-                self.meeting = meeting
-                self.updateUI()
+        if (KeyChainUtil.isUserLoggedIn()) {
+            //toggle like request formaat maken
+            let toggleLikeRequest = ToggleLikeRequest.init(meetingId: meeting.meetingId)
+            
+            MeetingController.shared.toggleLikedForMeeting(withToggleLikedRequest: toggleLikeRequest) { (meeting) in
+                guard let meeting = meeting else { return }
+                DispatchQueue.main.async {
+                    self.meeting = meeting
+                    self.updateUI()
+                }
             }
+        } else {
+            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self)
         }
+        
+        
+        
     }
     
     @IBAction func navigationButtonClicked(_ sender: UIButton) {
