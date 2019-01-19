@@ -27,4 +27,35 @@ class ListFilterUtil {
             $0.meetingId == meetingId
         }
     }
+    
+    /**
+     Returnt de meeting met de meegegeven id of nil
+     */
+    static func getNextMeeting(fromMeetingList meetings: [Meeting], withCurrentMeeting meeting: Meeting) -> Meeting? {
+        
+        if let currentIndex = meetings.firstIndex(where: { $0.meetingId == meeting.meetingId }) {
+            if currentIndex < (meetings.count - 1) {
+                //indien er volgende is return die anders return eerste
+                return meetings[currentIndex + 1]
+            }
+        }
+        
+        return meetings[0]
+    }
+    
+    /**
+     Returnt de meeting met de meegegeven id of nil
+     */
+    static func getPreviousMeeting(fromMeetingList meetings: [Meeting], withCurrentMeeting meeting: Meeting) -> Meeting? {
+        
+        if let currentIndex = meetings.firstIndex(where: { $0.meetingId == meeting.meetingId }) {
+            if currentIndex != 0 {
+                //indien er volgende is return die anders return eerste
+                return meetings[currentIndex - 1]
+            }
+        }
+        
+        return meetings[meetings.count - 1]
+    }
+    
 }

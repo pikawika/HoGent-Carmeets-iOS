@@ -59,7 +59,8 @@ class MeetingsTableViewController: UITableViewController {
             //failed
             return
         }
-        let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
+        
+        let isFavourites = (self.tabBarController?.selectedIndex ?? 0) == 1
         
         if (isFavourites) {
             self.updateUI(with: ListFilterUtil.getUserFavourites(fromMeetingList: meetings))
@@ -130,6 +131,7 @@ class MeetingsTableViewController: UITableViewController {
             let meetingDetailViewController = segue.destination as! MeetingDetailViewController
             let index = tableView.indexPathForSelectedRow!.row
             meetingDetailViewController.meeting = meetings[index]
+            meetingDetailViewController.meetings = meetings
         }
     }
 }

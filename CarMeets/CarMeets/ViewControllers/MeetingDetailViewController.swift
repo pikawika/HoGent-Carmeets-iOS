@@ -12,6 +12,11 @@ class MeetingDetailViewController: UIViewController {
     
     var meeting: Meeting!
     
+    /**
+     De lijst van Meeting objecten die in de table weergegeven moeten worden.
+     */
+    var meetings = [Meeting]()
+    
     private let notificationCenter: NotificationCenter = .default
     
     @IBOutlet weak var meetingImageView: UIImageView!
@@ -55,6 +60,14 @@ class MeetingDetailViewController: UIViewController {
         guard let meetings = notification.object as? [Meeting] else {
             //failed
             return
+        }
+        
+        let isFavourites = (self.tabBarController?.selectedIndex ?? 0) == 1
+        
+        if (isFavourites) {
+            self.meetings = ListFilterUtil.getUserFavourites(fromMeetingList: meetings)
+        } else {
+            self.meetings = meetings
         }
         
         if let meeting = ListFilterUtil.getMeetingWithID(fromMeetingList: meetings, withMeetingId: meeting.meetingId)
@@ -129,13 +142,22 @@ class MeetingDetailViewController: UIViewController {
         } else {
             MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self)
         }
-        
-        
-        
     }
     
     @IBAction func navigationButtonClicked(_ sender: UIButton) {
         SharedApplicationUtil.openNavigation(for: meeting.location())
+    }
+    
+    @IBAction func swipeLeft(_ sender: Any) {
+        meeting = ListFilterUtil.getNextMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting)
+        
+        updateUI()
+    }
+    
+    @IBAction func swipedRight(_ sender: Any) {
+        meeting = ListFilterUtil.getPreviousMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting)
+        
+        updateUI()
     }
     
     @IBAction func addToCalanderClicked(_ sender: Any) {
