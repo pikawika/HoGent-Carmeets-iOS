@@ -13,15 +13,23 @@ class MeetingDetailViewController: UIViewController {
     var meeting: Meeting!
     
     @IBOutlet weak var meetingImageView: UIImageView!
+    
     @IBOutlet weak var dateDayLabel: UILabel!
     @IBOutlet weak var dateMonthLabel: UILabel!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+    
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var amountGoingLabel: UILabel!
+    @IBOutlet weak var amountLikedLabel: UILabel!
+    
+    
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var categoriesLabel: UILabel!
-    @IBOutlet weak var websiteButton: UIButton!
     
+    @IBOutlet weak var websiteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +61,12 @@ class MeetingDetailViewController: UIViewController {
         locationLabel.attributedText = LocationUtil.fullAdressNotationWithIcon(from: meeting.location())
         //categories
         categoriesLabel.attributedText = CategoriesUtil.listNotation(from: meeting.categories)
+        
+        //aantal going instellen
+        amountGoingLabel.attributedText = FavouritesUtil.amountGoingNotation(fromMeeting: meeting)
+        
+        //aantal liked instellen
+        amountLikedLabel.attributedText = FavouritesUtil.amountLikedNotation(fromMeeting: meeting)
         
         if ((meeting.website ?? "").isEmpty) {
             websiteButton.isHidden = true

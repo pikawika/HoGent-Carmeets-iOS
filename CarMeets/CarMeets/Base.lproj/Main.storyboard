@@ -188,10 +188,10 @@
                                 <rect key="frame" x="0.0" y="367" width="375" height="251"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DaX-BF-tYc">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z7T-qn-YC2">
-                                                <rect key="frame" x="10" y="0.0" width="355" height="206"/>
+                                                <rect key="frame" x="10" y="0.0" width="355" height="265"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfU-xk-8mR">
                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="17"/>
@@ -216,8 +216,25 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="exd-Y5-KjW">
+                                                        <rect key="frame" x="0.0" y="96" width="355" height="39"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount going" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkg-Mf-49S">
+                                                                <rect key="frame" x="0.0" y="0.0" width="355" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount liked" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL9-dg-Mnz">
+                                                                <rect key="frame" x="0.0" y="22" width="355" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5aG-G5-Xwf">
-                                                        <rect key="frame" x="50" y="96" width="255" height="110"/>
+                                                        <rect key="frame" x="50" y="155" width="255" height="110"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnN-UB-Mnc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="30"/>
@@ -254,10 +271,12 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="5aG-G5-Xwf" secondAttribute="trailing" constant="50" id="KaJ-so-gOd"/>
+                                                    <constraint firstItem="exd-Y5-KjW" firstAttribute="leading" secondItem="z7T-qn-YC2" secondAttribute="leading" id="O6F-kY-VVR"/>
                                                     <constraint firstItem="5aG-G5-Xwf" firstAttribute="leading" secondItem="z7T-qn-YC2" secondAttribute="leading" constant="50" id="OhP-zP-Eel"/>
                                                     <constraint firstItem="hfU-xk-8mR" firstAttribute="leading" secondItem="z7T-qn-YC2" secondAttribute="leading" id="Qp0-1z-1RP"/>
                                                     <constraint firstAttribute="trailing" secondItem="hfU-xk-8mR" secondAttribute="trailing" id="Rsj-2M-Ntp"/>
                                                     <constraint firstItem="wga-39-OPy" firstAttribute="leading" secondItem="z7T-qn-YC2" secondAttribute="leading" id="uvg-7y-6f0"/>
+                                                    <constraint firstAttribute="trailing" secondItem="exd-Y5-KjW" secondAttribute="trailing" id="vXm-WJ-Y5B"/>
                                                     <constraint firstAttribute="trailing" secondItem="wga-39-OPy" secondAttribute="trailing" id="xY6-9G-iwT"/>
                                                 </constraints>
                                             </stackView>
@@ -302,6 +321,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="JvQ-fe-WbG"/>
                     <connections>
+                        <outlet property="amountGoingLabel" destination="Dkg-Mf-49S" id="VPk-4N-b2H"/>
+                        <outlet property="amountLikedLabel" destination="TL9-dg-Mnz" id="dxs-Gl-eIN"/>
                         <outlet property="categoriesLabel" destination="0dn-wT-u1W" id="pSh-37-pck"/>
                         <outlet property="dateDayLabel" destination="F5C-jd-xRM" id="PCE-pe-2WQ"/>
                         <outlet property="dateMonthLabel" destination="GqQ-UV-WTo" id="Sap-x1-YWa"/>

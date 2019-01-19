@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		260F10DB21F2942500D56903 /* TokenUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260F10DA21F2942500D56903 /* TokenUtil.swift */; };
+		260F10DF21F2A53300D56903 /* FavouritesUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260F10DE21F2A53300D56903 /* FavouritesUtil.swift */; };
 		2611E3BE21F21E8000045507 /* LabelButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3BD21F21E8000045507 /* LabelButtonExtension.swift */; };
 		2611E3C021F2225A00045507 /* LabelWithPaddingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3BF21F2225A00045507 /* LabelWithPaddingExtension.swift */; };
 		2611E3C221F2280E00045507 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2611E3C121F2280E00045507 /* AccountController.swift */; };
@@ -65,6 +66,7 @@
 		14F024E6B3BF88F31E28296B /* Pods-CarMeetsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarMeetsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarMeetsUITests/Pods-CarMeetsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		15E39B82792AC02298766ED9 /* Pods-CarMeets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarMeets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarMeets/Pods-CarMeets.debug.xcconfig"; sourceTree = "<group>"; };
 		260F10DA21F2942500D56903 /* TokenUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtil.swift; sourceTree = "<group>"; };
+		260F10DE21F2A53300D56903 /* FavouritesUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesUtil.swift; sourceTree = "<group>"; };
 		2611E3BD21F21E8000045507 /* LabelButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButtonExtension.swift; sourceTree = "<group>"; };
 		2611E3BF21F2225A00045507 /* LabelWithPaddingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithPaddingExtension.swift; sourceTree = "<group>"; };
 		2611E3C121F2280E00045507 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 		26F2193921DBBBFF003E6B40 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				260F10DE21F2A53300D56903 /* FavouritesUtil.swift */,
 				26F2193A21DBBC15003E6B40 /* DateUtil.swift */,
 				26F2193C21DC0250003E6B40 /* LocationUtil.swift */,
 				26F2193E21DC025F003E6B40 /* CategoriesUtil.swift */,
@@ -569,6 +572,7 @@
 				263DA36121DA515900A798BB /* MeetingDetailViewController.swift in Sources */,
 				261BAB192191B502006F506E /* CarMeets.xcdatamodeld in Sources */,
 				26F2194521DC29EE003E6B40 /* MessageUtil.swift in Sources */,
+				260F10DF21F2A53300D56903 /* FavouritesUtil.swift in Sources */,
 				2611E3C921F22B9000045507 /* LoginRequest.swift in Sources */,
 				2611E3CB21F22BA000045507 /* TokenResponse.swift in Sources */,
 			);
