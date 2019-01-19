@@ -11,19 +11,31 @@ import JWTDecode
 
 class TokenUtil {
     /**
-     Slaat de token op in een KeyChain.
-     
-     - Parameter withToken: de token (string) die je wilt opslaan in een KeyChain.
+     Haalt de token op uit de KeyChain en haalt de gebruikersnaam er uit.
      */
     static func getUsernameFromToken() -> String {
         guard let jwt = try? decode(jwt: KeyChainUtil.getTokenFromKeychain()) else { return "gebruiker" }
         
         let claim = jwt.claim(name: "username")
-        if let email = claim.string {
-            return email
+        if let username = claim.string {
+            return username
         }
         
         return "gebruiker"
+    }
+    
+    /**
+     Haalt de token op uit de KeyChain en haalt de gebruikersId er uit.
+     */
+    static func getUserIdFromToken() -> String {
+        guard let jwt = try? decode(jwt: KeyChainUtil.getTokenFromKeychain()) else { return "-1" }
+        
+        let claim = jwt.claim(name: "_id")
+        if let userId = claim.string {
+            return userId
+        }
+        
+        return "-1"
     }
     
 }

@@ -18,10 +18,21 @@ class MeetingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //meetings ophalen van de server op de niet main thread en oncomplete UI updaten.
-        MeetingController.shared.fetchMeetings { (meetings) in
-            if let meetings = meetings {
-                self.updateUI(with: meetings)
+        let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
+        
+        if (isFavourites) {
+            //meetings ophalen van de server en kijken welke tot de user horen
+            MeetingController.shared.fetchMeetingsFromUser { (meetings) in
+                if let meetings = meetings {
+                    self.updateUI(with: meetings)
+                }
+            }
+        } else {
+            //meetings ophalen van de server op de niet main thread en oncomplete UI updaten.
+            MeetingController.shared.fetchMeetings { (meetings) in
+                if let meetings = meetings {
+                    self.updateUI(with: meetings)
+                }
             }
         }
         

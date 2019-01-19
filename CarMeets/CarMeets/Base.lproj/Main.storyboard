@@ -40,7 +40,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tJ-Gw-4j0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3202" y="-268"/>
+            <point key="canvasLocation" x="3201" y="-645"/>
         </scene>
         <!--Meetings-->
         <scene sceneID="uVc-rc-B3a">
@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="gwB-P7-HWe" kind="relationship" relationship="rootViewController" id="rjk-WX-6U5"/>
+                        <segue destination="avL-xj-tBq" kind="relationship" relationship="rootViewController" id="fZK-9E-ak4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDN-KX-aTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -675,6 +675,38 @@
             </objects>
             <point key="canvasLocation" x="2828" y="1567"/>
         </scene>
+        <!--Favorietenlijst-->
+        <scene sceneID="pW5-Qs-DVb">
+            <objects>
+                <tableViewController id="avL-xj-tBq" customClass="MeetingsTableViewController" customModule="CarMeets" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JAO-Ya-8Gq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="customMeetingTableCell" id="9me-1u-RUE">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9me-1u-RUE" id="i5O-LH-5qJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Xue-PN-1g3" kind="show" identifier="listToDetailSegue" id="r03-Vw-cBm"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="avL-xj-tBq" id="57v-v1-HGh"/>
+                            <outlet property="delegate" destination="avL-xj-tBq" id="wOv-yt-2Xh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favorietenlijst" id="DBp-e4-ach"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ClH-KC-DYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3201" y="134"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_account" width="18.75" height="18.75"/>
@@ -684,6 +716,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vla-1p-Yfj"/>
-        <segue reference="rjk-WX-6U5"/>
+        <segue reference="r03-Vw-cBm"/>
     </inferredMetricsTieBreakers>
 </document>
