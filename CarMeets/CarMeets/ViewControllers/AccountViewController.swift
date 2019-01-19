@@ -33,6 +33,8 @@ class AccountViewController: UIViewController {
     
     @IBAction func signOutClicked(_ sender: Any) {
         KeyChainUtil.clearKeychain()
+        //lijst refreshen voor user favourites weg te halen
+        MeetingController.shared.fetchMeetings()
         //ga terug naar login
         if let navController = self.navigationController {
             navController.popViewController(animated: true)

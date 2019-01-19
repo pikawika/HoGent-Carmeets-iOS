@@ -13,12 +13,18 @@ class MeetingController {
     
     static let shared = MeetingController()
     
+    private let notificationCenter: NotificationCenter
+    
+    init(notificationCenter: NotificationCenter = .default) {
+        self.notificationCenter = notificationCenter
+    }
+    
     /**
      Haalt alle actieve meetings op van de server.
      
      - Returns: Array van Meeting objecten als completion Void.
      */
-    func fetchMeetings(completion: @escaping ([Meeting]?) -> Void) {
+    func fetchMeetings() {
         let allMeetingsURL = NetworkConstants.baseApiMeetingsURL.appendingPathComponent("alleMeetings")
         let task = URLSession.shared.dataTask(with: allMeetingsURL) { (data, response, error) in
             let jsonDecoder = JSONDecoder()
@@ -27,38 +33,7 @@ class MeetingController {
             if let data = data
                  {
                     let meetings = try! jsonDecoder.decode([Meeting].self, from: data)
-                completion(meetings)
-            } else {
-                completion(nil)
-            }
-        }
-        task.resume()
-    }
-    
-    /**
-     Haalt alle actieve meetings op van de server en filtert diegene uit dat de user geliked of going heeft.
-     
-     - Returns: Array van Meeting objecten als completion Void.
-     */
-    func fetchMeetingsFromUser(completion: @escaping ([Meeting]?) -> Void) {
-        let allMeetingsURL = NetworkConstants.baseApiMeetingsURL.appendingPathComponent("alleMeetings")
-        let task = URLSession.shared.dataTask(with: allMeetingsURL) { (data, response, error) in
-            let jsonDecoder = JSONDecoder()
-            //custom date format nodig voor het verstaan van ExpressJS date response
-            jsonDecoder.dateDecodingStrategy = .formatted(.dateFromCarMeetsServer)
-            if let data = data
-            {
-                var meetings = try! jsonDecoder.decode([Meeting].self, from: data)
-                
-                //indien gebruiker zijn id in liked of going behoord het tot zijn favorieten
-                meetings = meetings.filter {
-                    $0.listUsersGoing.contains(TokenUtil.getUserIdFromToken()) ||
-                    $0.listUsersLiked.contains(TokenUtil.getUserIdFromToken())
-                }
-                
-                completion(meetings)
-            } else {
-                completion(nil)
+                    self.notificationCenter.post(name: .meetingsChanged, object: meetings)
             }
         }
         task.resume()

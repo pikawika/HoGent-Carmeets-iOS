@@ -9,6 +9,7 @@
 import UIKit
 
 class MeetingsTableViewController: UITableViewController {
+    private let notificationCenter: NotificationCenter = .default
     
     /**
      De lijst van Meeting objecten die in de table weergegeven moeten worden.
@@ -18,22 +19,16 @@ class MeetingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
+        //observen op meetings
+        notificationCenter.addObserver(self,
+                                       selector: #selector(meetingsChanged),
+                                       name: .meetingsChanged,
+                                       object: nil
+        )
         
-        if (isFavourites) {
-            //meetings ophalen van de server en kijken welke tot de user horen
-            MeetingController.shared.fetchMeetingsFromUser { (meetings) in
-                if let meetings = meetings {
-                    self.updateUI(with: meetings)
-                }
-            }
-        } else {
-            //meetings ophalen van de server op de niet main thread en oncomplete UI updaten.
-            MeetingController.shared.fetchMeetings { (meetings) in
-                if let meetings = meetings {
-                    self.updateUI(with: meetings)
-                }
-            }
+        if (meetings.count == 0) {
+            //meetings ophalen -> observer zal automatisch UI updaten
+            MeetingController.shared.fetchMeetings()
         }
         
         self.tableView.register(MeetingTableCell.self, forCellReuseIdentifier: "customMeetingTableCell")
@@ -44,6 +39,23 @@ class MeetingsTableViewController: UITableViewController {
         
         //de footer is niets (ipv nog vullen met lege lijst items)
         tableView.tableFooterView = UIView()
+    }
+    
+    /**
+     Zorgt er voor dat de UI geupdate wordt wanneer de lijst veranderd.
+     */
+    @objc private func meetingsChanged(_ notification: Notification) {
+        guard let meetings = notification.object as? [Meeting] else {
+            //failed
+            return
+        }
+        let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
+        
+        if (isFavourites) {
+            self.updateUI(with: ListFilterUtil.getUserFavourites(fromMeetingList: meetings))
+        } else {
+            self.updateUI(with: meetings)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
