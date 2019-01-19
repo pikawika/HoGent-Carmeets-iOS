@@ -9,20 +9,36 @@
 import UIKit
 
 class MeetingsTableViewController: UITableViewController {
+    private let notificationCenter: NotificationCenter = .default
     
     /**
      De lijst van Meeting objecten die in de table weergegeven moeten worden.
      */
     var meetings = [Meeting]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
+        
+        if (isFavourites && !KeyChainUtil.isUserLoggedIn()) {
+            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //meetings ophalen van de server op de niet main thread en oncomplete UI updaten.
-        MeetingController.shared.fetchMeetings { (meetings) in
-            if let meetings = meetings {
-                self.updateUI(with: meetings)
-            }
+        //observen op meetings
+        notificationCenter.addObserver(self,
+                                       selector: #selector(meetingsChanged),
+                                       name: .meetingsChanged,
+                                       object: nil
+        )
+        
+        if (meetings.count == 0) {
+            //meetings ophalen -> observer zal automatisch UI updaten
+            MeetingController.shared.fetchMeetings()
         }
         
         self.tableView.register(MeetingTableCell.self, forCellReuseIdentifier: "customMeetingTableCell")
@@ -33,6 +49,23 @@ class MeetingsTableViewController: UITableViewController {
         
         //de footer is niets (ipv nog vullen met lege lijst items)
         tableView.tableFooterView = UIView()
+    }
+    
+    /**
+     Zorgt er voor dat de UI geupdate wordt wanneer de lijst veranderd.
+     */
+    @objc private func meetingsChanged(_ notification: Notification) {
+        guard let meetings = notification.object as? [Meeting] else {
+            //failed
+            return
+        }
+        let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
+        
+        if (isFavourites) {
+            self.updateUI(with: ListFilterUtil.getUserFavourites(fromMeetingList: meetings))
+        } else {
+            self.updateUI(with: meetings)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,6 +106,14 @@ class MeetingsTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.meetings = meetings
             self.tableView.reloadData()
+            
+            //aantal meetings in komende 7D instellen
+            if (FavouritesUtil.userFavouritesInNext7Days(fromMeetingList: meetings) > 0){
+                self.tabBarController?.tabBar.items?[1].badgeValue = String(FavouritesUtil.userFavouritesInNext7Days(fromMeetingList: meetings))
+            } else {
+                //niets tonen
+                self.tabBarController?.tabBar.items?[1].badgeValue = nil
+            }
         }
     }
     
