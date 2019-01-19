@@ -82,14 +82,23 @@ class MeetingDetailViewController: UIViewController {
     }
     
     @IBAction func goingClicked(_ sender: Any) {
-        goingSwitch.setOn(!goingSwitch.isOn, animated: true)
+        //toggle going request formaat maken
+        let toggleGoingRequest = ToggleGoingRequest.init(meetingId: meeting.meetingId)
+        
+        MeetingController.shared.toggleGoingForMeeting(withToggleGoingRequest: toggleGoingRequest) { (meeting) in
+            guard let meeting = meeting else { return }
+            DispatchQueue.main.async {
+                self.meeting = meeting
+                self.updateUI()
+            }
+        }
     }
     
     @IBAction func likeClicked(_ sender: Any) {
         //toggle like request formaat maken
         let toggleLikeRequest = ToggleLikeRequest.init(meetingId: meeting.meetingId)
         
-        MeetingController.shared.toggleLiked(withToggleLikedRequest: toggleLikeRequest) { (meeting) in
+        MeetingController.shared.toggleLikedForMeeting(withToggleLikedRequest: toggleLikeRequest) { (meeting) in
             guard let meeting = meeting else { return }
             DispatchQueue.main.async {
                 self.meeting = meeting

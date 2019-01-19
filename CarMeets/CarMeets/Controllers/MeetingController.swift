@@ -32,13 +32,13 @@ class MeetingController {
     
     
     /**
-     Toggled like op gegeven functie en returnt deze functie nadat like bewerking voltooid is.
+     Toggled like op gegeven meeting en returnt deze meeting nadat like bewerking voltooid is.
      
-     - Parameter meetingId: de id van de meeting dat je wenst te togglen.
+     - Parameter withToggleLikedRequest: een request met de id van de meeting waarvan je like wilt togglen!
      
      - Returns: De meeting waarvan like getoggled is.
      */
-    func toggleLiked(withToggleLikedRequest toggleLikedRequest: ToggleLikeRequest ,completion: @escaping (Meeting?) -> Void) {
+    func toggleLikedForMeeting(withToggleLikedRequest toggleLikedRequest: ToggleLikeRequest ,completion: @escaping (Meeting?) -> Void) {
         let toggleLikedURL = NetworkConstants.baseApiMeetingsURL.appendingPathComponent("toggleLiked")
         var request = URLRequest(url: toggleLikedURL)
         request.httpMethod = "POST"
@@ -57,6 +57,52 @@ class MeetingController {
                         if let meetings = meetings {
                             self.notificationCenter.post(name: .meetingsChanged, object: meetings)
                             completion(ListFilterUtil.getMeetingWithID(fromMeetingList: meetings, withMeetingId: toggleLikedRequest.meetingId))
+                        } else {
+                            //meetings niet returnt
+                            completion(nil)
+                        }
+                    }
+                    
+                } else {
+                    //code niet ok (!=200)
+                    completion(nil)
+                }
+                
+            } else {
+                // HTTPURLResponse niet correct kunnen bepalen
+                completion(nil)
+            }
+            
+        }
+        task.resume()
+    }
+    
+    /**
+     Toggled going op gegeven meeting en returnt deze meeting nadat goign bewerking voltooid is.
+     
+     - Parameter withToggleGoingRequest: een request met de id van de meeting waarvan je like wilt togglen!
+     
+     - Returns: De meeting waarvan going getoggled is.
+     */
+    func toggleGoingForMeeting(withToggleGoingRequest toggleGoingRequest: ToggleGoingRequest ,completion: @escaping (Meeting?) -> Void) {
+        let toggleLikedURL = NetworkConstants.baseApiMeetingsURL.appendingPathComponent("toggleGoing")
+        var request = URLRequest(url: toggleLikedURL)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let jsonEncoder = JSONEncoder()
+        let jsonData = try? jsonEncoder.encode(toggleGoingRequest)
+        request.httpBody = jsonData
+        request.setValue("Bearer " + KeyChainUtil.getTokenFromKeychain(), forHTTPHeaderField: "Authorization")
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                
+                if (httpResponse.statusCode == 200) {
+                    
+                    self.fetchMeetingsFromServer { (meetings) in
+                        if let meetings = meetings {
+                            self.notificationCenter.post(name: .meetingsChanged, object: meetings)
+                            completion(ListFilterUtil.getMeetingWithID(fromMeetingList: meetings, withMeetingId: toggleGoingRequest.meetingId))
                         } else {
                             //meetings niet returnt
                             completion(nil)

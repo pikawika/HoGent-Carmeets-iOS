@@ -32,6 +32,7 @@
 		26579A6E21F34936005AEC9B /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26579A6D21F34936005AEC9B /* NotificationExtensions.swift */; };
 		26579A7021F3494C005AEC9B /* LabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26579A6F21F3494C005AEC9B /* LabelExtensions.swift */; };
 		26579A7421F35919005AEC9B /* ToggleLikeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26579A7321F35919005AEC9B /* ToggleLikeRequest.swift */; };
+		26579A7621F35E89005AEC9B /* ToggleGoingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26579A7521F35E89005AEC9B /* ToggleGoingRequest.swift */; };
 		26F2193221DA9BD0003E6B40 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2193121DA9BD0003E6B40 /* Meeting.swift */; };
 		26F2193521DA9F6B003E6B40 /* MeetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2193421DA9F6B003E6B40 /* MeetingController.swift */; };
 		26F2193B21DBBC15003E6B40 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2193A21DBBC15003E6B40 /* DateUtil.swift */; };
@@ -99,6 +100,7 @@
 		26579A6D21F34936005AEC9B /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		26579A6F21F3494C005AEC9B /* LabelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtensions.swift; sourceTree = "<group>"; };
 		26579A7321F35919005AEC9B /* ToggleLikeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleLikeRequest.swift; sourceTree = "<group>"; };
+		26579A7521F35E89005AEC9B /* ToggleGoingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleGoingRequest.swift; sourceTree = "<group>"; };
 		2677360021BFA7DA00D3BEDF /* CarMeets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarMeets.entitlements; sourceTree = "<group>"; };
 		26F2193121DA9BD0003E6B40 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		26F2193421DA9F6B003E6B40 /* MeetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				2611E3C821F22B9000045507 /* LoginRequest.swift */,
 				2611E3D221F2596300045507 /* RegisterRequest.swift */,
 				26579A7321F35919005AEC9B /* ToggleLikeRequest.swift */,
+				26579A7521F35E89005AEC9B /* ToggleGoingRequest.swift */,
 			);
 			path = ServerRequests;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				26F2193521DA9F6B003E6B40 /* MeetingController.swift in Sources */,
 				263DA36321DA56B100A798BB /* MeetingsTableViewController.swift in Sources */,
 				26579A6C21F342C1005AEC9B /* ListFilterUtil.swift in Sources */,
+				26579A7621F35E89005AEC9B /* ToggleGoingRequest.swift in Sources */,
 				26178F5221F2057E001ECC75 /* RegisterViewController.swift in Sources */,
 				26F2193B21DBBC15003E6B40 /* DateUtil.swift in Sources */,
 				263DA36121DA515900A798BB /* MeetingDetailViewController.swift in Sources */,
