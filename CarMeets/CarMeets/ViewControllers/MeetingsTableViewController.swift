@@ -60,7 +60,7 @@ class MeetingsTableViewController: UITableViewController {
             return
         }
         
-        let isFavourites = (self.tabBarController?.selectedIndex ?? 0) == 1
+        let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
         
         if (isFavourites) {
             self.updateUI(with: ListFilterUtil.getUserFavourites(fromMeetingList: meetings))
