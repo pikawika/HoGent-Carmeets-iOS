@@ -12,6 +12,8 @@ class MeetingDetailViewController: UIViewController {
     
     var meeting: Meeting!
     
+    private let notificationCenter: NotificationCenter = .default
+    
     @IBOutlet weak var meetingImageView: UIImageView!
     
     @IBOutlet weak var dateDayLabel: UILabel!
@@ -36,9 +38,35 @@ class MeetingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //observen op meetings
+        notificationCenter.addObserver(self,
+                                       selector: #selector(meetingsChanged),
+                                       name: .meetingsChanged,
+                                       object: nil
+        )
+        
         updateUI()
     }
     
+    /**
+     Zorgt er voor dat de UI geupdate wordt wanneer de lijst veranderd.
+     */
+    @objc private func meetingsChanged(_ notification: Notification) {
+        guard let meetings = notification.object as? [Meeting] else {
+            //failed
+            return
+        }
+        
+        if let meeting = ListFilterUtil.getMeetingWithID(fromMeetingList: meetings, withMeetingId: meeting.meetingId)
+        {
+            self.meeting = meeting
+            DispatchQueue.main.async {
+                self.updateUI()
+            }
+            
+        }
+        
+    }
     
     func updateUI() {
         //image
@@ -86,13 +114,7 @@ class MeetingDetailViewController: UIViewController {
             //toggle going request formaat maken
             let toggleGoingRequest = ToggleGoingRequest.init(meetingId: meeting.meetingId)
             
-            MeetingController.shared.toggleGoingForMeeting(withToggleGoingRequest: toggleGoingRequest) { (meeting) in
-                guard let meeting = meeting else { return }
-                DispatchQueue.main.async {
-                    self.meeting = meeting
-                    self.updateUI()
-                }
-            }
+            MeetingController.shared.toggleGoingForMeeting(withToggleGoingRequest: toggleGoingRequest)
         } else {
             MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self)
         }
@@ -103,13 +125,7 @@ class MeetingDetailViewController: UIViewController {
             //toggle like request formaat maken
             let toggleLikeRequest = ToggleLikeRequest.init(meetingId: meeting.meetingId)
             
-            MeetingController.shared.toggleLikedForMeeting(withToggleLikedRequest: toggleLikeRequest) { (meeting) in
-                guard let meeting = meeting else { return }
-                DispatchQueue.main.async {
-                    self.meeting = meeting
-                    self.updateUI()
-                }
-            }
+            MeetingController.shared.toggleLikedForMeeting(withToggleLikedRequest: toggleLikeRequest)
         } else {
             MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self)
         }
