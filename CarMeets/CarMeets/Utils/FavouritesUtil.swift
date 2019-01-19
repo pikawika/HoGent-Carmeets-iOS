@@ -82,6 +82,20 @@ class FavouritesUtil {
         return meeting.listUsersLiked.contains(TokenUtil.getUserIdFromToken())
     }
     
+    /**
+     Returnt hoeveel meetings user liked en/of going heeft in de volgende 7 dagen
+     
+     - Parameter fromMeeting meeting: De meeting waarvoor je de informatie wenst.
+     */
+    static func userFavouritesInNext7Days(fromMeetingList meetings: [Meeting]) -> Int {
+        let nextWeek = Calendar.current.date(byAdding: .day, value: 7, to: Date())
+        return meetings.filter {
+            ($0.listUsersGoing.contains(TokenUtil.getUserIdFromToken()) ||
+                $0.listUsersLiked.contains(TokenUtil.getUserIdFromToken())) &&
+                ($0.date < nextWeek ?? Date())
+        }.count
+    }
+    
     
 }
 
