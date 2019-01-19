@@ -86,7 +86,16 @@ class MeetingDetailViewController: UIViewController {
     }
     
     @IBAction func likeClicked(_ sender: Any) {
-        likeSwitch.setOn(!likeSwitch.isOn, animated: true)
+        //toggle like request formaat maken
+        let toggleLikeRequest = ToggleLikeRequest.init(meetingId: meeting.meetingId)
+        
+        MeetingController.shared.toggleLiked(withToggleLikedRequest: toggleLikeRequest) { (meeting) in
+            guard let meeting = meeting else { return }
+            DispatchQueue.main.async {
+                self.meeting = meeting
+                self.updateUI()
+            }
+        }
     }
     
     @IBAction func navigationButtonClicked(_ sender: UIButton) {

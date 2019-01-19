@@ -18,4 +18,13 @@ class ListFilterUtil {
                 $0.listUsersLiked.contains(TokenUtil.getUserIdFromToken())
         }
     }
+    
+    /**
+     Returnt de meeting met de meegegeven id of nil
+     */
+    static func getMeetingWithID(fromMeetingList meetings: [Meeting], withMeetingId meetingId: String) -> Meeting? {
+        return meetings.first {
+            $0.meetingId == meetingId
+        }
+    }
 }
