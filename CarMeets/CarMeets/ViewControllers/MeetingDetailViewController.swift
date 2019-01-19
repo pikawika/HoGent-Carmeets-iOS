@@ -25,7 +25,7 @@ class MeetingDetailViewController: UIViewController {
     @IBOutlet weak var amountGoingLabel: UILabel!
     @IBOutlet weak var amountLikedLabel: UILabel!
     @IBOutlet weak var goingSwitch: UISwitch!
-    @IBOutlet weak var likedSwitch: UISwitch!
+    @IBOutlet weak var likeSwitch: UISwitch!
     
     
     @IBOutlet weak var locationLabel: UILabel!
@@ -68,10 +68,10 @@ class MeetingDetailViewController: UIViewController {
         amountGoingLabel.attributedText = FavouritesUtil.amountGoingNotation(fromMeeting: meeting)
         
         //of user al dan niet gaat instellen
-        goingSwitch.isOn = FavouritesUtil.isUserGoing(toMeeting: meeting)
+        goingSwitch.setOn(FavouritesUtil.isUserGoing(toMeeting: meeting), animated: true)
         
         //of user al dan niet geliked heeft instellen
-        likedSwitch.isOn = FavouritesUtil.isUserLiking(meeting: meeting)
+        likeSwitch.setOn(FavouritesUtil.isUserLiking(meeting: meeting), animated: true)
         
         //aantal liked instellen
         amountLikedLabel.attributedText = FavouritesUtil.amountLikedNotation(fromMeeting: meeting)
@@ -79,6 +79,14 @@ class MeetingDetailViewController: UIViewController {
         if ((meeting.website ?? "").isEmpty) {
             websiteButton.isHidden = true
         }
+    }
+    
+    @IBAction func goingClicked(_ sender: Any) {
+        goingSwitch.setOn(!goingSwitch.isOn, animated: true)
+    }
+    
+    @IBAction func likeClicked(_ sender: Any) {
+        likeSwitch.setOn(!likeSwitch.isOn, animated: true)
     }
     
     @IBAction func navigationButtonClicked(_ sender: UIButton) {
