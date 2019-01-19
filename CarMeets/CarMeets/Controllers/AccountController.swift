@@ -33,25 +33,17 @@ class AccountController {
                 //iets teruggekregen (token of error message checken)
                 if let token = tokenResponse.token {
                     KeyChainUtil.setTokenInKeychain(withValue: token)
-                    DispatchQueue.main.async {
-                        completion((true, "Aangemeld"))
-                    }
+                    completion((true, "Aangemeld"))
                 }
                 else if let errorMessage = tokenResponse.errorMessage {
-                    DispatchQueue.main.async {
-                        completion((false, errorMessage))
-                    }
+                    completion((false, errorMessage))
                 }
                 else {
-                    DispatchQueue.main.async {
-                        completion((false, "Aanmelden mislukt"))
-                    }
+                    completion((false, "Aanmelden mislukt"))
                 }
                 
             } else {
-                DispatchQueue.main.async {
-                    completion((false, "Aanmelden mislukt"))
-                }
+                completion((false, "Aanmelden mislukt"))
             }
         }
         task.resume()
@@ -78,27 +70,19 @@ class AccountController {
                 //iets teruggekregen (token of error message checken)
                 if let token = tokenResponse.token {
                     KeyChainUtil.setTokenInKeychain(withValue: token)
-                    DispatchQueue.main.async {
-                        completion((true, "Geregistreerd"))
-                    }
+                    completion((true, "Geregistreerd"))
                 }
                 else if let errorMessage = tokenResponse.errorMessage {
-                    DispatchQueue.main.async {
-                        completion((false, errorMessage))
-                    }
+                    completion((false, errorMessage))
                 }
                 else {
-                    DispatchQueue.main.async {
-                        completion((false, "Registreren mislukt"))
-                    }
-                }
-            } else {
-                DispatchQueue.main.async {
                     completion((false, "Registreren mislukt"))
                 }
+            } else {
+                completion((false, "Registreren mislukt"))
             }
         }
         task.resume()
     }
-
+    
 }
