@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Struct voor het helpen encoden van een server request die wachtwoordgegevens bevat.
+ */
 struct ChangePasswordRequest: Codable {
     var newPassword : String
     

@@ -4,11 +4,16 @@
 //
 //  Created by Lennert Bontinck on 01/01/2019.
 //  Copyright © 2019 Lennert Bontinck. All rights reserved.
-//
+
+//  Source for inspiration (edited to suite my needs | also mentioned in Readme)
+//      https://stackoverflow.com/a/35811777
 
 import Foundation
 import UIKit
 
+/**
+ Een util om je te helpen werken met allerlei zaken omtrent een meeting zijn categorieën.
+ */
 class CategoriesUtil {
     /**
      Maakt een geformateerde string adhv een lijst van string object. bv: french | audio | lowered
@@ -18,8 +23,6 @@ class CategoriesUtil {
      - Returns: String in formaat -> icon + category1 | category2
      */
     static func listNotation(from categories: [String]) -> NSAttributedString {
-        //Zie bronnen voor source.
-        //Maak een attachment zijnde het icoon
         let imageAttachment =  NSTextAttachment()
         imageAttachment.image = #imageLiteral(resourceName: "ic_cars_small")
         //Stel locatie icoon in

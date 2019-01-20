@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Eenvoudigere manier voor het zien van de beschikbare notication items
+ */
 extension Notification.Name {
     static var meetingsChanged: Notification.Name {
         return .init(rawValue: "[Meeting]")

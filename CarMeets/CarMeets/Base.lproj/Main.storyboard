@@ -133,10 +133,10 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AeI-u8-4YW">
-                                <rect key="frame" x="300" y="255" width="65" height="89.5"/>
+                                <rect key="frame" x="320" y="255" width="45" height="69.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5C-jd-xRM" customClass="LabelWithPadding" customModule="CarMeets" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="65" height="55.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45.5"/>
                                         <color key="backgroundColor" red="0.90809887649999999" green="0.091376133260000006" blue="0.36473488809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -146,7 +146,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqQ-UV-WTo" customClass="LabelWithPadding" customModule="CarMeets" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="65" height="34"/>
+                                        <rect key="frame" x="0.0" y="45.5" width="45" height="24"/>
                                         <color key="backgroundColor" red="0.90809887649999999" green="0.091376133260000006" blue="0.36473488809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1015,7 +1015,7 @@
         <image name="img_logo" width="550" height="163"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="quZ-zx-ly5"/>
+        <segue reference="vla-1p-Yfj"/>
         <segue reference="Y0X-ee-a42"/>
         <segue reference="r03-Vw-cBm"/>
     </inferredMetricsTieBreakers>

@@ -4,6 +4,7 @@
 //
 //  Created by Lennert Bontinck on 31/12/2018.
 //  Copyright © 2018 Lennert Bontinck. All rights reserved.
+
 //  Source for inspiration (edited to suite my needs | also mentioned in Readme)
 //      https://www.youtube.com/watch?v=YwE3_hMyDZA
 
@@ -28,7 +29,7 @@ class MeetingTableCell: UITableViewCell {
         return imageView
     }()
     
-    var titleView: UILabel = {
+    var titleLabel: UILabel = {
         var label = UILabel()
         //optie nodig om constraint correct te kunenn gebruiken
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +37,7 @@ class MeetingTableCell: UITableViewCell {
         return label
     }()
     
-    var subtitleView: UILabel = {
+    var subtitleLabel: UILabel = {
         var label = UILabel()
         //optie nodig om constraint correct te kunenn gebruiken
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +46,7 @@ class MeetingTableCell: UITableViewCell {
         return label
     }()
     
-    var locationView: UILabel = {
+    var locationLabel: UILabel = {
         var label = UILabel()
         //optie nodig om constraint correct te kunenn gebruiken
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -56,18 +57,18 @@ class MeetingTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        //ipad groter font
         if (UIScreen.main.traitCollection.isIpad) {
-            titleView.font = titleView.font.withSize(30)
-            subtitleView.font = subtitleView.font.withSize(28)
-            locationView.font = locationView.font.withSize(20)
+            titleLabel.font = titleLabel.font.withSize(30)
+            subtitleLabel.font = subtitleLabel.font.withSize(28)
+            locationLabel.font = locationLabel.font.withSize(20)
         }
-        
         
         //elementen toevoegen aan lijst item
         self.addSubview(meetingImageView)
-        self.addSubview(titleView)
-        self.addSubview(subtitleView)
-        self.addSubview(locationView)
+        self.addSubview(titleLabel)
+        self.addSubview(subtitleLabel)
+        self.addSubview(locationLabel)
         
         //img constrainen met left top en bootom van parent en 40% width
         meetingImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
@@ -85,22 +86,20 @@ class MeetingTableCell: UITableViewCell {
         
         
         //title rechts van img bovenaan
-        titleView.leftAnchor.constraint(equalTo: self.meetingImageView.rightAnchor, constant: 10).isActive = true
-        titleView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        titleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 12).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: self.meetingImageView.rightAnchor, constant: 10).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 12).isActive = true
         
         //subtitle rechts van img onder title
-        subtitleView.leftAnchor.constraint(equalTo: self.meetingImageView.rightAnchor, constant: 10).isActive = true
-        subtitleView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        subtitleView.topAnchor.constraint(equalTo: self.titleView.bottomAnchor, constant: 5).isActive = true
+        subtitleLabel.leftAnchor.constraint(equalTo: self.meetingImageView.rightAnchor, constant: 10).isActive = true
+        subtitleLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        subtitleLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 5).isActive = true
         
         //location rechts van img onder subtitle
-        locationView.leftAnchor.constraint(equalTo: self.meetingImageView.rightAnchor, constant: 10).isActive = true
-        locationView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        locationView.topAnchor.constraint(equalTo: self.subtitleView.bottomAnchor, constant: 5).isActive = true
-        locationView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
-        
-        
+        locationLabel.leftAnchor.constraint(equalTo: self.meetingImageView.rightAnchor, constant: 10).isActive = true
+        locationLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        locationLabel.topAnchor.constraint(equalTo: self.subtitleLabel.bottomAnchor, constant: 5).isActive = true
+        locationLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
     }
     
     override func layoutSubviews() {
@@ -117,20 +116,19 @@ class MeetingTableCell: UITableViewCell {
         }
         
         if let title = title {
-            titleView.text = title
+            titleLabel.text = title
         }
         
         if let subtitle = subtitle {
-            subtitleView.text = subtitle
+            subtitleLabel.text = subtitle
         }
         
         if let location = location {
-            locationView.attributedText = LocationUtil.fullCityNotationWithIcon(from: location)
+            locationLabel.attributedText = LocationUtil.fullCityNotationWithIcon(fromLocation: location)
         }
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
-        fatalError("This is not how you implement this cell, read the doc.")
+        fatalError("This is not how you implement this cell.")
     }
 }

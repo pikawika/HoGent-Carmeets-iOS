@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Een meeting object.
+ */
 struct Meeting: Codable {
     var meetingId: String
     

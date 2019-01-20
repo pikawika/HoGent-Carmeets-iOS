@@ -4,18 +4,20 @@
 //
 //  Created by Lennert Bontinck on 31/12/2018.
 //  Copyright © 2018 Lennert Bontinck. All rights reserved.
-//
 
 import UIKit
 
 class MeetingDetailViewController: UIViewController {
     
+    /**
+     Het meeting object waarvan de detailpagina weergeven moet worden.
+     */
     var meeting: Meeting!
     
     /**
-     De lijst van Meeting objecten die in de table weergegeven moeten worden.
+     De lijst van Meeting objecten waarnaar gebruiker kan verder of terugnavigeren.
      */
-    var meetings = [Meeting]()
+    private var meetings = [Meeting]()
     
     private let notificationCenter: NotificationCenter = .default
     
@@ -51,38 +53,27 @@ class MeetingDetailViewController: UIViewController {
                                        object: nil
         )
         
+        syncMeetingsFromController()
+        
         updateUI()
     }
     
     /**
      Zorgt er voor dat de UI geupdate wordt wanneer de lijst veranderd.
      */
-    @objc private func meetingsChanged(_ notification: Notification) {
-        guard let meetings = notification.object as? [Meeting] else {
-            //failed
-            return
-        }
-        
-        let isFavourites = (self.tabBarController?.selectedIndex ?? 0) == 1
-        
-        if (isFavourites) {
-            self.meetings = ListFilterUtil.getUserFavourites(fromMeetingList: meetings)
-        } else {
-            self.meetings = meetings
-        }
-        
-        if let meeting = ListFilterUtil.getMeetingWithID(fromMeetingList: meetings, withMeetingId: meeting.meetingId)
+    @objc private func meetingsChanged() {
+        if let meeting = ListFilterUtil.getMeetingWithID(fromMeetingList: MeetingController.shared.meetings, withMeetingId: meeting.meetingId)
         {
+            syncMeetingsFromController()
+            
             self.meeting = meeting
             DispatchQueue.main.async {
                 self.updateUI()
             }
-            
         }
-        
     }
     
-    func updateUI() {
+    private func updateUI() {
         //image
         MeetingController.shared.fetchMeetingImage(imageName: meeting.imageName) { (image) in
             guard let image = image else { return }
@@ -92,9 +83,9 @@ class MeetingDetailViewController: UIViewController {
         }
         
         //dag
-        dateDayLabel.text = DateUtil.dayNotation(from: meeting.date)
+        dateDayLabel.text = DateUtil.dayNotation(fromDate: meeting.date)
         //maand
-        dateMonthLabel.text = DateUtil.shortMonthDateNotation(from: meeting.date)
+        dateMonthLabel.text = DateUtil.shortMonthDateNotation(fromDate: meeting.date)
         //title
         titleLabel.text = meeting.title
         //subtitle
@@ -102,7 +93,7 @@ class MeetingDetailViewController: UIViewController {
         //description
         descriptionLabel.text = meeting.description
         //location
-        locationLabel.attributedText = LocationUtil.fullAdressNotationWithIcon(from: meeting.location())
+        locationLabel.attributedText = LocationUtil.fullAdressNotationWithIcon(fromLocation: meeting.location())
         //categories
         categoriesLabel.attributedText = CategoriesUtil.listNotation(from: meeting.categories)
         
@@ -128,9 +119,7 @@ class MeetingDetailViewController: UIViewController {
             DispatchQueue.main.async {
                 if (eventAlreadyInCalander){
                     //toegevoegd aan kalander
-                    self.addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
-                    self.addtoCalanderButton.isEnabled = false
-                    self.addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+                    self.setAlreadyInCalander()
                 }
             }
         }
@@ -143,7 +132,7 @@ class MeetingDetailViewController: UIViewController {
             
             MeetingController.shared.toggleGoingForMeeting(withToggleGoingRequest: toggleGoingRequest)
         } else {
-            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
+            MessageUtil.showToast(withMessage: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
                 //ga naar login
                 self.performSegue(withIdentifier: "detailToLoginSegue", sender: self)
             }
@@ -157,7 +146,7 @@ class MeetingDetailViewController: UIViewController {
             
             MeetingController.shared.toggleLikedForMeeting(withToggleLikedRequest: toggleLikeRequest)
         } else {
-            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
+            MessageUtil.showToast(withMessage: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
                 //ga naar login
                 self.performSegue(withIdentifier: "detailToLoginSegue", sender: self)
             }
@@ -165,19 +154,21 @@ class MeetingDetailViewController: UIViewController {
     }
     
     @IBAction func navigationButtonClicked(_ sender: UIButton) {
-        SharedApplicationUtil.openNavigation(for: meeting.location())
+        SharedApplicationUtil.openNavigation(withMarkerOnLocation: meeting.location())
     }
     
     @IBAction func swipeLeft(_ sender: Any) {
-        meeting = ListFilterUtil.getNextMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting)
-        
-        updateUI()
+        if let meeting = ListFilterUtil.getNextMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting) {
+            self.meeting = meeting
+            updateUI()
+        }
     }
     
     @IBAction func swipedRight(_ sender: Any) {
-        meeting = ListFilterUtil.getPreviousMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting)
-        
-        updateUI()
+        if let meeting = ListFilterUtil.getPreviousMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting) {
+            self.meeting = meeting
+            updateUI()
+        }
     }
     
     @IBAction func addToCalanderClicked(_ sender: Any) {
@@ -186,18 +177,32 @@ class MeetingDetailViewController: UIViewController {
             DispatchQueue.main.async {
                 if (response.0){
                     //toegevoegd aan kalander
-                    self.addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
-                    self.addtoCalanderButton.isEnabled = false
-                    self.addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+                    self.setAlreadyInCalander()
                 }
                 
-                MessageUtil.showToast(message: response.1, durationInSeconds: 2, controller: self)
+                MessageUtil.showToast(withMessage: response.1, durationInSeconds: 2, controller: self)
             }
         }
     }
     
     @IBAction func visitWebsiteClicked(_ sender: Any) {
-        SharedApplicationUtil.openWebsite(url: meeting.website ?? "")
+        SharedApplicationUtil.openWebsite(withUrl: meeting.website ?? "")
+    }
+    
+    private func setAlreadyInCalander() {
+        addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
+        addtoCalanderButton.isEnabled = false
+        addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+    }
+    
+    private func syncMeetingsFromController() {
+        let isFavourites = (self.tabBarController?.selectedIndex ?? 0) == 1
+        
+        if (isFavourites) {
+            meetings = ListFilterUtil.getUserFavourites(fromMeetingList: MeetingController.shared.meetings)
+        } else {
+            meetings = MeetingController.shared.meetings
+        }
     }
     
 }

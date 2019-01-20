@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Struct voor het helpen encoden van een server request die meetingId bevat voor het togglen van going.
+ */
 struct ToggleGoingRequest: Codable {
     var meetingId : String
     

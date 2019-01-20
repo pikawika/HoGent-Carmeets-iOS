@@ -4,11 +4,16 @@
 //
 //  Created by Lennert Bontinck on 01/01/2019.
 //  Copyright © 2019 Lennert Bontinck. All rights reserved.
-//
+
+//  Source for inspiration (edited to suite my needs | also mentioned in Readme)
+//      https://stackoverflow.com/a/35811777
 
 import Foundation
 import UIKit
 
+/**
+ Een util om je te helpen werken met allerlei zaken omtrent een Location object.
+ */
 class LocationUtil {
     /**
      Maakt een geformateerde string adhv een location object. bv: 9260, Schellebelle
@@ -17,8 +22,7 @@ class LocationUtil {
      
      - Returns: NSAttributedString in formaat -> icon + postal, city.
      */
-    static func fullCityNotationWithIcon(from location: Location) -> NSAttributedString {
-        //Zie bronnen voor source.
+    static func fullCityNotationWithIcon(fromLocation location: Location) -> NSAttributedString {
         //Maak een attachment zijnde het icoon
         let imageAttachment =  NSTextAttachment()
         imageAttachment.image = #imageLiteral(resourceName: "ic_location_small")
@@ -44,9 +48,7 @@ class LocationUtil {
      
      - Returns: NSAttributedString in formaat -> icon + street housenr, postal city.
      */
-    static func fullAdressNotationWithIcon(from location: Location) -> NSAttributedString {
-        //  Source for inspiration (edited to suite my needs | also mentioned in Readme)
-        //      https://stackoverflow.com/a/35811777
+    static func fullAdressNotationWithIcon(fromLocation location: Location) -> NSAttributedString {
         //Maak een attachment zijnde het icoon
         let imageAttachment =  NSTextAttachment()
         imageAttachment.image = #imageLiteral(resourceName: "ic_location_small")
@@ -72,7 +74,7 @@ class LocationUtil {
      
      - Returns: string in formaat -> street housenr, postal city.
      */
-    static func fullAdressNotation(from location: Location) -> String {
+    static func fullAdressNotation(fromLocation location: Location) -> String {
         return location.streetName + " " + location.houseNumber + ", " + location.postalCode + " " + location.city
     }
 }
