@@ -39,11 +39,9 @@ class MeetingController {
     
     
     /**
-     Toggled like op gegeven meeting en returnt deze meeting nadat like bewerking voltooid is.
+     Toggled like op gegeven meeting en haalt meetings opnieuw op.
      
      - Parameter withToggleLikedRequest: een request met de id van de meeting waarvan je like wilt togglen!
-     
-     - Returns: De meeting waarvan like getoggled is.
      */
     func toggleLikedForMeeting(withToggleLikedRequest toggleLikedRequest: ToggleLikeRequest) {
         let toggleLikedURL = NetworkConstants.baseApiMeetingsURL.appendingPathComponent("toggleLiked")
@@ -71,11 +69,10 @@ class MeetingController {
     }
     
     /**
-     Toggled going op gegeven meeting en returnt deze meeting nadat goign bewerking voltooid is.
+     Toggled going op gegeven meeting en haalt meetings opnieuw op.
      
-     - Parameter withToggleGoingRequest: een request met de id van de meeting waarvan je like wilt togglen!
+     - Parameter withToggleGoingRequest: een request met de id van de meeting waarvan je going wilt togglen!
      
-     - Returns: De meeting waarvan going getoggled is.
      */
     func toggleGoingForMeeting(withToggleGoingRequest toggleGoingRequest: ToggleGoingRequest) {
         let toggleLikedURL = NetworkConstants.baseApiMeetingsURL.appendingPathComponent("toggleGoing")
