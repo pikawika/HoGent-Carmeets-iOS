@@ -19,12 +19,13 @@ class MessageUtil {
      
      - Returns: String in formaat -> icon + category1 | category2
      */
-    static func showToast(message: String, durationInSeconds: Double, controller: UIViewController) {
+    static func showToast(message: String, durationInSeconds: Double, controller: UIViewController, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         controller.present(alert, animated: true)
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + durationInSeconds) {
             alert.dismiss(animated: true)
+            completion?()
         }
     }
 }

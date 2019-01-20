@@ -12,12 +12,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var registerLabel: LabelButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var backButtonVisible = true
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if (KeyChainUtil.isUserLoggedIn()) {
             self.performSegue(withIdentifier: "loginToAccountSegue", sender: self)
         }
+        //back button al dan niet zichtbaar
+        self.navigationItem.setHidesBackButton(!backButtonVisible, animated: false)
     }
     
     override func viewDidLoad() {

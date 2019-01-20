@@ -143,7 +143,10 @@ class MeetingDetailViewController: UIViewController {
             
             MeetingController.shared.toggleGoingForMeeting(withToggleGoingRequest: toggleGoingRequest)
         } else {
-            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self)
+            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
+                //ga naar login
+                self.performSegue(withIdentifier: "detailToLoginSegue", sender: self)
+            }
         }
     }
     
@@ -154,7 +157,10 @@ class MeetingDetailViewController: UIViewController {
             
             MeetingController.shared.toggleLikedForMeeting(withToggleLikedRequest: toggleLikeRequest)
         } else {
-            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self)
+            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
+                //ga naar login
+                self.performSegue(withIdentifier: "detailToLoginSegue", sender: self)
+            }
         }
     }
     

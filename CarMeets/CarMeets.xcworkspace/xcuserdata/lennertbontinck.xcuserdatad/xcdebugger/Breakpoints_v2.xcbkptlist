@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarMeets/ViewControllers/MeetingDetailViewController.swift"
-            timestampString = "569679192.889535"
+            timestampString = "569685511.904878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "swipedRight(_:)"
             landmarkType = "7">
          </BreakpointContent>
