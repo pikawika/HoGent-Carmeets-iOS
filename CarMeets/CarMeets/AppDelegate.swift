@@ -26,35 +26,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                object: nil
         )
         
-        
+        //fav tab bar item bijhouden voor badgevalue in te stellen
         favouritesTabBarItem = (self.window!.rootViewController! as! UITabBarController).viewControllers![1].tabBarItem!
-        
-        
         
         return true
     }
     
     @objc func meetingsChanged(_ notification: Notification) {
-        guard let meetings = notification.object as? [Meeting] else {
-            //failed
-            return
-        }
-        
         //updaten UI moet op main thread gebeuren
         DispatchQueue.main.async {
             //aantal meetings in komende 7D instellen
-            if (FavouritesUtil.userFavouritesInNext7Days(fromMeetingList: meetings) > 0){
-                self.favouritesTabBarItem.badgeValue = String(FavouritesUtil.userFavouritesInNext7Days(fromMeetingList: meetings))
+            if (FavouritesUtil.userFavouritesInNext7Days(fromMeetingList: MeetingController.shared.meetings) > 0){
+                self.favouritesTabBarItem.badgeValue = String(FavouritesUtil.userFavouritesInNext7Days(fromMeetingList: MeetingController.shared.meetings))
             } else {
                 //niets tonen
                 self.favouritesTabBarItem.badgeValue = nil
             }
         }
     }
-    
-    
-    
-    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

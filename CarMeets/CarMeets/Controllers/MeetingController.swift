@@ -13,10 +13,10 @@ class MeetingController {
     
     static let shared = MeetingController()
     
-    private let notificationCenter: NotificationCenter
-    
-    init(notificationCenter: NotificationCenter = .default) {
-        self.notificationCenter = notificationCenter
+    var meetings = [Meeting]() {
+        didSet {
+            NotificationCenter.default.post(name: .meetingsChanged, object: nil)
+        }
     }
     
     /**
@@ -31,7 +31,7 @@ class MeetingController {
             if let data = data
             {
                 let meetings = try! jsonDecoder.decode([Meeting].self, from: data)
-                self.notificationCenter.post(name: .meetingsChanged, object: meetings)
+                self.meetings = meetings
             }
         }
         task.resume()

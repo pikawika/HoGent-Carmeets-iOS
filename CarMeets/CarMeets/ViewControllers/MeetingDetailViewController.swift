@@ -51,35 +51,24 @@ class MeetingDetailViewController: UIViewController {
                                        object: nil
         )
         
+        syncMeetingsFromController()
+        
         updateUI()
     }
     
     /**
      Zorgt er voor dat de UI geupdate wordt wanneer de lijst veranderd.
      */
-    @objc private func meetingsChanged(_ notification: Notification) {
-        guard let meetings = notification.object as? [Meeting] else {
-            //failed
-            return
-        }
-        
-        let isFavourites = (self.tabBarController?.selectedIndex ?? 0) == 1
-        
-        if (isFavourites) {
-            self.meetings = ListFilterUtil.getUserFavourites(fromMeetingList: meetings)
-        } else {
-            self.meetings = meetings
-        }
-        
-        if let meeting = ListFilterUtil.getMeetingWithID(fromMeetingList: meetings, withMeetingId: meeting.meetingId)
+    @objc private func meetingsChanged() {
+        if let meeting = ListFilterUtil.getMeetingWithID(fromMeetingList: MeetingController.shared.meetings, withMeetingId: meeting.meetingId)
         {
+            syncMeetingsFromController()
+            
             self.meeting = meeting
             DispatchQueue.main.async {
                 self.updateUI()
             }
-            
         }
-        
     }
     
     func updateUI() {
@@ -128,9 +117,7 @@ class MeetingDetailViewController: UIViewController {
             DispatchQueue.main.async {
                 if (eventAlreadyInCalander){
                     //toegevoegd aan kalander
-                    self.addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
-                    self.addtoCalanderButton.isEnabled = false
-                    self.addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+                    self.setAlreadyInCalander()
                 }
             }
         }
@@ -186,9 +173,7 @@ class MeetingDetailViewController: UIViewController {
             DispatchQueue.main.async {
                 if (response.0){
                     //toegevoegd aan kalander
-                    self.addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
-                    self.addtoCalanderButton.isEnabled = false
-                    self.addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+                    self.setAlreadyInCalander()
                 }
                 
                 MessageUtil.showToast(withMessage: response.1, durationInSeconds: 2, controller: self)
@@ -198,6 +183,22 @@ class MeetingDetailViewController: UIViewController {
     
     @IBAction func visitWebsiteClicked(_ sender: Any) {
         SharedApplicationUtil.openWebsite(withUrl: meeting.website ?? "")
+    }
+    
+    private func setAlreadyInCalander() {
+        addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
+        addtoCalanderButton.isEnabled = false
+        addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+    }
+    
+    private func syncMeetingsFromController() {
+        let isFavourites = (self.tabBarController?.selectedIndex ?? 0) == 1
+        
+        if (isFavourites) {
+            meetings = ListFilterUtil.getUserFavourites(fromMeetingList: MeetingController.shared.meetings)
+        } else {
+            meetings = MeetingController.shared.meetings
+        }
     }
     
 }

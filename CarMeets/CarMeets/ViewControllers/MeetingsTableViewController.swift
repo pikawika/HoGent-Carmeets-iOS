@@ -9,12 +9,11 @@
 import UIKit
 
 class MeetingsTableViewController: UITableViewController {
-    private let notificationCenter: NotificationCenter = .default
     
     /**
      De lijst van Meeting objecten die in de table weergegeven moeten worden.
      */
-    var meetings = [Meeting]()
+    private var meetings = [Meeting]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,11 +32,13 @@ class MeetingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         //observen op meetings
-        notificationCenter.addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                        selector: #selector(meetingsChanged),
                                        name: .meetingsChanged,
                                        object: nil
         )
+        
+        syncMeetingsFromController()
         
         if (meetings.count == 0) {
             //meetings ophalen -> observer zal automatisch UI updaten
@@ -57,19 +58,10 @@ class MeetingsTableViewController: UITableViewController {
     /**
      Zorgt er voor dat de UI geupdate wordt wanneer de lijst veranderd.
      */
-    @objc private func meetingsChanged(_ notification: Notification) {
-        guard let meetings = notification.object as? [Meeting] else {
-            //failed
-            return
-        }
+    @objc private func meetingsChanged() {
+        syncMeetingsFromController()
         
-        let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
-        
-        if (isFavourites) {
-            self.updateUI(with: ListFilterUtil.getUserFavourites(fromMeetingList: meetings))
-        } else {
-            self.updateUI(with: meetings)
-        }
+        self.updateUI()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,9 +85,6 @@ class MeetingsTableViewController: UITableViewController {
         meetingTableCell.title = meetings[indexPath.row].title
         meetingTableCell.subtitle = meetings[indexPath.row].subtitle
         meetingTableCell.location = meetings[indexPath.row].location()
-        
-        //POC: date correct opgehaald
-        //cell.location = DateUtil.shortDateNotation(from: meetings[indexPath.row].date)
  
         //anders artifacts bij het initieel loaden
         meetingTableCell.layoutSubviews()
@@ -104,11 +93,10 @@ class MeetingsTableViewController: UITableViewController {
     /**
      Refresht de lijst zijn data met de meegeven lijst.
      
-     - Parameter with: de lijst waarmee de table gevult moet worden
+     - Parameter withMeetings: de lijst van meetings waarmee de table gevult moet worden.
      */
-    func updateUI(with meetings: [Meeting]) {
+    func updateUI() {
         DispatchQueue.main.async {
-            self.meetings = meetings
             self.tableView.reloadData()
         }
     }
@@ -126,12 +114,21 @@ class MeetingsTableViewController: UITableViewController {
             let meetingDetailViewController = segue.destination as! MeetingDetailViewController
             let index = tableView.indexPathForSelectedRow!.row
             meetingDetailViewController.meeting = meetings[index]
-            meetingDetailViewController.meetings = meetings
         }
         
         if segue.identifier == "favouritesToLoginSegue" {
             let loginViewController = segue.destination as! LoginViewController
             loginViewController.backButtonVisible = false
+        }
+    }
+    
+    private func syncMeetingsFromController() {
+        let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
+        
+        if (isFavourites) {
+            meetings = ListFilterUtil.getUserFavourites(fromMeetingList: MeetingController.shared.meetings)
+        } else {
+            meetings = MeetingController.shared.meetings
         }
     }
 }
