@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginClicked(_ sender: Any) {
         //checken of er veld leeg is
         if ((usernameTextField.text ?? "").isEmpty || (passwordTextField.text ?? "").isEmpty) {
-            MessageUtil.showToast(message: "gelieve alle velden in te vullen", durationInSeconds: 1, controller: self)
+            MessageUtil.showToast(withMessage: "gelieve alle velden in te vullen", durationInSeconds: 1, controller: self)
         } else {
             //login request formaat maken
             let loginRequest = LoginRequest.init(username: usernameTextField.text!, password: passwordTextField.text!)
@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
                         MeetingController.shared.fetchMeetings()
                         self.performSegue(withIdentifier: "loginToAccountSegue", sender: self)
                     } else {
-                        MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                        MessageUtil.showToast(withMessage: response.1, durationInSeconds: 1, controller: self)
                     }
                 }
                 

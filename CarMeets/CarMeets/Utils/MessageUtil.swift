@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/**
+ Een util om je te helpen met het weergeven van berichten aan de gebruiker.
+ */
 class MessageUtil {
     /**
      Toont een toast like bericht aan de gebruiker zonder inputmogelijkheden voor een bepaalde duur.
@@ -17,9 +20,9 @@ class MessageUtil {
      - Parameter durationInSeconds: aantal seconden dat popup zichtbaar moet blijven.
      - Parameter controller: UIViewController die de functie oproept.
      
-     - Returns: String in formaat -> icon + category1 | category2
+     - Parameter completion: optioneel -> zorgt er voor dat je kan calbacken nadat de alert verdwenen is van het scherm.
      */
-    static func showToast(message: String, durationInSeconds: Double, controller: UIViewController, completion: (() -> Void)? = nil) {
+    static func showToast(withMessage message: String, durationInSeconds: Double, controller: UIViewController, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         controller.present(alert, animated: true)
         

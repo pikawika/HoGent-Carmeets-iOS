@@ -92,9 +92,9 @@ class MeetingDetailViewController: UIViewController {
         }
         
         //dag
-        dateDayLabel.text = DateUtil.dayNotation(from: meeting.date)
+        dateDayLabel.text = DateUtil.dayNotation(fromDate: meeting.date)
         //maand
-        dateMonthLabel.text = DateUtil.shortMonthDateNotation(from: meeting.date)
+        dateMonthLabel.text = DateUtil.shortMonthDateNotation(fromDate: meeting.date)
         //title
         titleLabel.text = meeting.title
         //subtitle
@@ -102,7 +102,7 @@ class MeetingDetailViewController: UIViewController {
         //description
         descriptionLabel.text = meeting.description
         //location
-        locationLabel.attributedText = LocationUtil.fullAdressNotationWithIcon(from: meeting.location())
+        locationLabel.attributedText = LocationUtil.fullAdressNotationWithIcon(fromLocation: meeting.location())
         //categories
         categoriesLabel.attributedText = CategoriesUtil.listNotation(from: meeting.categories)
         
@@ -143,7 +143,7 @@ class MeetingDetailViewController: UIViewController {
             
             MeetingController.shared.toggleGoingForMeeting(withToggleGoingRequest: toggleGoingRequest)
         } else {
-            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
+            MessageUtil.showToast(withMessage: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
                 //ga naar login
                 self.performSegue(withIdentifier: "detailToLoginSegue", sender: self)
             }
@@ -157,7 +157,7 @@ class MeetingDetailViewController: UIViewController {
             
             MeetingController.shared.toggleLikedForMeeting(withToggleLikedRequest: toggleLikeRequest)
         } else {
-            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
+            MessageUtil.showToast(withMessage: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
                 //ga naar login
                 self.performSegue(withIdentifier: "detailToLoginSegue", sender: self)
             }
@@ -165,7 +165,7 @@ class MeetingDetailViewController: UIViewController {
     }
     
     @IBAction func navigationButtonClicked(_ sender: UIButton) {
-        SharedApplicationUtil.openNavigation(for: meeting.location())
+        SharedApplicationUtil.openNavigation(withMarkerOnLocation: meeting.location())
     }
     
     @IBAction func swipeLeft(_ sender: Any) {
@@ -191,13 +191,13 @@ class MeetingDetailViewController: UIViewController {
                     self.addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
                 }
                 
-                MessageUtil.showToast(message: response.1, durationInSeconds: 2, controller: self)
+                MessageUtil.showToast(withMessage: response.1, durationInSeconds: 2, controller: self)
             }
         }
     }
     
     @IBAction func visitWebsiteClicked(_ sender: Any) {
-        SharedApplicationUtil.openWebsite(url: meeting.website ?? "")
+        SharedApplicationUtil.openWebsite(withUrl: meeting.website ?? "")
     }
     
 }

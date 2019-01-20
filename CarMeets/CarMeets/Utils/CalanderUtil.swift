@@ -4,17 +4,21 @@
 //
 //  Created by Lennert Bontinck on 01/01/2019.
 //  Copyright © 2019 Lennert Bontinck. All rights reserved.
-//
 
 import Foundation
 import EventKit
 import UIKit
 
+/**
+ Een util om je te helpen werken met allerlei zaken omtrent EventKit.
+ */
 class CalanderUtil {
     /**
      Voegt een item toe aan de kalander van de gebruiker.
      
      - Parameter withMeetingData: meeting waarvan de info in de kalander opgeslaan dient te worden
+     
+     - Parameter completion: completion met dictionary als reponse bestaande uit "isSucces" en "message".
      */
     static func addEventToCalendar(withMeetingData meeting: Meeting, completion: @escaping ((Bool, String)) -> Void) {
         let eventStore = EKEventStore()
@@ -28,7 +32,7 @@ class CalanderUtil {
                 event.endDate = meeting.date
                 event.notes = meeting.description
                 event.calendar = eventStore.defaultCalendarForNewEvents
-                event.location = LocationUtil.fullAdressNotation(from: meeting.location())
+                event.location = LocationUtil.fullAdressNotation(fromLocation: meeting.location())
                 event.isAllDay = true
                 do {
                     try eventStore.save(event, span: .thisEvent)
@@ -47,6 +51,8 @@ class CalanderUtil {
      Voegt een item toe aan de kalander van de gebruiker.
      
      - Parameter withMeetingData: meeting waarvan de info in de kalander opgeslaan dient te worden
+     
+     - Parameter completion: completion met bool als reponse dat reprensenteert of event al da niet al in kalander zit van de gebruiker.
      */
     static func isEventInCalander(withMeetingData meeting: Meeting, completion: @escaping (Bool) -> Void) {
         let eventStore = EKEventStore()
@@ -63,7 +69,7 @@ class CalanderUtil {
                 let meetingAlreadyInCalander = existingEventsOnMeetingDay.contains(where: {event in
                     event.title == meeting.title
                         && event.notes == meeting.description
-                        && event.location == LocationUtil.fullAdressNotation(from: meeting.location())})
+                        && event.location == LocationUtil.fullAdressNotation(fromLocation: meeting.location())})
                 
                 completion(meetingAlreadyInCalander)
             }

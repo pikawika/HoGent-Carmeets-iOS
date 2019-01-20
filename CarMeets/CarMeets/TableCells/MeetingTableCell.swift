@@ -4,6 +4,7 @@
 //
 //  Created by Lennert Bontinck on 31/12/2018.
 //  Copyright © 2018 Lennert Bontinck. All rights reserved.
+
 //  Source for inspiration (edited to suite my needs | also mentioned in Readme)
 //      https://www.youtube.com/watch?v=YwE3_hMyDZA
 
@@ -56,6 +57,7 @@ class MeetingTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        //ipad groter font
         if (UIScreen.main.traitCollection.isIpad) {
             titleView.font = titleView.font.withSize(30)
             subtitleView.font = subtitleView.font.withSize(28)
@@ -125,12 +127,12 @@ class MeetingTableCell: UITableViewCell {
         }
         
         if let location = location {
-            locationView.attributedText = LocationUtil.fullCityNotationWithIcon(from: location)
+            locationView.attributedText = LocationUtil.fullCityNotationWithIcon(fromLocation: location)
         }
     }
     
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("This is not how you implement this cell, read the doc.")
+        fatalError("This is not how you implement this cell.")
     }
 }

@@ -34,9 +34,9 @@ class RegisterViewController: UIViewController {
     @IBAction func registerClicked(_ sender: Any) {
         //checken of er veld leeg is
         if ((emailTextField.text ?? "").isEmpty || (usernameTextField.text ?? "").isEmpty || (passwordTextField.text ?? "").isEmpty || (confirmPasswordTextField.text ?? "").isEmpty) {
-            MessageUtil.showToast(message: "gelieve alle velden in te vullen", durationInSeconds: 1, controller: self)
+            MessageUtil.showToast(withMessage: "gelieve alle velden in te vullen", durationInSeconds: 1, controller: self)
         } else if (passwordTextField.text! != confirmPasswordTextField.text!) {
-            MessageUtil.showToast(message: "wachtwoorden komen niet overeen", durationInSeconds: 1, controller: self)
+            MessageUtil.showToast(withMessage: "wachtwoorden komen niet overeen", durationInSeconds: 1, controller: self)
         }
             
         else {
@@ -54,7 +54,7 @@ class RegisterViewController: UIViewController {
                     if (response.0){
                         self.performSegue(withIdentifier: "registerToAccountSegue", sender: self)
                     } else {
-                        MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                        MessageUtil.showToast(withMessage: response.1, durationInSeconds: 1, controller: self)
                     }
                 }
             }

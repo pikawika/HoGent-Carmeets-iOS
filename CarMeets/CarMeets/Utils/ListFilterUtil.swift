@@ -8,9 +8,16 @@
 
 import Foundation
 
+/**
+ Een util om je te helpen met het filteren van lijsten.
+ */
 class ListFilterUtil {
     /**
-     Haalt de token op uit de KeyChain en haalt de gebruikersnaam er uit.
+     Haalt de userId op uit de token en returnt de meetings dat de aangemelde gebruiker liked of going heeft in de meegegeven lijst.
+     
+     - Parameter fromMeetingList: Lijst waarop je wilt filteren.
+     
+     - Returns: Lijst van meetings waarvoor gebruiker liked of going heeft aangegeven.
      */
     static func getUserFavourites(fromMeetingList meetings: [Meeting]) -> [Meeting] {
         return meetings.filter {
@@ -20,7 +27,13 @@ class ListFilterUtil {
     }
     
     /**
-     Returnt de meeting met de meegegeven id of nil
+     Haalt de userId op uit de token en returnt de meetings dat de aangemelde gebruiker liked of going heeft in de meegegeven lijst.
+     
+     - Parameter fromMeetingList: Lijst waarop je wilt filteren.
+     
+     - Parameter withMeetingId: Id van de meeting die je wenst.
+     
+     - Returns: Meeting met meegegven meetingId of nil.
      */
     static func getMeetingWithID(fromMeetingList meetings: [Meeting], withMeetingId meetingId: String) -> Meeting? {
         return meetings.first {
@@ -29,7 +42,13 @@ class ListFilterUtil {
     }
     
     /**
-     Returnt de meeting met de meegegeven id of nil
+     Geeft de volgende meeting in de lijst, start terug bij index 0 indien einde bereikt.
+     
+     - Parameter fromMeetingList: Lijst waarop je wilt filteren.
+     
+     - Parameter withCurrentMeeting: index van de huidige meeting.
+     
+     - Returns: volgende meeting in de lijst.
      */
     static func getNextMeeting(fromMeetingList meetings: [Meeting], withCurrentMeeting meeting: Meeting) -> Meeting? {
         
@@ -40,11 +59,22 @@ class ListFilterUtil {
             }
         }
         
-        return meetings[0]
+        //zeker zijn dat lijst niet leeg is
+        if meetings.count > 0  {
+            return meetings[0]
+        }
+        
+        return nil
     }
     
     /**
-     Returnt de meeting met de meegegeven id of nil
+     Geeft de vorige meeting in de lijst, start terug bij het einde indien begin bereikt.
+     
+     - Parameter fromMeetingList: Lijst waarop je wilt filteren.
+     
+     - Parameter withCurrentMeeting: index van de huidige meeting.
+     
+     - Returns: vorige meeting in de lijst.
      */
     static func getPreviousMeeting(fromMeetingList meetings: [Meeting], withCurrentMeeting meeting: Meeting) -> Meeting? {
         
@@ -55,7 +85,12 @@ class ListFilterUtil {
             }
         }
         
-        return meetings[meetings.count - 1]
+        //zeker zijn dat lijst niet leeg is
+        if meetings.count > 0  {
+            return meetings[meetings.count - 1]
+        }
+        
+        return nil
     }
     
 }

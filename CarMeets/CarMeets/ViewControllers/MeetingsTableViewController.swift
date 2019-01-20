@@ -22,7 +22,7 @@ class MeetingsTableViewController: UITableViewController {
         let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
         
         if (isFavourites && !KeyChainUtil.isUserLoggedIn()) {
-            MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
+            MessageUtil.showToast(withMessage: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self) { () in
                 //ga naar login
                 self.performSegue(withIdentifier: "favouritesToLoginSegue", sender: self)
             }

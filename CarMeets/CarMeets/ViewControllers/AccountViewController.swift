@@ -62,7 +62,7 @@ class AccountViewController: UIViewController {
     private func changeUsername(toNewUsername username: String) {
         //checken of er veld leeg is
         if (username.isEmpty) {
-            MessageUtil.showToast(message: "Gelieve een gebruikersnaam mee te geven", durationInSeconds: 2, controller: self)
+            MessageUtil.showToast(withMessage: "Gelieve een gebruikersnaam mee te geven", durationInSeconds: 2, controller: self)
             return
         }
         
@@ -76,7 +76,7 @@ class AccountViewController: UIViewController {
                 if (response.0){
                     self.updateUI()
                 }
-                MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                MessageUtil.showToast(withMessage: response.1, durationInSeconds: 1, controller: self)
                 
             }
         }
