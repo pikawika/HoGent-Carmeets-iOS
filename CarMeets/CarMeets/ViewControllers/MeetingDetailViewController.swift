@@ -158,15 +158,17 @@ class MeetingDetailViewController: UIViewController {
     }
     
     @IBAction func swipeLeft(_ sender: Any) {
-        meeting = ListFilterUtil.getNextMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting)
-        
-        updateUI()
+        if let meeting = ListFilterUtil.getNextMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting) {
+            self.meeting = meeting
+            updateUI()
+        }
     }
     
     @IBAction func swipedRight(_ sender: Any) {
-        meeting = ListFilterUtil.getPreviousMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting)
-        
-        updateUI()
+        if let meeting = ListFilterUtil.getPreviousMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting) {
+            self.meeting = meeting
+            updateUI()
+        }
     }
     
     @IBAction func addToCalanderClicked(_ sender: Any) {
