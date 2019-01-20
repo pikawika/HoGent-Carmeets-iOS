@@ -59,6 +59,7 @@ class MeetingsTableViewController: UITableViewController {
             //failed
             return
         }
+        
         let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
         
         if (isFavourites) {
@@ -130,6 +131,7 @@ class MeetingsTableViewController: UITableViewController {
             let meetingDetailViewController = segue.destination as! MeetingDetailViewController
             let index = tableView.indexPathForSelectedRow!.row
             meetingDetailViewController.meeting = meetings[index]
+            meetingDetailViewController.meetings = meetings
         }
     }
 }

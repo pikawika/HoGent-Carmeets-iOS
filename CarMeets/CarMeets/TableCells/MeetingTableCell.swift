@@ -56,6 +56,13 @@ class MeetingTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        if (UIScreen.main.traitCollection.isIpad) {
+            titleView.font = titleView.font.withSize(30)
+            subtitleView.font = subtitleView.font.withSize(28)
+            locationView.font = locationView.font.withSize(20)
+        }
+        
+        
         //elementen toevoegen aan lijst item
         self.addSubview(meetingImageView)
         self.addSubview(titleView)
@@ -64,12 +71,18 @@ class MeetingTableCell: UITableViewCell {
         
         //img constrainen met left top en bootom van parent en 40% width
         meetingImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
-        meetingImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        meetingImageView.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor, constant: 10).isActive = true
         meetingImageView.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -10).isActive = true
         //40% width in beslag nemen
-        meetingImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4).isActive = true
+        meetingImageView.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.4).isActive = true
         //height is in 16:9 verhouding
-        meetingImageView.heightAnchor.constraint(equalTo: self.meetingImageView.widthAnchor, multiplier: (9/16)).isActive = true
+        meetingImageView.heightAnchor.constraint(lessThanOrEqualTo: self.meetingImageView.widthAnchor, multiplier: (0.56)).isActive = true
+        //in het midden uitlijnen voor kleine schermen waar tekst groter dan afbeelding hoogte
+        meetingImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        //max height
+        meetingImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 150).isActive = true
+        meetingImageView.widthAnchor.constraint(lessThanOrEqualToConstant: ((150)/9)*16).isActive = true
+        
         
         //title rechts van img bovenaan
         titleView.leftAnchor.constraint(equalTo: self.meetingImageView.rightAnchor, constant: 10).isActive = true
@@ -86,6 +99,8 @@ class MeetingTableCell: UITableViewCell {
         locationView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         locationView.topAnchor.constraint(equalTo: self.subtitleView.bottomAnchor, constant: 5).isActive = true
         locationView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        
+        
     }
     
     override func layoutSubviews() {
