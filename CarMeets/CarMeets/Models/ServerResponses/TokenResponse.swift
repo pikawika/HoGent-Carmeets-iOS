@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Struct voor het helpen decoden van een server response die token of errorMessage bevat.
+ */
 struct TokenResponse: Codable {
     var token: String?
     var errorMessage: String?
