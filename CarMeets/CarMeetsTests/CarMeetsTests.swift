@@ -11,6 +11,9 @@ import XCTest
 
 class CarMeetsTests: XCTestCase {
     var meetingUnderTest: Meeting!
+    var meetingUnderTestUserLiked: Meeting!
+    var meetingUnderTestUserGoing: Meeting!
+    var meetingUnderTestUserLikedAndGoing: Meeting!
     var dateUnderTest: Date!
     
     let validToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmRlZjlmOTFmNTlhMDAwMTMwMmY1YmUiLCJ1c2VybmFtZSI6InNuZWxsZW5lZGR5Iiwicm9sZSI6InN0YW5kYWFyZCIsImV4cCI6MjQwOTk5OTY5NiwiaWF0IjoxNTQ1OTk5Njk2fQ.3J6g0ccP9l8EiHsFfKtGDTvlxc0HY15WXBX30J7Jw4g"
@@ -23,6 +26,12 @@ class CarMeetsTests: XCTestCase {
 
     override func setUp() {
         meetingUnderTest = Meeting.init(meetingId: "1", imageName: "1", title: "title1", subtitle: "subtitle1", description: "description1", date: Date(), city: "Schellebelle", postalCode: "9260", streetName: "Dendermondsesteeweng", houseNumber: "92", categories: ["Cat1", "Cat2"], listUsersGoing: ["1","2","3"], listUsersLiked: ["3","4","5"], website: "https://lennertbontinck.com/")
+        
+        meetingUnderTestUserLiked = Meeting.init(meetingId: "2", imageName: "2", title: "title2", subtitle: "subtitle2", description: "description2", date: Date(), city: "Schellebelle", postalCode: "9260", streetName: "Dendermondsesteeweng", houseNumber: "92", categories: ["Cat1", "Cat2"], listUsersGoing: ["1","2","3"], listUsersLiked: ["5bdef9f91f59a0001302f5be","4","5"], website: "https://lennertbontinck.com/")
+        
+        meetingUnderTestUserGoing = Meeting.init(meetingId: "3", imageName: "v", title: "title3", subtitle: "subtitle3", description: "description3", date: Date(), city: "Schellebelle", postalCode: "9260", streetName: "Dendermondsesteeweng", houseNumber: "92", categories: ["Cat1", "Cat2"], listUsersGoing: ["5bdef9f91f59a0001302f5be","2","3"], listUsersLiked: ["3","4","5"], website: "https://lennertbontinck.com/")
+        
+        meetingUnderTestUserLikedAndGoing = Meeting.init(meetingId: "4", imageName: "4", title: "title4", subtitle: "subtitle4", description: "description4", date: Date(), city: "Schellebelle", postalCode: "9260", streetName: "Dendermondsesteeweng", houseNumber: "92", categories: ["Cat1", "Cat2"], listUsersGoing: ["1","2","5bdef9f91f59a0001302f5be"], listUsersLiked: ["5bdef9f91f59a0001302f5be","4","5"], website: "https://lennertbontinck.com/")
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
@@ -113,6 +122,53 @@ class CarMeetsTests: XCTestCase {
         //then
         XCTAssertEqual(KeyChainUtil.getTokenFromKeychain(), invalidToken, "KeyChainUtil.getTokenFromKeychain failed.")
         XCTAssertEqual(TokenUtil.getUserIdFromToken(), invalidTokenDefaultId, "KeyChainUtil.getTokenFromKeychain failed.")
+    }
+    
+    func testListFilterUtil_favourites_returnsLikedMeetings() {
+        //when
+        KeyChainUtil.setTokenInKeychain(withValue: validToken)
+        
+        let favourites = ListFilterUtil.getUserFavourites(fromMeetingList: [meetingUnderTest, meetingUnderTestUserLiked])
+        
+        //then
+        XCTAssertEqual(KeyChainUtil.getTokenFromKeychain(), validToken, "KeyChainUtil.getTokenFromKeychain failed.")
+        XCTAssertEqual(favourites.count, 1, "ListFilterUtil.getUserFavourites failed.")
+        XCTAssertEqual(favourites[0].meetingId, meetingUnderTestUserLiked.meetingId, "ListFilterUtil.getUserFavourites failed.")
+    }
+    
+    func testListFilterUtil_favourites_returnsGoingMeetings() {
+        //when
+        KeyChainUtil.setTokenInKeychain(withValue: validToken)
+        
+        let favourites = ListFilterUtil.getUserFavourites(fromMeetingList: [meetingUnderTest, meetingUnderTestUserGoing])
+        
+        //then
+        XCTAssertEqual(KeyChainUtil.getTokenFromKeychain(), validToken, "KeyChainUtil.getTokenFromKeychain failed.")
+        XCTAssertEqual(favourites.count, 1, "ListFilterUtil.getUserFavourites failed.")
+        XCTAssertEqual(favourites[0].meetingId, meetingUnderTestUserGoing.meetingId, "ListFilterUtil.getUserFavourites failed.")
+    }
+    
+    func testListFilterUtil_favourites_returnsLikedAndGoingMeetings() {
+        //when
+        KeyChainUtil.setTokenInKeychain(withValue: validToken)
+        
+        let favourites = ListFilterUtil.getUserFavourites(fromMeetingList: [meetingUnderTest, meetingUnderTestUserLikedAndGoing])
+        
+        //then
+        XCTAssertEqual(KeyChainUtil.getTokenFromKeychain(), validToken, "KeyChainUtil.getTokenFromKeychain failed.")
+        XCTAssertEqual(favourites.count, 1, "ListFilterUtil.getUserFavourites failed.")
+        XCTAssertEqual(favourites[0].meetingId, meetingUnderTestUserLikedAndGoing.meetingId, "ListFilterUtil.getUserFavourites failed.")
+    }
+    
+    func testListFilterUtil_favourites_returnsLikedAndGoingMeetings_mixOfLikeAndGoing() {
+        //when
+        KeyChainUtil.setTokenInKeychain(withValue: validToken)
+        
+        let favourites = ListFilterUtil.getUserFavourites(fromMeetingList: [meetingUnderTest, meetingUnderTestUserLikedAndGoing, meetingUnderTestUserGoing, meetingUnderTestUserLiked])
+        
+        //then
+        XCTAssertEqual(KeyChainUtil.getTokenFromKeychain(), validToken, "KeyChainUtil.getTokenFromKeychain failed.")
+        XCTAssertEqual(favourites.count, 3, "ListFilterUtil.getUserFavourites failed.")
     }
     
 }
