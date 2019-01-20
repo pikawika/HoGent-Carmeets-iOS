@@ -185,7 +185,7 @@ class MeetingDetailViewController: UIViewController {
                     self.addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
                 }
                 
-                MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                MessageUtil.showToast(message: response.1, durationInSeconds: 2, controller: self)
             }
         }
     }

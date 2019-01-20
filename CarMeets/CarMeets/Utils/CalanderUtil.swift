@@ -32,7 +32,7 @@ class CalanderUtil {
                 event.isAllDay = true
                 do {
                     try eventStore.save(event, span: .thisEvent)
-                    completion((true, meeting.title + " aan kalander!"))
+                    completion((true, meeting.title + " toegevoegd aan kalander!"))
                     return
                 } catch {
                     completion((false, "kalander item opslaan mislukt."))
