@@ -8,8 +8,14 @@
 
 import Foundation
 
+/**
+ Controller verantwoordelijk voor het uitvoeren van user gerelateerde functies
+ */
 class AccountController {
     
+    /**
+     Controller verantwoordelijk voor het uitvoeren van user gerelateerde functies
+     */
     static let shared = AccountController()
     
     /**

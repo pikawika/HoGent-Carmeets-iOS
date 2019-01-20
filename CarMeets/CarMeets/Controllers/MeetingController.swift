@@ -9,8 +9,14 @@
 //nodig voor img op te halen van url
 import UIKit
 
+/**
+ Controller verantwoordelijk voor het uitvoeren van meeting gerelateerde functies
+ */
 class MeetingController {
     
+    /**
+     Controller verantwoordelijk voor het uitvoeren van meeting gerelateerde functies
+     */
     static let shared = MeetingController()
     
     var meetings = [Meeting]() {
