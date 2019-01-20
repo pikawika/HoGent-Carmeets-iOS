@@ -33,10 +33,15 @@ class ChangePasswordViewController: UIViewController {
         //proberen inloggen met de userdata
         AccountController.shared.changePassword(withNewPasswordDetails: changePasswordRequest) { (response) in
             DispatchQueue.main.async {
-                MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
                 if (response.0){
-                    //nog terug
-                    
+                    MessageUtil.showToast(message: response.1, durationInSeconds: 1.0, controller: self) { () in
+                        //ga terug naar account
+                        if let navController = self.navigationController {
+                            navController.popViewController(animated: true)
+                        }
+                    }
+                } else {
+                    MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
                 }
             }
             
