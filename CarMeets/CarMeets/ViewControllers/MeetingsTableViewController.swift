@@ -110,14 +110,6 @@ class MeetingsTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.meetings = meetings
             self.tableView.reloadData()
-            
-            //aantal meetings in komende 7D instellen
-            if (FavouritesUtil.userFavouritesInNext7Days(fromMeetingList: meetings) > 0){
-                self.tabBarController?.tabBar.items?[1].badgeValue = String(FavouritesUtil.userFavouritesInNext7Days(fromMeetingList: meetings))
-            } else {
-                //niets tonen
-                self.tabBarController?.tabBar.items?[1].badgeValue = nil
-            }
         }
     }
     
