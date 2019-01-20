@@ -26,6 +26,23 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func changeUsernameClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "Gebruikersnaam wijzigen", message: "Gelieve een nieuwe gebruikersnaam in te voeren", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Voer een nieuwe gebruikersnaam in"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Annuleer", style: .cancel)
+        alert.addAction(cancelAction)
+        
+        let changeAction = UIAlertAction(title: "Wijzig", style: .default) { (alertAction) in
+            let usernameTextfield = alert.textFields![0] as UITextField
+            MessageUtil.showToast(message: usernameTextfield.text!, durationInSeconds: 2, controller: self)
+        }
+        alert.addAction(changeAction)
+        
+        
+        self.present(alert, animated: true)
     }
     
     @IBAction func signOutClicked(_ sender: Any) {
