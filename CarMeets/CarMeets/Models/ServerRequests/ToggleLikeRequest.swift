@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Struct voor het helpen encoden van een server request die meetingId bevat voor het togglen van like.
+ */
 struct ToggleLikeRequest: Codable {
     var meetingId : String
     

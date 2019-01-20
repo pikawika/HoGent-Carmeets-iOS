@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
+/**
+ Eenvoudigere manier voor het bepalen of de huige omgeving van een specifiek soort is.
+ */
 extension UITraitCollection {
+    /**
+     Huidige omgeving is Ipad (wRxhR)
+     */
     var isIpad: Bool {
         return horizontalSizeClass == .regular && verticalSizeClass == .regular
     }

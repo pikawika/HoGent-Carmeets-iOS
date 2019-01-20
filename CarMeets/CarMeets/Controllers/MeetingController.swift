@@ -9,14 +9,20 @@
 //nodig voor img op te halen van url
 import UIKit
 
+/**
+ Controller verantwoordelijk voor het uitvoeren van meeting gerelateerde functies
+ */
 class MeetingController {
     
+    /**
+     Controller verantwoordelijk voor het uitvoeren van meeting gerelateerde functies
+     */
     static let shared = MeetingController()
     
-    private let notificationCenter: NotificationCenter
-    
-    init(notificationCenter: NotificationCenter = .default) {
-        self.notificationCenter = notificationCenter
+    var meetings = [Meeting]() {
+        didSet {
+            NotificationCenter.default.post(name: .meetingsChanged, object: nil)
+        }
     }
     
     /**
@@ -31,7 +37,7 @@ class MeetingController {
             if let data = data
             {
                 let meetings = try! jsonDecoder.decode([Meeting].self, from: data)
-                self.notificationCenter.post(name: .meetingsChanged, object: meetings)
+                self.meetings = meetings
             }
         }
         task.resume()
@@ -39,11 +45,9 @@ class MeetingController {
     
     
     /**
-     Toggled like op gegeven meeting en returnt deze meeting nadat like bewerking voltooid is.
+     Toggled like op gegeven meeting en haalt meetings opnieuw op.
      
      - Parameter withToggleLikedRequest: een request met de id van de meeting waarvan je like wilt togglen!
-     
-     - Returns: De meeting waarvan like getoggled is.
      */
     func toggleLikedForMeeting(withToggleLikedRequest toggleLikedRequest: ToggleLikeRequest) {
         let toggleLikedURL = NetworkConstants.baseApiMeetingsURL.appendingPathComponent("toggleLiked")
@@ -71,11 +75,10 @@ class MeetingController {
     }
     
     /**
-     Toggled going op gegeven meeting en returnt deze meeting nadat goign bewerking voltooid is.
+     Toggled going op gegeven meeting en haalt meetings opnieuw op.
      
-     - Parameter withToggleGoingRequest: een request met de id van de meeting waarvan je like wilt togglen!
+     - Parameter withToggleGoingRequest: een request met de id van de meeting waarvan je going wilt togglen!
      
-     - Returns: De meeting waarvan going getoggled is.
      */
     func toggleGoingForMeeting(withToggleGoingRequest toggleGoingRequest: ToggleGoingRequest) {
         let toggleLikedURL = NetworkConstants.baseApiMeetingsURL.appendingPathComponent("toggleGoing")

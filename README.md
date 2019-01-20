@@ -24,7 +24,8 @@ Net zoals vele autoliefhebbers was ik het beu steeds te moeten horen dat ik weer
 
 Het project maakt gebruik van cocoapods en een gratis heroku gehost backend server. 
 
-Gebruik pod install voor het openen van het project.
+Run pod install in de /carmeets folder vooraluur u het project (CarMeets.xcworkspace) opent.
+
 
 Indien de server enkele minuten inactief is gaat deze in slaapstand en kan het even duren tegen deze terug online komt (+-10 sec). Gelieve geduld te hebben bij het initieel laden en eventueel opnieuw te proberen na enkele seconden.
 

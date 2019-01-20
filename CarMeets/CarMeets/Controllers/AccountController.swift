@@ -8,12 +8,20 @@
 
 import Foundation
 
+/**
+ Controller verantwoordelijk voor het uitvoeren van user gerelateerde functies
+ */
 class AccountController {
     
+    /**
+     Controller verantwoordelijk voor het uitvoeren van user gerelateerde functies
+     */
     static let shared = AccountController()
     
     /**
      Probeert een gebruiker aan te melden of geeft de error melding terug indien niet succesvol.
+     
+     - Parameter withCredentials: de credentials van de user die zicht wenst in te loggen
      
      - Returns: dictionary met een bool en een string waarbij de bool loggedIn en de string al dan niet melding van de server.
      */
@@ -30,27 +38,31 @@ class AccountController {
             if let data = data,
                 let tokenResponse = try? jsonDecoder.decode(TokenResponse.self, from: data) {
                 
-                //iets teruggekregen (token of error message checken)
+                //iets teruggekregen - token
                 if let token = tokenResponse.token {
                     KeyChainUtil.setTokenInKeychain(withValue: token)
                     completion((true, "Aangemeld"))
-                }
-                else if let errorMessage = tokenResponse.errorMessage {
-                    completion((false, errorMessage))
-                }
-                else {
-                    completion((false, "Aanmelden mislukt"))
+                    return
                 }
                 
-            } else {
-                completion((false, "Aanmelden mislukt"))
+                //iets teruggekregen - error
+                if let errorMessage = tokenResponse.errorMessage {
+                    completion((false, errorMessage))
+                    return
+                }
+                
             }
+            
+            completion((false, "Aanmelden mislukt"))
+            
         }
         task.resume()
     }
     
     /**
      Probeert een gebruiker te registreren of geeft de error melding terug indien niet succesvol.
+     
+     - Parameter withAccountDetails: De account gegevens van het account dat je wenst aan te maken.
      
      - Returns: dictionary met een bool en een string waarbij de bool loggedIn en de string al dan niet melding van de server.
      */
@@ -67,26 +79,31 @@ class AccountController {
             if let data = data,
                 let tokenResponse = try? jsonDecoder.decode(TokenResponse.self, from: data) {
                 
-                //iets teruggekregen (token of error message checken)
+                //iets teruggekregen - token
                 if let token = tokenResponse.token {
                     KeyChainUtil.setTokenInKeychain(withValue: token)
                     completion((true, "Geregistreerd"))
+                    return
                 }
-                else if let errorMessage = tokenResponse.errorMessage {
+                
+                //iets teruggekregen - error
+                if let errorMessage = tokenResponse.errorMessage {
                     completion((false, errorMessage))
+                    return
                 }
-                else {
-                    completion((false, "Registreren mislukt"))
-                }
-            } else {
-                completion((false, "Registreren mislukt"))
+                
             }
+            
+            completion((false, "Registreren mislukt"))
+            
         }
         task.resume()
     }
     
     /**
      Probeert een gebruiker zijn username te wijzigen of geeft de error melding terug indien niet succesvol.
+     
+     - Parameter withNewUsernameDetails: De username gegevens de nieuwe username dat de gebruiker wenst in te stellen.
      
      - Returns: dictionary met een bool en een string waarbij de bool succes en de string al dan niet melding van de server representeert.
      */
@@ -104,19 +121,21 @@ class AccountController {
             if let data = data,
                 let tokenResponse = try? jsonDecoder.decode(TokenResponse.self, from: data) {
                 
-                //iets teruggekregen (token of error message checken)
+                //iets teruggekregen - token
                 if let token = tokenResponse.token {
                     KeyChainUtil.setTokenInKeychain(withValue: token)
                     completion((true, "Gebruikersnaam gewijzigd!"))
+                    return
                 }
-                else if let errorMessage = tokenResponse.errorMessage {
+                
+                //iets teruggekregen - error
+                if let errorMessage = tokenResponse.errorMessage {
                     completion((false, errorMessage))
+                    return
                 }
-                else {
-                    completion((false, "Gebruikersnaam wijzigen mislukt"))
-                }
-            } else {
+                
                 completion((false, "Gebruikersnaam wijzigen mislukt"))
+                
             }
         }
         task.resume()
@@ -124,6 +143,8 @@ class AccountController {
     
     /**
      Probeert een gebruiker zijn wachtwoord te wijzigen of geeft de error melding terug indien niet succesvol.
+     
+     - Parameter withNewPasswordDetails: De wachtwoords gegevens van de nieuwe username dat de gebruiker wenst in te stellen.
      
      - Returns: dictionary met een bool en een string waarbij de bool succes en de string al dan niet melding van de server representeert.
      */
@@ -141,22 +162,23 @@ class AccountController {
             if let data = data,
                 let tokenResponse = try? jsonDecoder.decode(TokenResponse.self, from: data) {
                 
-                //iets teruggekregen (token of error message checken)
+                //iets teruggekregen - token
                 if let token = tokenResponse.token {
                     KeyChainUtil.setTokenInKeychain(withValue: token)
                     completion((true, "Wachtwoord gewijzigd!"))
+                    return
                 }
-                else if let errorMessage = tokenResponse.errorMessage {
+                
+                //iets teruggekregen - error
+                if let errorMessage = tokenResponse.errorMessage {
                     completion((false, errorMessage))
+                    return
                 }
-                else {
-                    completion((false, "Wachtwoord wijzigen mislukt"))
-                }
-            } else {
+                
                 completion((false, "Wachtwoord wijzigen mislukt"))
+                
             }
         }
         task.resume()
     }
-    
 }

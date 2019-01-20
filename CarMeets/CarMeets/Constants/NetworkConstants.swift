@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Base URL's voor communicatie met de backend.
+ */
 struct NetworkConstants {
     static let baseApiURL = URL(string: "https://carmeets-backend.herokuapp.com/API/")!
     static let baseApiMeetingsURL = URL(string: "https://carmeets-backend.herokuapp.com/API/meetings/")!

@@ -4,16 +4,18 @@
 //
 //  Created by Lennert Bontinck on 18/01/2019.
 //  Copyright © 2019 Lennert Bontinck. All rights reserved.
-//
 
 import Foundation
 import KeychainSwift
 
+/**
+ Util om je te helpen werken met de Apple's KeyChain.
+ */
 class KeyChainUtil {
     /**
      Slaat de token op in een KeyChain.
      
-     - Parameter withToken: de token (string) die je wilt opslaan in een KeyChain.
+     - Parameter withValue: de token (string) die je wilt opslaan in een KeyChain.
      */
     static func setTokenInKeychain(withValue token: String) {
         let keychain = KeychainSwift()
@@ -23,7 +25,7 @@ class KeyChainUtil {
     /**
      Haalt de token op uit een KeyChain.
      
-     Default empty string.
+     - Returns: De token met als default empty string ("").
      */
     static func getTokenFromKeychain() -> String {
         let keychain = KeychainSwift()
@@ -31,7 +33,7 @@ class KeyChainUtil {
     }
     
     /**
-     Verwijderd alle items van de app uit keychain
+     Verwijderd alle items van de app uit keychain.
      */
     static func clearKeychain() {
         let keychain = KeychainSwift()
@@ -40,6 +42,8 @@ class KeyChainUtil {
     
     /**
      Kijkt of een user is opgeslaan in KeyChain en returnt dus of user al dan niet al aangemeld is.
+     
+     - Returns: Boolean of user al da niet aangemeld is.
      */
     static func isUserLoggedIn() -> Bool{
         let keychain = KeychainSwift()

@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Struct voor het helpen encoden van een server request die gebruikersnaamgegevens bevat.
+ */
 struct ChangeUsernameRequest: Codable {
     var newUsername : String
     

@@ -4,14 +4,12 @@
 //
 //  Created by Lennert Bontinck on 18/01/2019.
 //  Copyright © 2019 Lennert Bontinck. All rights reserved.
-//
 
 import UIKit
 
 class AccountViewController: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,28 +53,36 @@ class AccountViewController: UIViewController {
         }
     }
     
-    func updateUI() {
+    /**
+     Zorgt er voor dat de UI met correcte gebruikersnaam uit token ingesteld wordt.
+     */
+    private func updateUI() {
         usernameLabel.text = TokenUtil.getUsernameFromToken()
     }
     
+    /**
+     Valideert nieuwe gebruikersnaam en probeert deze in te stellen op de server
+     
+     - Parameter toNewUsername: De nieuwe username dat de gebruiker wenst in te stellen.
+     */
     private func changeUsername(toNewUsername username: String) {
         //checken of er veld leeg is
         if (username.isEmpty) {
-            MessageUtil.showToast(message: "Gelieve een gebruikersnaam mee te geven", durationInSeconds: 2, controller: self)
+            MessageUtil.showToast(withMessage: "Gelieve een gebruikersnaam mee te geven", durationInSeconds: 2, controller: self)
             return
         }
         
         
-        //change password request formaat maken
+        //change username request formaat maken
         let changeUsernameRequest = ChangeUsernameRequest.init(newUsername: username)
         
-        //proberen wachtwoord wijzigen met de request
+        //proberen username wijzigen met de request
         AccountController.shared.changeUsername(withNewUsernameDetails: changeUsernameRequest) { (response) in
             DispatchQueue.main.async {
                 if (response.0){
                     self.updateUI()
                 }
-                MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                MessageUtil.showToast(withMessage: response.1, durationInSeconds: 1, controller: self)
                 
             }
         }

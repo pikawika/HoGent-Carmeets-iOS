@@ -4,18 +4,20 @@
 //
 //  Created by Lennert Bontinck on 19/01/2019.
 //  Copyright © 2019 Lennert Bontinck. All rights reserved.
-//
 
 import Foundation
 import UIKit
 
+/**
+ Een util om je te helpen werken met allerlei zaken omtrent een user zijn favorieten.
+ */
 class FavouritesUtil {
     /**
      Maakt een geformateerde string met aantal mensen die liked hebben adhv een Meeting object.
      
-     - Parameter fromMeeting meeting: De meeting waarvoor je de notatie wenst.
+     - Parameter fromMeeting: De meeting waarvoor je de notatie wenst.
      
-     - Returns: NSAttributedString in formaat -> icon + x mensen liken dit.
+     - Returns: NSAttributedString in formaat -> icon + x mensen hebben dit geliked.
      */
     static func amountLikedNotation(fromMeeting meeting: Meeting) -> NSAttributedString {
         //Zie bronnen voor source.
@@ -40,9 +42,9 @@ class FavouritesUtil {
     /**
      Maakt een geformateerde string met aantal mensen die going hebben adhv een Meeting object.
      
-     - Parameter fromMeeting meeting: De meeting waarvoor je de notatie wenst.
+     - Parameter fromMeeting: De meeting waarvoor je de notatie wenst.
      
-     - Returns: NSAttributedString in formaat -> icon + x mensen liken dit.
+     - Returns: NSAttributedString in formaat -> icon + x mensen gaan hier heen.
      */
     static func amountGoingNotation(fromMeeting meeting: Meeting) -> NSAttributedString {
         //Zie bronnen voor source.
@@ -67,7 +69,9 @@ class FavouritesUtil {
     /**
      Returnt of de huidige user al da niet naar een bepaalde meeting gaat.
      
-     - Parameter fromMeeting meeting: De meeting waarvoor je de informatie wenst.
+     - Parameter toMeeting: De meeting waarvoor je de informatie wenst.
+     
+     - Returns: bool of user al dan niet gaat
      */
     static func isUserGoing(toMeeting meeting: Meeting) -> Bool {
         return meeting.listUsersGoing.contains(TokenUtil.getUserIdFromToken())
@@ -76,16 +80,20 @@ class FavouritesUtil {
     /**
      Returnt of de huidige user al da niet een bepaalde meeting geliked heeft.
      
-     - Parameter fromMeeting meeting: De meeting waarvoor je de informatie wenst.
+     - Parameter meeting: De meeting waarvoor je de informatie wenst.
+     
+     - Returns: bool of user al dan niet geliked heeft
      */
     static func isUserLiking(meeting: Meeting) -> Bool {
         return meeting.listUsersLiked.contains(TokenUtil.getUserIdFromToken())
     }
     
     /**
-     Returnt hoeveel meetings user liked en/of going heeft in de volgende 7 dagen
+     Returnt hoeveel meetings user liked en/of going heeft in de volgende 7 dagen van een gegeven lijst.
      
-     - Parameter fromMeeting meeting: De meeting waarvoor je de informatie wenst.
+     - Parameter fromMeetingList: de lijst waarover je de gewenste informatie wilt.
+     
+     - Returns: Int met aantal meetings die aan creteria voldoen.
      */
     static func userFavouritesInNext7Days(fromMeetingList meetings: [Meeting]) -> Int {
         let nextWeek = Calendar.current.date(byAdding: .day, value: 7, to: Date())

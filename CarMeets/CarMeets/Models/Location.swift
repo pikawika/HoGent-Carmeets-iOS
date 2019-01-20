@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Een locatie object dat het makkelijker maakt te werken met locatiegegevens.
+ */
 struct Location {
     var city: String
     var postalCode: String
