@@ -10,8 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var registerLabel: LabelButton!
-    @IBOutlet weak var usernameTextView: UITextField!
-    @IBOutlet weak var passwordTextView: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,11 +35,11 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginClicked(_ sender: Any) {
         //checken of er veld leeg is
-        if ((usernameTextView.text ?? "").isEmpty || (passwordTextView.text ?? "").isEmpty) {
+        if ((usernameTextField.text ?? "").isEmpty || (passwordTextField.text ?? "").isEmpty) {
             MessageUtil.showToast(message: "gelieve alle velden in te vullen", durationInSeconds: 1, controller: self)
         } else {
             //login request formaat maken
-            let loginRequest = LoginRequest.init(username: usernameTextView.text!, password: passwordTextView.text!)
+            let loginRequest = LoginRequest.init(username: usernameTextField.text!, password: passwordTextField.text!)
             
             //proberen inloggen met de userdata
             AccountController.shared.login(withCredentials: loginRequest) { (response) in

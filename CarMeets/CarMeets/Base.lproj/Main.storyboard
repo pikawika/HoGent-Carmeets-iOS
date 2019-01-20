@@ -141,6 +141,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="66"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqQ-UV-WTo" customClass="LabelWithPadding" customModule="CarMeets" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="65" height="34"/>
@@ -149,6 +152,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <constraints>
@@ -168,12 +174,18 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btt-Wr-tJH">
                                         <rect key="frame" x="0.0" y="39" width="59" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                             </stackView>
@@ -198,6 +210,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        </variation>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wga-39-OPy">
                                                         <rect key="frame" x="0.0" y="37" width="355" height="39"/>
@@ -207,12 +222,18 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                </variation>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dn-wT-u1W">
                                                                 <rect key="frame" x="0.0" y="22" width="355" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                </variation>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
@@ -227,6 +248,9 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                        </variation>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ4-Kd-7XQ">
                                                                         <rect key="frame" x="0.0" y="22" width="355" height="31"/>
@@ -236,6 +260,9 @@
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                                </variation>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUh-FW-1eY">
                                                                                 <rect key="frame" x="306" y="0.0" width="49" height="31"/>
@@ -278,6 +305,9 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                        </variation>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2ex-UJ-k80">
                                                                         <rect key="frame" x="0.0" y="22" width="355" height="31"/>
@@ -287,6 +317,9 @@
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                                </variation>
                                                                             </label>
                                                                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YZ-xk-ZBZ">
                                                                                 <rect key="frame" x="306" y="0.0" width="49" height="31"/>
@@ -332,6 +365,9 @@
                                                                 <state key="normal" title="Routebeschrijving">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                </variation>
                                                                 <connections>
                                                                     <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="8TM-ia-GPO"/>
                                                                 </connections>
@@ -342,6 +378,9 @@
                                                                 <state key="normal" title="Toevoegen aan kalender">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                </variation>
                                                                 <connections>
                                                                     <action selector="addToCalanderClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="87B-mG-r65"/>
                                                                 </connections>
@@ -352,6 +391,9 @@
                                                                 <state key="normal" title="Bezoek website">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                </variation>
                                                                 <connections>
                                                                     <action selector="visitWebsiteClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="tt9-8M-YzZ"/>
                                                                 </connections>
@@ -390,6 +432,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="fFN-GO-AaU" firstAttribute="trailing" secondItem="zT5-Bw-pKN" secondAttribute="trailing" constant="10" id="7t0-NB-Abf"/>
                             <constraint firstItem="G6y-a3-dPU" firstAttribute="leading" secondItem="fFN-GO-AaU" secondAttribute="leading" id="ADr-M7-v7p"/>
@@ -408,9 +451,14 @@
                             <constraint firstItem="uEV-Uv-XKc" firstAttribute="leading" secondItem="fFN-GO-AaU" secondAttribute="leading" constant="10" id="yJe-dg-RPg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fFN-GO-AaU"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Fsb-24-UMo" appends="YES" id="8PF-2w-W0S"/>
+                            <outletCollection property="gestureRecognizers" destination="s3K-Qi-mcg" appends="YES" id="Z3j-Kl-7UY"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="JvQ-fe-WbG"/>
                     <connections>
+                        <outlet property="addtoCalanderButton" destination="w9s-YG-mHK" id="cf8-5H-hhu"/>
                         <outlet property="amountGoingLabel" destination="Dkg-Mf-49S" id="VPk-4N-b2H"/>
                         <outlet property="amountLikedLabel" destination="TL9-dg-Mnz" id="dxs-Gl-eIN"/>
                         <outlet property="categoriesLabel" destination="0dn-wT-u1W" id="pSh-37-pck"/>
@@ -427,6 +475,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0H-jA-xcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Fsb-24-UMo">
+                    <connections>
+                        <action selector="swipedRight:" destination="Xue-PN-1g3" id="oQz-hM-oPY"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="s3K-Qi-mcg">
+                    <connections>
+                        <action selector="swipeLeft:" destination="Xue-PN-1g3" id="FBe-gR-2ab"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4048.8000000000002" y="-267.61619190404798"/>
         </scene>
@@ -453,22 +511,28 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xe1-G1-cNe">
                                                 <rect key="frame" x="20" y="30" width="335" height="144"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IUV-ZB-zER">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IUV-ZB-zER">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="70"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gebruikersnaam of e-mailadres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i1l-pg-pXC">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gebruikersnaam of e-mailadres" clearsOnBeginEditing="YES" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="i1l-pg-pXC">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
                                                                 <color key="tintColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                </variation>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F9c-Tz-dxa">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wachtwoord" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F9c-Tz-dxa">
                                                                 <rect key="frame" x="0.0" y="40" width="335" height="30"/>
                                                                 <color key="tintColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                </variation>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -481,6 +545,9 @@
                                                                 <state key="normal" title="Aanmelden">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                </variation>
                                                                 <connections>
                                                                     <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="wH2-3d-SoJ"/>
                                                                     <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="tTZ-du-4Vc"/>
@@ -491,6 +558,9 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                                </variation>
                                                             </label>
                                                         </subviews>
                                                         <constraints>
@@ -539,9 +609,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="AbU-1V-pLB"/>
                     <connections>
-                        <outlet property="passwordTextView" destination="F9c-Tz-dxa" id="FuH-qJ-Bhu"/>
+                        <outlet property="passwordTextField" destination="F9c-Tz-dxa" id="FuH-qJ-Bhu"/>
                         <outlet property="registerLabel" destination="wcA-zg-op7" id="Fso-Gk-IVJ"/>
-                        <outlet property="usernameTextView" destination="i1l-pg-pXC" id="hmQ-ZS-u2g"/>
+                        <outlet property="usernameTextField" destination="i1l-pg-pXC" id="hmQ-ZS-u2g"/>
                         <segue destination="zx2-VB-VN8" kind="show" identifier="loginToAccountSegue" id="vla-1p-Yfj"/>
                         <segue destination="ePd-ju-hyu" kind="show" identifier="loginToRegisterSegue" id="MbE-qS-nOy"/>
                     </connections>
@@ -559,7 +629,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="NjK-1T-Scm">
-                                <rect key="frame" x="30" y="271" width="315" height="211"/>
+                                <rect key="frame" x="30" y="228" width="315" height="211"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zZp-j6-wmc">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="75"/>
@@ -569,12 +639,18 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                                </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gebruiker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJv-aU-Moa">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gebruiker" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJv-aU-Moa">
                                                 <rect key="frame" x="98.5" y="41.5" width="118" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                </variation>
                                             </label>
                                         </subviews>
                                     </stackView>
@@ -587,10 +663,13 @@
                                                 <state key="normal" title="Wachtwoord wijzigen">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                </variation>
                                                 <connections>
-                                                    <action selector="changePasswordClicked:" destination="zx2-VB-VN8" eventType="touchUpInside" id="fOZ-Cb-oHD"/>
                                                     <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="00q-gz-IQq"/>
                                                     <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="pbR-bH-918"/>
+                                                    <segue destination="OLK-MJ-tWl" kind="show" id="68W-8T-9oH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekv-x7-faA">
@@ -599,8 +678,11 @@
                                                 <state key="normal" title="Gebruikersnaam wijzigen">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                </variation>
                                                 <connections>
-                                                    <action selector="changeUsernameClicked:" destination="zx2-VB-VN8" eventType="touchUpInside" id="8fC-hg-nrP"/>
+                                                    <action selector="changeUsernameClicked:" destination="zx2-VB-VN8" eventType="touchUpInside" id="QG1-DE-HVB"/>
                                                     <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="g5Z-O9-xLB"/>
                                                     <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="3wb-tz-tN8"/>
                                                 </connections>
@@ -611,6 +693,9 @@
                                                 <state key="normal" title="Afmelden">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                </variation>
                                                 <connections>
                                                     <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="wfY-ft-oK4"/>
                                                     <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="W7q-FH-3RK"/>
@@ -621,18 +706,12 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="VFi-HE-yN6">
-                                <rect key="frame" x="30" y="64" width="315" height="177"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="VFi-HE-yN6" firstAttribute="leading" secondItem="dSb-Ty-21Z" secondAttribute="leading" constant="30" id="36n-fH-W6a"/>
-                            <constraint firstItem="VFi-HE-yN6" firstAttribute="top" secondItem="dSb-Ty-21Z" secondAttribute="top" id="Hw5-N1-efJ"/>
-                            <constraint firstItem="dSb-Ty-21Z" firstAttribute="trailing" secondItem="VFi-HE-yN6" secondAttribute="trailing" constant="30" id="IIK-RZ-NEH"/>
+                            <constraint firstItem="NjK-1T-Scm" firstAttribute="centerY" secondItem="a6j-1D-QRK" secondAttribute="centerY" id="1on-Er-La3"/>
                             <constraint firstItem="NjK-1T-Scm" firstAttribute="leading" secondItem="dSb-Ty-21Z" secondAttribute="leading" constant="30" id="JZ7-V5-9xl"/>
-                            <constraint firstItem="NjK-1T-Scm" firstAttribute="top" secondItem="VFi-HE-yN6" secondAttribute="bottom" constant="30" id="rs7-sN-tQl"/>
-                            <constraint firstItem="VFi-HE-yN6" firstAttribute="width" secondItem="VFi-HE-yN6" secondAttribute="height" multiplier="16:9" id="wfb-Nd-pPc"/>
+                            <constraint firstItem="NjK-1T-Scm" firstAttribute="centerX" secondItem="a6j-1D-QRK" secondAttribute="centerX" id="gKD-cE-f1i"/>
                             <constraint firstItem="dSb-Ty-21Z" firstAttribute="trailing" secondItem="NjK-1T-Scm" secondAttribute="trailing" constant="30" id="z6A-ic-qHu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dSb-Ty-21Z"/>
@@ -679,14 +758,20 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mailadres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FHu-78-td8">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
                                                                 <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                </variation>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gebruikersnaam" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tau-JI-Lff">
                                                                 <rect key="frame" x="0.0" y="40" width="335" height="30"/>
                                                                 <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <textInputTraits key="textInputTraits" textContentType="username"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                </variation>
                                                             </textField>
                                                         </subviews>
                                                         <color key="tintColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -698,15 +783,21 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="162.5" height="30"/>
                                                                 <color key="tintColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                </variation>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bevestig wachtwoord" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8bs-ui-UFd">
                                                                 <rect key="frame" x="172.5" y="0.0" width="162.5" height="30"/>
                                                                 <color key="tintColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                </variation>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -727,6 +818,9 @@
                                                         <state key="normal" title="Registreren">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        </variation>
                                                         <connections>
                                                             <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="PtI-7J-hvb"/>
                                                             <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="EKf-Fw-P6i"/>
@@ -738,6 +832,9 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                        </variation>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
@@ -781,11 +878,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Registreer" id="7jl-cI-pta"/>
                     <connections>
-                        <outlet property="confirmPasswordTextView" destination="8bs-ui-UFd" id="hFS-tE-cEf"/>
-                        <outlet property="emailTextView" destination="FHu-78-td8" id="2ua-Vf-Ckm"/>
+                        <outlet property="confirmPasswordTextField" destination="8bs-ui-UFd" id="hFS-tE-cEf"/>
+                        <outlet property="emailTextField" destination="FHu-78-td8" id="2ua-Vf-Ckm"/>
                         <outlet property="loginLabel" destination="Dhm-bh-E1E" id="meb-sv-HTh"/>
-                        <outlet property="passwordTextView" destination="8Iw-1P-lUf" id="get-m0-gdN"/>
-                        <outlet property="usernameTextView" destination="Tau-JI-Lff" id="1i5-jX-pQk"/>
+                        <outlet property="passwordTextField" destination="8Iw-1P-lUf" id="get-m0-gdN"/>
+                        <outlet property="usernameTextField" destination="Tau-JI-Lff" id="1i5-jX-pQk"/>
                         <segue destination="zx2-VB-VN8" kind="show" identifier="registerToAccountSegue" id="quZ-zx-ly5"/>
                     </connections>
                 </viewController>
@@ -828,6 +925,99 @@
             </objects>
             <point key="canvasLocation" x="3201" y="134"/>
         </scene>
+        <!--Wachtwoord wijzigen-->
+        <scene sceneID="V2y-0W-32e">
+            <objects>
+                <viewController id="OLK-MJ-tWl" customClass="ChangePasswordViewController" customModule="CarMeets" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R6G-HU-IAu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="R3n-cP-ePv">
+                                <rect key="frame" x="30" y="238" width="315" height="191.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9gw-Jq-wVB">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="33.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wachtwoord wijzigen" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU0-Wr-AVv">
+                                                <rect key="frame" x="29.5" y="0.0" width="256.5" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                                </variation>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mfQ-y8-Ahl">
+                                        <rect key="frame" x="0.0" y="63.5" width="315" height="68"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nieuw wachtwoord" clearsOnBeginEditing="YES" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="94S-zd-S1w">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                <color key="tintColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                </variation>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bevestig nieuw wachtwoord" clearsOnBeginEditing="YES" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fcJ-3j-u4Z">
+                                                <rect key="frame" x="0.0" y="38" width="315" height="30"/>
+                                                <color key="tintColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                </variation>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nLf-hn-3Aw">
+                                        <rect key="frame" x="0.0" y="161.5" width="315" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBF-Q5-tG6">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                <color key="backgroundColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Wijzig wachtwoord">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="changePasswordClicked:" destination="OLK-MJ-tWl" eventType="touchUpInside" id="Of8-La-o48"/>
+                                                    <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="tIq-dO-dYP"/>
+                                                    <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="DRz-Ub-Ynm"/>
+                                                    <action selector="signOutClicked:" destination="OLK-MJ-tWl" eventType="touchUpInside" id="a3F-fw-Pwz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="R3n-cP-ePv" firstAttribute="centerY" secondItem="R6G-HU-IAu" secondAttribute="centerY" id="8cj-i9-Clb"/>
+                            <constraint firstItem="R3n-cP-ePv" firstAttribute="leading" secondItem="PXs-Kp-JEW" secondAttribute="leading" constant="30" id="DT8-d5-9nv"/>
+                            <constraint firstItem="PXs-Kp-JEW" firstAttribute="trailing" secondItem="R3n-cP-ePv" secondAttribute="trailing" constant="30" id="KbU-QB-TRf"/>
+                            <constraint firstItem="R3n-cP-ePv" firstAttribute="centerX" secondItem="R6G-HU-IAu" secondAttribute="centerX" id="wUQ-Lf-Dts"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PXs-Kp-JEW"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Wachtwoord wijzigen" id="BQT-uQ-6cj"/>
+                    <connections>
+                        <outlet property="confirmedPasswordTextField" destination="fcJ-3j-u4Z" id="n7S-Bg-QVi"/>
+                        <outlet property="newPasswordTextField" destination="94S-zd-S1w" id="gpg-ZR-oXr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RW7-OU-BaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4316" y="870"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_account" width="18.75" height="18.75"/>
@@ -838,6 +1028,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="vla-1p-Yfj"/>
         <segue reference="sUv-uI-k4T"/>
-        <segue reference="r03-Vw-cBm"/>
+        <segue reference="gWa-BD-DCn"/>
     </inferredMetricsTieBreakers>
 </document>

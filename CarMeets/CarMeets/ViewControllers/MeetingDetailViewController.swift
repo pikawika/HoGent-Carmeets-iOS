@@ -12,6 +12,11 @@ class MeetingDetailViewController: UIViewController {
     
     var meeting: Meeting!
     
+    /**
+     De lijst van Meeting objecten die in de table weergegeven moeten worden.
+     */
+    var meetings = [Meeting]()
+    
     private let notificationCenter: NotificationCenter = .default
     
     @IBOutlet weak var meetingImageView: UIImageView!
@@ -34,6 +39,7 @@ class MeetingDetailViewController: UIViewController {
     @IBOutlet weak var categoriesLabel: UILabel!
     
     @IBOutlet weak var websiteButton: UIButton!
+    @IBOutlet weak var addtoCalanderButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +61,14 @@ class MeetingDetailViewController: UIViewController {
         guard let meetings = notification.object as? [Meeting] else {
             //failed
             return
+        }
+        
+        let isFavourites = (self.tabBarController?.selectedIndex ?? 0) == 1
+        
+        if (isFavourites) {
+            self.meetings = ListFilterUtil.getUserFavourites(fromMeetingList: meetings)
+        } else {
+            self.meetings = meetings
         }
         
         if let meeting = ListFilterUtil.getMeetingWithID(fromMeetingList: meetings, withMeetingId: meeting.meetingId)
@@ -104,8 +118,21 @@ class MeetingDetailViewController: UIViewController {
         //aantal liked instellen
         amountLikedLabel.attributedText = FavouritesUtil.amountLikedNotation(fromMeeting: meeting)
         
+        //indien geen website
         if ((meeting.website ?? "").isEmpty) {
             websiteButton.isHidden = true
+        }
+        
+        //indien reeds in kalander
+        CalanderUtil.isEventInCalander(withMeetingData: meeting) { (eventAlreadyInCalander) in
+            DispatchQueue.main.async {
+                if (eventAlreadyInCalander){
+                    //toegevoegd aan kalander
+                    self.addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
+                    self.addtoCalanderButton.isEnabled = false
+                    self.addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+                }
+            }
         }
     }
     
@@ -129,23 +156,38 @@ class MeetingDetailViewController: UIViewController {
         } else {
             MessageUtil.showToast(message: "Voor deze functie moet u aangemeld zijn.", durationInSeconds: 1.0, controller: self)
         }
-        
-        
-        
     }
     
     @IBAction func navigationButtonClicked(_ sender: UIButton) {
         SharedApplicationUtil.openNavigation(for: meeting.location())
     }
     
+    @IBAction func swipeLeft(_ sender: Any) {
+        meeting = ListFilterUtil.getNextMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting)
+        
+        updateUI()
+    }
+    
+    @IBAction func swipedRight(_ sender: Any) {
+        meeting = ListFilterUtil.getPreviousMeeting(fromMeetingList: meetings, withCurrentMeeting: meeting)
+        
+        updateUI()
+    }
+    
     @IBAction func addToCalanderClicked(_ sender: Any) {
-        CalanderUtil.addEventToCalendar(
-            title: meeting.title,
-            description: meeting.description,
-            location: LocationUtil.fullAdressNotation(from: meeting.location()),
-            startDate: meeting.date,
-            endDate: meeting.date,
-            controller: self)
+        //proberen inloggen met de userdata
+        CalanderUtil.addEventToCalendar(withMeetingData: meeting) { (response) in
+            DispatchQueue.main.async {
+                if (response.0){
+                    //toegevoegd aan kalander
+                    self.addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
+                    self.addtoCalanderButton.isEnabled = false
+                    self.addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+                }
+                
+                MessageUtil.showToast(message: response.1, durationInSeconds: 2, controller: self)
+            }
+        }
     }
     
     @IBAction func visitWebsiteClicked(_ sender: Any) {
