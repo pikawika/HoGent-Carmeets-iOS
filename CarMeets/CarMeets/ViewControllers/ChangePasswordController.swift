@@ -30,7 +30,7 @@ class ChangePasswordViewController: UIViewController {
         //change password request formaat maken
         let changePasswordRequest = ChangePasswordRequest.init(newPassword: newPasswordTextField.text!)
         
-        //proberen inloggen met de userdata
+        //proberen wachtwoord wijzigen met de request
         AccountController.shared.changePassword(withNewPasswordDetails: changePasswordRequest) { (response) in
             DispatchQueue.main.async {
                 if (response.0){
@@ -44,8 +44,6 @@ class ChangePasswordViewController: UIViewController {
                     MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
                 }
             }
-            
-            
         }
     }
 }

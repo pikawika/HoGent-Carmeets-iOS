@@ -35,6 +35,7 @@
 		26579A7621F35E89005AEC9B /* ToggleGoingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26579A7521F35E89005AEC9B /* ToggleGoingRequest.swift */; };
 		2688740F21F49AC600227BD6 /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688740E21F49AC600227BD6 /* ChangePasswordController.swift */; };
 		2688741121F4A0D500227BD6 /* changePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688741021F4A0D500227BD6 /* changePasswordRequest.swift */; };
+		2688741321F4B3B400227BD6 /* ChangeUsernameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688741221F4B3B400227BD6 /* ChangeUsernameRequest.swift */; };
 		26D2204121F3F80500976509 /* TraitCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D2204021F3F80500976509 /* TraitCollectionExtension.swift */; };
 		26F2193221DA9BD0003E6B40 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2193121DA9BD0003E6B40 /* Meeting.swift */; };
 		26F2193521DA9F6B003E6B40 /* MeetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2193421DA9F6B003E6B40 /* MeetingController.swift */; };
@@ -107,6 +108,7 @@
 		2677360021BFA7DA00D3BEDF /* CarMeets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarMeets.entitlements; sourceTree = "<group>"; };
 		2688740E21F49AC600227BD6 /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		2688741021F4A0D500227BD6 /* changePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordRequest.swift; sourceTree = "<group>"; };
+		2688741221F4B3B400227BD6 /* ChangeUsernameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameRequest.swift; sourceTree = "<group>"; };
 		26D2204021F3F80500976509 /* TraitCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitCollectionExtension.swift; sourceTree = "<group>"; };
 		26F2193121DA9BD0003E6B40 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		26F2193421DA9F6B003E6B40 /* MeetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				26579A7321F35919005AEC9B /* ToggleLikeRequest.swift */,
 				26579A7521F35E89005AEC9B /* ToggleGoingRequest.swift */,
 				2688741021F4A0D500227BD6 /* changePasswordRequest.swift */,
+				2688741221F4B3B400227BD6 /* ChangeUsernameRequest.swift */,
 			);
 			path = ServerRequests;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				26F2193F21DC025F003E6B40 /* CategoriesUtil.swift in Sources */,
 				26579A6E21F34936005AEC9B /* NotificationExtensions.swift in Sources */,
 				26178F5421F205D5001ECC75 /* AccountViewController.swift in Sources */,
+				2688741321F4B3B400227BD6 /* ChangeUsernameRequest.swift in Sources */,
 				2611E3D521F2652300045507 /* KeyChainUtil.swift in Sources */,
 				260F10DB21F2942500D56903 /* TokenUtil.swift in Sources */,
 				26579A7421F35919005AEC9B /* ToggleLikeRequest.swift in Sources */,
