@@ -25,9 +25,6 @@ class AccountViewController: UIViewController {
         updateUI()
     }
     
-    @IBAction func changePasswordClicked(_ sender: Any) {
-    }
-    
     @IBAction func changeUsernameClicked(_ sender: Any) {
     }
     
