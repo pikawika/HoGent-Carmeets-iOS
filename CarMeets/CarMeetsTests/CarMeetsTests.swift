@@ -171,4 +171,52 @@ class CarMeetsTests: XCTestCase {
         XCTAssertEqual(favourites.count, 3, "ListFilterUtil.getUserFavourites failed.")
     }
     
+    func testListFilterUtil_nextMeeting_returnsNextMeeting() {
+        //when
+        let meetings = [meetingUnderTest, meetingUnderTestUserLikedAndGoing, meetingUnderTestUserGoing, meetingUnderTestUserLiked]
+        let currentMeeting = meetingUnderTest!
+        let nextMeeting = meetingUnderTestUserLikedAndGoing!
+        
+        let acquiredNextMeeting = ListFilterUtil.getNextMeeting(fromMeetingList: meetings as! [Meeting], withCurrentMeeting: currentMeeting)!
+        
+        //then
+        XCTAssertEqual(acquiredNextMeeting.meetingId, nextMeeting.meetingId, "ListFilterUtil.getUserFavourites failed.")
+    }
+    
+    func testListFilterUtil_nextMeeting_returnsFirstMeetingAddEndOfArray() {
+        //when
+        let meetings = [meetingUnderTest, meetingUnderTestUserLikedAndGoing, meetingUnderTestUserGoing, meetingUnderTestUserLiked]
+        let currentMeeting = meetingUnderTestUserLiked!
+        let nextMeeting = meetingUnderTest!
+        
+        let acquiredNextMeeting = ListFilterUtil.getNextMeeting(fromMeetingList: meetings as! [Meeting], withCurrentMeeting: currentMeeting)!
+        
+        //then
+        XCTAssertEqual(acquiredNextMeeting.meetingId, nextMeeting.meetingId, "ListFilterUtil.getUserFavourites failed.")
+    }
+    
+    func testListFilterUtil_previousMeeting_returnsPreviousMeeting() {
+        //when
+        let meetings = [meetingUnderTest, meetingUnderTestUserLikedAndGoing, meetingUnderTestUserGoing, meetingUnderTestUserLiked]
+        let currentMeeting = meetingUnderTestUserGoing!
+        let nextMeeting = meetingUnderTestUserLikedAndGoing!
+        
+        let acquiredNextMeeting = ListFilterUtil.getPreviousMeeting(fromMeetingList: meetings as! [Meeting], withCurrentMeeting: currentMeeting)!
+        
+        //then
+        XCTAssertEqual(acquiredNextMeeting.meetingId, nextMeeting.meetingId, "ListFilterUtil.getUserFavourites failed.")
+    }
+    
+    func testListFilterUtil_previousMeeting_returnsLastMeetingAddStartOfArray() {
+        //when
+        let meetings = [meetingUnderTest, meetingUnderTestUserLikedAndGoing, meetingUnderTestUserGoing, meetingUnderTestUserLiked]
+        let currentMeeting = meetingUnderTest!
+        let nextMeeting = meetingUnderTestUserLiked!
+        
+        let acquiredNextMeeting = ListFilterUtil.getPreviousMeeting(fromMeetingList: meetings as! [Meeting], withCurrentMeeting: currentMeeting)!
+        
+        //then
+        XCTAssertEqual(acquiredNextMeeting.meetingId, nextMeeting.meetingId, "ListFilterUtil.getUserFavourites failed.")
+    }
+    
 }
