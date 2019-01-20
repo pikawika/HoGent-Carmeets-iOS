@@ -136,5 +136,10 @@ class MeetingsTableViewController: UITableViewController {
             meetingDetailViewController.meeting = meetings[index]
             meetingDetailViewController.meetings = meetings
         }
+        
+        if segue.identifier == "favouritesToLoginSegue" {
+            let loginViewController = segue.destination as! LoginViewController
+            loginViewController.backButtonVisible = false
+        }
     }
 }
