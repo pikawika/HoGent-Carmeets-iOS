@@ -12,11 +12,15 @@ target 'CarMeets' do
   target 'CarMeetsTests' do
     inherit! :search_paths
     # Pods for testing
+	pod 'KeychainSwift', '~> 13.0'
+	pod 'JWTDecode', '~> 2.2'
   end
 
   target 'CarMeetsUITests' do
     inherit! :search_paths
     # Pods for testing
+	pod 'KeychainSwift', '~> 13.0'
+	pod 'JWTDecode', '~> 2.2'
   end
 
 end
