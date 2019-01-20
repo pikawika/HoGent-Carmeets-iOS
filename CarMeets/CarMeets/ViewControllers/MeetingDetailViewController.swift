@@ -4,7 +4,6 @@
 //
 //  Created by Lennert Bontinck on 31/12/2018.
 //  Copyright © 2018 Lennert Bontinck. All rights reserved.
-//
 
 import UIKit
 
