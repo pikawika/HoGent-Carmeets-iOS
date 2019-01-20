@@ -56,6 +56,13 @@ class MeetingTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        if (UIScreen.main.traitCollection.isIpad) {
+            titleView.font = titleView.font.withSize(30)
+            subtitleView.font = subtitleView.font.withSize(28)
+            locationView.font = locationView.font.withSize(20)
+        }
+        
+        
         //elementen toevoegen aan lijst item
         self.addSubview(meetingImageView)
         self.addSubview(titleView)
