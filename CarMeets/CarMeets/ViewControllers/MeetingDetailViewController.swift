@@ -10,12 +10,15 @@ import UIKit
 
 class MeetingDetailViewController: UIViewController {
     
+    /**
+     Het meeting object waarvan de detailpagina weergeven moet worden.
+     */
     var meeting: Meeting!
     
     /**
-     De lijst van Meeting objecten die in de table weergegeven moeten worden.
+     De lijst van Meeting objecten waarnaar gebruiker kan verder of terugnavigeren.
      */
-    var meetings = [Meeting]()
+    private var meetings = [Meeting]()
     
     private let notificationCenter: NotificationCenter = .default
     
@@ -71,7 +74,7 @@ class MeetingDetailViewController: UIViewController {
         }
     }
     
-    func updateUI() {
+    private func updateUI() {
         //image
         MeetingController.shared.fetchMeetingImage(imageName: meeting.imageName) { (image) in
             guard let image = image else { return }

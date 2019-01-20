@@ -4,7 +4,6 @@
 //
 //  Created by Lennert Bontinck on 31/12/2018.
 //  Copyright © 2018 Lennert Bontinck. All rights reserved.
-//
 
 import UIKit
 
@@ -68,7 +67,7 @@ class MeetingsTableViewController: UITableViewController {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "customMeetingTableCell") as! MeetingTableCell
         
         //stell de cell in
-        configureMeetingTableCell(meetingTableCell: cell, forItemAt: indexPath)
+        configureMeetingTableCell(cell, withItemAtIndexPath: indexPath)
 
         return cell
     }
@@ -80,7 +79,7 @@ class MeetingsTableViewController: UITableViewController {
      
      - Parameter forItemAt: de index van de meeting in de meetings array waarmee de cell gevuld moet worden.
      */
-    func configureMeetingTableCell(meetingTableCell: MeetingTableCell, forItemAt indexPath: IndexPath) {
+    private func configureMeetingTableCell(_ meetingTableCell: MeetingTableCell, withItemAtIndexPath indexPath: IndexPath) {
         meetingTableCell.meetingImageName = meetings[indexPath.row].imageName
         meetingTableCell.title = meetings[indexPath.row].title
         meetingTableCell.subtitle = meetings[indexPath.row].subtitle
@@ -91,11 +90,9 @@ class MeetingsTableViewController: UITableViewController {
     }
     
     /**
-     Refresht de lijst zijn data met de meegeven lijst.
-     
-     - Parameter withMeetings: de lijst van meetings waarmee de table gevult moet worden.
+     Refresht de lijst zijn data met de meetingsarray in deze klasse.
      */
-    func updateUI() {
+    private func updateUI() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -122,6 +119,9 @@ class MeetingsTableViewController: UITableViewController {
         }
     }
     
+    /**
+     Stelt meetings van controller gelijk met de meetings van deze klasse, zijnde met filter indien huidige omgeving favorieten.
+     */
     private func syncMeetingsFromController() {
         let isFavourites = (self.navigationItem.title ?? "Meetinglijst") == "Favorietenlijst"
         
