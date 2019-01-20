@@ -458,6 +458,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="JvQ-fe-WbG"/>
                     <connections>
+                        <outlet property="addtoCalanderButton" destination="w9s-YG-mHK" id="cf8-5H-hhu"/>
                         <outlet property="amountGoingLabel" destination="Dkg-Mf-49S" id="VPk-4N-b2H"/>
                         <outlet property="amountLikedLabel" destination="TL9-dg-Mnz" id="dxs-Gl-eIN"/>
                         <outlet property="categoriesLabel" destination="0dn-wT-u1W" id="pSh-37-pck"/>

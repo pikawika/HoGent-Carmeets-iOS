@@ -39,6 +39,7 @@ class MeetingDetailViewController: UIViewController {
     @IBOutlet weak var categoriesLabel: UILabel!
     
     @IBOutlet weak var websiteButton: UIButton!
+    @IBOutlet weak var addtoCalanderButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,8 +118,21 @@ class MeetingDetailViewController: UIViewController {
         //aantal liked instellen
         amountLikedLabel.attributedText = FavouritesUtil.amountLikedNotation(fromMeeting: meeting)
         
+        //indien geen website
         if ((meeting.website ?? "").isEmpty) {
             websiteButton.isHidden = true
+        }
+        
+        //indien reeds in kalander
+        CalanderUtil.isEventInCalander(withMeetingData: meeting) { (eventAlreadyInCalander) in
+            DispatchQueue.main.async {
+                if (eventAlreadyInCalander){
+                    //toegevoegd aan kalander
+                    self.addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
+                    self.addtoCalanderButton.isEnabled = false
+                    self.addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+                }
+            }
         }
     }
     
@@ -161,13 +175,19 @@ class MeetingDetailViewController: UIViewController {
     }
     
     @IBAction func addToCalanderClicked(_ sender: Any) {
-        CalanderUtil.addEventToCalendar(
-            title: meeting.title,
-            description: meeting.description,
-            location: LocationUtil.fullAdressNotation(from: meeting.location()),
-            startDate: meeting.date,
-            endDate: meeting.date,
-            controller: self)
+        //proberen inloggen met de userdata
+        CalanderUtil.addEventToCalendar(withMeetingData: meeting) { (response) in
+            DispatchQueue.main.async {
+                if (response.0){
+                    //toegevoegd aan kalander
+                    self.addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
+                    self.addtoCalanderButton.isEnabled = false
+                    self.addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+                }
+                
+                MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+            }
+        }
     }
     
     @IBAction func visitWebsiteClicked(_ sender: Any) {
