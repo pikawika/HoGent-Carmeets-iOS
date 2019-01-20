@@ -37,7 +37,7 @@ class AccountViewController: UIViewController {
         
         let changeAction = UIAlertAction(title: "Wijzig", style: .default) { (alertAction) in
             let usernameTextfield = alert.textFields![0] as UITextField
-            MessageUtil.showToast(message: usernameTextfield.text!, durationInSeconds: 2, controller: self)
+            MessageUtil.showToast(message: usernameTextfield.text ?? "", durationInSeconds: 2, controller: self)
         }
         alert.addAction(changeAction)
         
