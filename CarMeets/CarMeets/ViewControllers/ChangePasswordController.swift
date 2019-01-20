@@ -25,6 +25,11 @@ class ChangePasswordViewController: UIViewController {
             return
         }
         
+        if (newPasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
+            MessageUtil.showToast(withMessage: "Gelieve een wachtwoord bestaande uit meer dan enkel witregels in te voeren", durationInSeconds: 2, controller: self)
+            return
+        }
+        
         
         //change password request formaat maken
         let changePasswordRequest = ChangePasswordRequest.init(newPassword: newPasswordTextField.text!)
