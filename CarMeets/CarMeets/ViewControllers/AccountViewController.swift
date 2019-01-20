@@ -37,7 +37,7 @@ class AccountViewController: UIViewController {
         
         let changeAction = UIAlertAction(title: "Wijzig", style: .default) { (alertAction) in
             let usernameTextfield = alert.textFields![0] as UITextField
-            MessageUtil.showToast(message: usernameTextfield.text ?? "", durationInSeconds: 2, controller: self)
+            self.changeUsername(toNewUsername: usernameTextfield.text ?? "")
         }
         alert.addAction(changeAction)
         
@@ -57,5 +57,28 @@ class AccountViewController: UIViewController {
     
     func updateUI() {
         usernameLabel.text = TokenUtil.getUsernameFromToken()
+    }
+    
+    private func changeUsername(toNewUsername username: String) {
+        //checken of er veld leeg is
+        if (username.isEmpty) {
+            MessageUtil.showToast(message: "Gelieve een gebruikersnaam mee te geven", durationInSeconds: 2, controller: self)
+            return
+        }
+        
+        
+        //change password request formaat maken
+        let changeUsernameRequest = ChangeUsernameRequest.init(newUsername: username)
+        
+        //proberen wachtwoord wijzigen met de request
+        AccountController.shared.changeUsername(withNewUsernameDetails: changeUsernameRequest) { (response) in
+            DispatchQueue.main.async {
+                if (response.0){
+                    self.updateUI()
+                }
+                MessageUtil.showToast(message: response.1, durationInSeconds: 1, controller: self)
+                
+            }
+        }
     }
 }

@@ -118,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="973.60000000000002" y="112.89355322338831"/>
         </scene>
-        <!--Detail-->
+        <!--Meeting-->
         <scene sceneID="1T5-FN-aAC">
             <objects>
                 <viewController id="Xue-PN-1g3" customClass="MeetingDetailViewController" customModule="CarMeets" customModuleProvider="target" sceneMemberID="viewController">
@@ -456,7 +456,7 @@
                             <outletCollection property="gestureRecognizers" destination="s3K-Qi-mcg" appends="YES" id="Z3j-Kl-7UY"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail" id="JvQ-fe-WbG"/>
+                    <navigationItem key="navigationItem" title="Meeting" id="JvQ-fe-WbG"/>
                     <connections>
                         <outlet property="addtoCalanderButton" destination="w9s-YG-mHK" id="cf8-5H-hhu"/>
                         <outlet property="amountGoingLabel" destination="Dkg-Mf-49S" id="VPk-4N-b2H"/>
@@ -472,6 +472,7 @@
                         <outlet property="subtitleLabel" destination="btt-Wr-tJH" id="Uht-1L-3QG"/>
                         <outlet property="titleLabel" destination="w9I-Gn-cn0" id="icG-zw-pZb"/>
                         <outlet property="websiteButton" destination="qJr-hM-as0" id="cJ9-MO-cEO"/>
+                        <segue destination="wMn-AS-z5m" kind="show" identifier="detailToLoginSegue" id="Y0X-ee-a42"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0H-jA-xcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -519,7 +520,7 @@
                                                                 <color key="tintColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                                 <variation key="heightClass=regular-widthClass=regular">
                                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 </variation>
@@ -550,7 +551,6 @@
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="wH2-3d-SoJ"/>
-                                                                    <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="tTZ-du-4Vc"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nog geen account? Registreer hier gratis!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcA-zg-op7" customClass="LabelButton" customModule="CarMeets" customModuleProvider="target">
@@ -667,8 +667,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="00q-gz-IQq"/>
-                                                    <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="pbR-bH-918"/>
                                                     <segue destination="OLK-MJ-tWl" kind="show" id="68W-8T-9oH"/>
                                                 </connections>
                                             </button>
@@ -683,8 +681,6 @@
                                                 </variation>
                                                 <connections>
                                                     <action selector="changeUsernameClicked:" destination="zx2-VB-VN8" eventType="touchUpInside" id="QG1-DE-HVB"/>
-                                                    <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="g5Z-O9-xLB"/>
-                                                    <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="3wb-tz-tN8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGc-A5-XIs">
@@ -697,8 +693,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="wfY-ft-oK4"/>
-                                                    <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="W7q-FH-3RK"/>
                                                     <action selector="signOutClicked:" destination="zx2-VB-VN8" eventType="touchUpInside" id="98r-t4-9uB"/>
                                                 </connections>
                                             </button>
@@ -822,8 +816,6 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         </variation>
                                                         <connections>
-                                                            <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="PtI-7J-hvb"/>
-                                                            <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="EKf-Fw-P6i"/>
                                                             <action selector="registerClicked:" destination="ePd-ju-hyu" eventType="touchUpInside" id="Won-M0-Ht3"/>
                                                         </connections>
                                                     </button>
@@ -958,7 +950,7 @@
                                                 <color key="tintColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 </variation>
@@ -968,7 +960,7 @@
                                                 <color key="tintColor" red="0.90797591209999995" green="0.14922687409999999" blue="0.36424368620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 </variation>
@@ -989,9 +981,6 @@
                                                 </variation>
                                                 <connections>
                                                     <action selector="changePasswordClicked:" destination="OLK-MJ-tWl" eventType="touchUpInside" id="Of8-La-o48"/>
-                                                    <action selector="loginClicked:" destination="wMn-AS-z5m" eventType="touchUpInside" id="tIq-dO-dYP"/>
-                                                    <action selector="navigationButtonClicked:" destination="Xue-PN-1g3" eventType="touchUpInside" id="DRz-Ub-Ynm"/>
-                                                    <action selector="signOutClicked:" destination="OLK-MJ-tWl" eventType="touchUpInside" id="a3F-fw-Pwz"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1026,8 +1015,8 @@
         <image name="img_logo" width="550" height="163"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vla-1p-Yfj"/>
-        <segue reference="sUv-uI-k4T"/>
-        <segue reference="gWa-BD-DCn"/>
+        <segue reference="quZ-zx-ly5"/>
+        <segue reference="Y0X-ee-a42"/>
+        <segue reference="r03-Vw-cBm"/>
     </inferredMetricsTieBreakers>
 </document>
