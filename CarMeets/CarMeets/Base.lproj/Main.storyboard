@@ -118,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="973.60000000000002" y="112.89355322338831"/>
         </scene>
-        <!--Detail-->
+        <!--Meeting-->
         <scene sceneID="1T5-FN-aAC">
             <objects>
                 <viewController id="Xue-PN-1g3" customClass="MeetingDetailViewController" customModule="CarMeets" customModuleProvider="target" sceneMemberID="viewController">
@@ -456,7 +456,7 @@
                             <outletCollection property="gestureRecognizers" destination="s3K-Qi-mcg" appends="YES" id="Z3j-Kl-7UY"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail" id="JvQ-fe-WbG"/>
+                    <navigationItem key="navigationItem" title="Meeting" id="JvQ-fe-WbG"/>
                     <connections>
                         <outlet property="addtoCalanderButton" destination="w9s-YG-mHK" id="cf8-5H-hhu"/>
                         <outlet property="amountGoingLabel" destination="Dkg-Mf-49S" id="VPk-4N-b2H"/>
@@ -472,6 +472,7 @@
                         <outlet property="subtitleLabel" destination="btt-Wr-tJH" id="Uht-1L-3QG"/>
                         <outlet property="titleLabel" destination="w9I-Gn-cn0" id="icG-zw-pZb"/>
                         <outlet property="websiteButton" destination="qJr-hM-as0" id="cJ9-MO-cEO"/>
+                        <segue destination="wMn-AS-z5m" kind="show" identifier="detailToLoginSegue" id="Y0X-ee-a42"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0H-jA-xcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1015,7 +1016,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="quZ-zx-ly5"/>
-        <segue reference="sUv-uI-k4T"/>
+        <segue reference="Y0X-ee-a42"/>
         <segue reference="r03-Vw-cBm"/>
     </inferredMetricsTieBreakers>
 </document>
