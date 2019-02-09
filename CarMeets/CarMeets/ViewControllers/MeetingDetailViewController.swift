@@ -112,6 +112,8 @@ class MeetingDetailViewController: UIViewController {
         //indien geen website
         if ((meeting.website ?? "").isEmpty) {
             websiteButton.isHidden = true
+        } else {
+            websiteButton.isHidden = false
         }
         
         //indien reeds in kalander
@@ -120,6 +122,8 @@ class MeetingDetailViewController: UIViewController {
                 if (eventAlreadyInCalander){
                     //toegevoegd aan kalander
                     self.setAlreadyInCalander()
+                } else {
+                    self.setNotAlreadyInCalander()
                 }
             }
         }
@@ -193,6 +197,12 @@ class MeetingDetailViewController: UIViewController {
         addtoCalanderButton.setTitle("Reeds in kalander!", for: .normal)
         addtoCalanderButton.isEnabled = false
         addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.533352657, green: 0.0900933148, blue: 0.2168095011, alpha: 1)
+    }
+    
+    private func setNotAlreadyInCalander() {
+        addtoCalanderButton.setTitle("Toevoegen aan kalender", for: .normal)
+        addtoCalanderButton.isEnabled = true
+        addtoCalanderButton.backgroundColor = #colorLiteral(red: 0.9079759121, green: 0.1492268741, blue: 0.3642436862, alpha: 1)
     }
     
     private func syncMeetingsFromController() {

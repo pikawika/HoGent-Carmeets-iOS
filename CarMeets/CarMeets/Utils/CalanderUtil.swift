@@ -72,7 +72,9 @@ class CalanderUtil {
                         && event.location == LocationUtil.fullAdressNotation(fromLocation: meeting.location())})
                 
                 completion(meetingAlreadyInCalander)
+                return
             }
+            
             completion(false)
         })
     }
